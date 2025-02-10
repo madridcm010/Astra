@@ -15,7 +15,7 @@ func get_input():
 	if Input.is_action_just_pressed("flip"):
 		$Sprite2D.rotation_degrees += 180
 		$CollisionShape2D.rotation_degrees += 180
-
+	
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()

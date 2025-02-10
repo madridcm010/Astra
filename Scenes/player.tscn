@@ -1,18 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3kyaxn01rpud"]
+[gd_scene load_steps=3 format=3 uid="uid://dahhm7i1flbxt"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_lf87o"]
-[ext_resource type="Texture2D" uid="uid://bk7qyiufwij4j" path="res://icon.svg" id="2_kwaf1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_q5ka8"]
+[ext_resource type="Texture2D" uid="uid://bmwbvhc0y2mvg" path="res://Placeholder Assets/Graphics/Players/playerShip1_blue.png" id="1_hjgdd"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_13ywc"]
 
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 motion_mode = 1
-script = ExtResource("1_lf87o")
+script = ExtResource("2_13ywc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_q5ka8")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(362, 874, 349, 937, 392, 937, 378, 874)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_kwaf1")
+position = Vector2(370, 911)
+texture = ExtResource("1_hjgdd")

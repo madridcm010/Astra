@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dwi30xseqhekc"
+path="res://.godot/imported/sfx_twoTone.ogg-2368dfe5bebafbdb462fa3eed7ac2fbe.oggvorbisstr"
+
+[deps]
+
+source_file="res://Placeholder Assets/audio/sfx_twoTone.ogg"
+dest_files=["res://.godot/imported/sfx_twoTone.ogg-2368dfe5bebafbdb462fa3eed7ac2fbe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

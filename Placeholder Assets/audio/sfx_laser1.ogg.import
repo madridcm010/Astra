@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dnxkmp33aonwb"
+path="res://.godot/imported/sfx_laser1.ogg-5c80c8bbd322fdc2c74ff33cfd0615fc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Placeholder Assets/audio/sfx_laser1.ogg"
+dest_files=["res://.godot/imported/sfx_laser1.ogg-5c80c8bbd322fdc2c74ff33cfd0615fc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
