@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 400
-const rotation_speed = 90
+const rotation_speed = 180
 
 #input that player gives
 
