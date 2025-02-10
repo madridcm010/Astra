@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgdawxa72d10u"]
+
+[ext_resource type="Texture2D" uid="uid://bmakotkwi7fr5" path="res://Backgrounds/bg_02_h.png" id="1_5khxs"]
+[ext_resource type="PackedScene" uid="uid://d3kyaxn01rpud" path="res://player.tscn" id="3_xp174"]
+
+[node name="World" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.955337, 1.04115)
+repeat_size = Vector2(0, 1600)
+autoscroll = Vector2(0, 1000)
+
+[node name="background" type="Sprite2D" parent="Parallax2D"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(100, 322)
+scale = Vector2(1.02987, 2.2)
+texture = ExtResource("1_5khxs")
+
+[node name="Player" parent="." instance=ExtResource("3_xp174")]
+position = Vector2(145, 488)

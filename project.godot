@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Space game"
-run/main_scene="res://node_2d.tscn"
+run/main_scene="res://player.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=750
+window/size/viewport_height=1000
 
 [input]
 
