@@ -10,23 +10,15 @@ speed = 800
 [node name="PlayerImage" type="Sprite2D" parent="."]
 texture = ExtResource("1_hjgdd")
 
-[node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-370, -912)
 polygon = PackedVector2Array(362, 874, 349, 937, 392, 937, 378, 874)
 
-[node name="WeaponSpawnTop" type="Marker2D" parent="."]
+[node name="WeaponSpawn" type="Marker2D" parent="."]
 position = Vector2(0, -60)
 
-[node name="WeaponSpawnBot" type="Marker2D" parent="."]
-position = Vector2(0, 60)
-
-[node name="WeaponCD" type="Timer" parent="."]
+[node name="BasicCD" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
 
-[node name="FlipCD" type="Timer" parent="."]
-wait_time = 0.25
-one_shot = true
-
-[connection signal="timeout" from="WeaponCD" to="." method="_on_Weapon_CD_timeout"]
-[connection signal="timeout" from="FlipCD" to="." method="_on_flip_cd_timeout"]
+[connection signal="timeout" from="BasicCD" to="." method="_on_basic_cd_timeout"]
