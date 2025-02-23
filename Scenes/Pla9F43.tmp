@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dahhm7i1flbxt"]
+
+[ext_resource type="Texture2D" uid="uid://bmwbvhc0y2mvg" path="res://Placeholder Assets/Graphics/Players/playerShip1_blue.png" id="1_hjgdd"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_13ywc"]
+
+[node name="Player" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("2_13ywc")
+speed = null
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+polygon = PackedVector2Array(362, 874, 349, 937, 392, 937, 378, 874)
+
+[node name="PlayerImage" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(370, 911)
+texture = ExtResource("1_hjgdd")
+
+[node name="Weapon Timer" type="Timer" parent="CharacterBody2D"]
