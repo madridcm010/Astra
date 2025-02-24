@@ -41,15 +41,20 @@ shape = SubResource("RectangleShape2D_oegfd")
 one_way_collision_margin = 0.0
 
 [node name="BorderTop" type="CollisionShape2D" parent="Borders"]
-unique_name_in_owner = true
 position = Vector2(960, 0)
 shape = SubResource("RectangleShape2D_cmiea")
 one_way_collision_margin = 0.0
 
 [node name="BorderBottom" type="CollisionShape2D" parent="Borders"]
-unique_name_in_owner = true
 position = Vector2(960, 1080)
 shape = SubResource("RectangleShape2D_cmiea")
 one_way_collision_margin = 0.0
 
+[node name="EnemySpawn" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Enemies" type="Node2D" parent="."]
+
 [connection signal="weapon" from="Player" to="." method="_on_player_weapon"]
+[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]

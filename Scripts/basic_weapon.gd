@@ -9,3 +9,6 @@ func _process(delta):
 # signal receiver to delete spawned laser after despawn timer
 func _on_despawn_timeout() -> void:
 	queue_free()
+	
+func _on_area_entered(area: Area2D) -> void:
+	queue_free()
