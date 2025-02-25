@@ -5,6 +5,7 @@ const rotation_speed = 180
 
 # signal to be sent level for laser spawns
 signal weapon(pos, rot)
+#signal spread_weapon(pos,rot)
 
 #function for adjusting player image & collision shape between 0 & 180 degrees 
 func playerFlip(rot):

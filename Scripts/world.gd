@@ -1,9 +1,13 @@
 extends Node2D
 
 var weapon_scene: PackedScene = load("res://Scenes/basic_weapon.tscn")
+var spread_weapon_scene: PackedScene = load("res://Scenes/spread_weapon.tscn")
 var enemy_scene: PackedScene = load("res://Scenes/enemy.tscn")
 
 
+#func _on_player_spread_weapon(pos, rot) -> void:
+	#var spread_weapon = spread_weapon_scene.instantiate()
+	#$SpreadWeapon.add_child(spread_weapon)
 
 # signal receiver to add basic weapon laser to scene
 func _on_player_weapon(pos, rot) -> void:
