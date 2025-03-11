@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://6d68eojtapp5"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_d73iv"]
+[ext_resource type="Texture2D" uid="uid://mpd7n4cvkn6g" path="res://Placeholder Assets/Graphics/Lasers/laserRed08.png" id="2_jgva8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yltu8"]
+
+[node name="Bullet" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_d73iv")
+lifetime = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jgva8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yltu8")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

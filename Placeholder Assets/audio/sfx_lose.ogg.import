@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://1feiqdk5f8dc"
+path="res://.godot/imported/sfx_lose.ogg-961caf9a59c09e6659dd57ed581b2c3e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Placeholder Assets/audio/sfx_lose.ogg"
+dest_files=["res://.godot/imported/sfx_lose.ogg-961caf9a59c09e6659dd57ed581b2c3e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

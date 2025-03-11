@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgdawxa72d10u"]
+
+[ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="1_d8kcr"]
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_jo34f"]
+[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/Player.tscn" id="2_6p824"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_jo34f")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1080)
+autoscroll = Vector2(0, 300)
+repeat_times = 2
+
+[node name="Black" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(960, 540)
+scale = Vector2(7.5, 4.21875)
+texture = ExtResource("1_d8kcr")
+
+[node name="Player" parent="." instance=ExtResource("2_6p824")]
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[connection signal="weapon" from="Player" to="." method="_on_player_weapon"]

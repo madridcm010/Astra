@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnkbtsdlgdxnr"]
+
+[ext_resource type="Script" path="res://Scenes/spread_weapon.gd" id="1_nkalt"]
+[ext_resource type="PackedScene" uid="uid://6d68eojtapp5" path="res://Scenes/bullet.tscn" id="2_ahr0a"]
+
+[node name="SpreadWeapon" type="Node2D"]
+position = Vector2(875, 471)
+script = ExtResource("1_nkalt")
+bullet_scene = ExtResource("2_ahr0a")
+max_rotation = 180
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

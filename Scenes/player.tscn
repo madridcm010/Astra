@@ -1,18 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3kyaxn01rpud"]
+[gd_scene load_steps=3 format=3 uid="uid://dahhm7i1flbxt"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_lf87o"]
-[ext_resource type="Texture2D" uid="uid://bk7qyiufwij4j" path="res://icon.svg" id="2_kwaf1"]
+[ext_resource type="Texture2D" uid="uid://bmwbvhc0y2mvg" path="res://Placeholder Assets/Graphics/Players/playerShip1_blue.png" id="1_hjgdd"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_13ywc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q5ka8"]
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("2_13ywc")
+speed = 800
 
-[node name="Player" type="Node2D"]
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_hjgdd")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-motion_mode = 1
-script = ExtResource("1_lf87o")
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-370, -912)
+polygon = PackedVector2Array(362, 874, 349, 937, 392, 937, 378, 874)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_q5ka8")
+[node name="WeaponSpawnTop" type="Marker2D" parent="."]
+position = Vector2(0, -60)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_kwaf1")
+[node name="WeaponSpawnBot" type="Marker2D" parent="."]
+position = Vector2(0, 60)
+
+[node name="WeaponCD" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="FlipCD" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="WeaponCD" to="." method="_on_Weapon_CD_timeout"]
+[connection signal="timeout" from="FlipCD" to="." method="_on_flip_cd_timeout"]
