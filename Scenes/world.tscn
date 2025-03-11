@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgdawxa72d10u"]
+[gd_scene load_steps=6 format=3 uid="uid://bgdawxa72d10u"]
 
 [ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="1_d8kcr"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jo34f"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player.tscn" id="2_6p824"]
-[ext_resource type="PackedScene" uid="uid://cnkbtsdlgdxnr" path="res://Scenes/spread_weapon.tscn" id="4_8122h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oegfd"]
 size = Vector2(58, 1090)
@@ -56,27 +55,6 @@ wait_time = 5.0
 autostart = true
 
 [node name="Enemies" type="Node2D" parent="."]
-
-[node name="SpreadWeapon" parent="." instance=ExtResource("4_8122h")]
-position = Vector2(936, 145)
-number_of_bullets = 16
-bullet_speed = 350
-bullet_lifetime = 2.0
-
-[node name="SpreadWeapon2" parent="." instance=ExtResource("4_8122h")]
-position = Vector2(1162, 835)
-max_rotation = -180
-number_of_bullets = 2
-bullet_speed = 200
-bullet_lifetime = 50.0
-
-[node name="SpreadWeapon3" parent="." instance=ExtResource("4_8122h")]
-position = Vector2(788, 582)
-min_rotation = 180
-max_rotation = 0
-number_of_bullets = 2
-bullet_speed = 200
-bullet_lifetime = 50.0
 
 [connection signal="weapon" from="Player" to="." method="_on_player_weapon"]
 [connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
