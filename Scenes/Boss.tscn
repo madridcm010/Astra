@@ -1,7 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://8db3364bfgbo"]
+[gd_scene load_steps=23 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://byt2q3rt0lj2f" path="res://Placeholder Assets/Spritesheet/Agis.png" id="1_rf606"]
 [ext_resource type="Script" path="res://Scenes/boss.gd" id="2_m6a2s"]
+[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player.tscn" id="3_2ryk5"]
+[ext_resource type="PackedScene" uid="uid://cnkbtsdlgdxnr" path="res://Scenes/spread_weapon.tscn" id="4_3naoy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3f8ks"]
 atlas = ExtResource("1_rf606")
@@ -141,7 +143,7 @@ _data = {
 
 [node name="Boss" type="AnimatedSprite2D"]
 texture_filter = 1
-position = Vector2(882, 223)
+position = Vector2(970, 155)
 sprite_frames = SubResource("SpriteFrames_muwou")
 animation = &"Idle"
 frame = 12
@@ -153,3 +155,10 @@ libraries = {
 "": SubResource("AnimationLibrary_qa0u4")
 }
 autoplay = "idle"
+
+[node name="Player" parent="." instance=ExtResource("3_2ryk5")]
+position = Vector2(-6, 769)
+
+[node name="SpreadWeapon" parent="." instance=ExtResource("4_3naoy")]
+position = Vector2(5, 110)
+max_rotation = 360

@@ -19,7 +19,10 @@ func playerFlip(rot):
 
 # starting position of Player
 func _ready():
-	position = Vector2(975, 984)
+	if get_tree().get_current_scene().is_in_group("world"):
+		position = Vector2(973, 890)
+	elif get_tree().get_current_scene().is_in_group("Boss"):
+		position = Vector2(-6,769)
 
 # Starting values for player cooldowns
 var weaponReady : bool = true
