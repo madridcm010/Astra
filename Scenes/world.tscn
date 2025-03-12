@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="1_d8kcr"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_jo34f"]
-[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player.tscn" id="2_6p824"]
+[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/Player.tscn" id="2_6p824"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oegfd"]
 size = Vector2(58, 1090)
@@ -24,7 +24,7 @@ scale = Vector2(7.5, 4.21875)
 texture = ExtResource("1_d8kcr")
 
 [node name="Player" parent="." instance=ExtResource("2_6p824")]
-position = Vector2(973, 890)
+position = Vector2(960, 890)
 
 [node name="Weapon" type="Node2D" parent="."]
 

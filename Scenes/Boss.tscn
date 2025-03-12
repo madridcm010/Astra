@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://byt2q3rt0lj2f" path="res://Placeholder Assets/Spritesheet/Agis.png" id="1_rf606"]
-[ext_resource type="Script" path="res://Scenes/boss.gd" id="2_m6a2s"]
-[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player.tscn" id="3_2ryk5"]
+[ext_resource type="Script" path="res://Scripts/boss.gd" id="2_m6a2s"]
+[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/Player.tscn" id="3_2ryk5"]
 [ext_resource type="PackedScene" uid="uid://cnkbtsdlgdxnr" path="res://Scenes/spread_weapon.tscn" id="4_3naoy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3f8ks"]

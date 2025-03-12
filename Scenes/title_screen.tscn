@@ -1,0 +1,363 @@
+[gd_scene load_steps=19 format=3 uid="uid://rj3j768rk57o"]
+
+[ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_570ua"]
+[ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="1_ars5s"]
+[ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="2_vkysl"]
+[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/Player.tscn" id="4_jjdww"]
+[ext_resource type="PackedScene" uid="uid://c14ymhav7xwq4" path="res://Scenes/settings_menu.tscn" id="5_1ifiy"]
+[ext_resource type="AudioStream" uid="uid://cm83nrjgws864" path="res://Sound Files/ObservingTheStar.ogg" id="6_1a1ky"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htjbv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0u43c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3tbgn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebblt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krpna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_47eft"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nq0vt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5q5gh"]
+
+[sub_resource type="Animation" id="Animation_rqji7"]
+resource_name = "Intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/Continue Game:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/New Game:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/Settings:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/Quit Game:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Player:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 1220), Vector2(960, 890)]
+}
+
+[sub_resource type="Animation" id="Animation_p3fxy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 1220)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:autoscroll")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_064a5"]
+resource_name = "Start Game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Title:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/Continue Game:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/New Game:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/Settings:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TitleOptionsControl/TitleOptionsVBox/Quit Game:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Player:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(3.86374, 1),
+"update": 0,
+"values": [Vector2(960, 890), Vector2(960, -180)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:autoscroll")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6uh3i"]
+_data = {
+"Intro": SubResource("Animation_rqji7"),
+"RESET": SubResource("Animation_p3fxy"),
+"Start Game": SubResource("Animation_064a5")
+}
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_570ua")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1080)
+autoscroll = Vector2(0, 300)
+repeat_times = 2
+
+[node name="Black" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(960, 540)
+scale = Vector2(7.5, 4.21875)
+texture = ExtResource("1_ars5s")
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 227.0
+offset_top = 123.0
+offset_right = 1654.0
+offset_bottom = 390.0
+theme_override_fonts/normal_font = ExtResource("2_vkysl")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "Per Aspera Ad Astra"
+autowrap_mode = 0
+
+[node name="TitleOptionsControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 823.0
+offset_top = 366.0
+offset_right = 1097.0
+offset_bottom = 1012.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleOptionsVBox" type="VBoxContainer" parent="TitleOptionsControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Continue Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_fonts/font = ExtResource("2_vkysl")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_htjbv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_0u43c")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3tbgn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ebblt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
+text = "Continue"
+
+[node name="New Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_fonts/font = ExtResource("2_vkysl")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_htjbv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_47eft")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3tbgn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ebblt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
+text = "New Game"
+
+[node name="Settings" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_fonts/font = ExtResource("2_vkysl")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_htjbv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_nq0vt")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3tbgn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ebblt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
+text = "Settings"
+
+[node name="Quit Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_hover_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_colors/font_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
+theme_override_fonts/font = ExtResource("2_vkysl")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_htjbv")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5q5gh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3tbgn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ebblt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
+text = "Quit Game"
+
+[node name="Player" parent="." instance=ExtResource("4_jjdww")]
+position = Vector2(960, 1220)
+motion_mode = 1
+script = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Parallax2D")
+libraries = {
+"": SubResource("AnimationLibrary_6uh3i")
+}
+speed_scale = 0.5
+
+[node name="SettingsMenu" parent="." instance=ExtResource("5_1ifiy")]
+visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1a1ky")
+
+[connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
