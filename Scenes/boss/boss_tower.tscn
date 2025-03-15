@@ -1,0 +1,123 @@
+[gd_scene load_steps=16 format=3 uid="uid://dxim3xwcrkcgd"]
+
+[ext_resource type="Texture2D" uid="uid://bu37cggqk0iki" path="res://Scenes/boss/RedMoonTower_free_idle_animation..png" id="1_k3v8b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jjw7"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(0, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ove1b"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(100, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lil5"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(200, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ponqd"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(300, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq1yl"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(400, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xps2"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(500, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6crc"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(600, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8smg"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(700, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnuei"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(800, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6qlt"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(900, 0, 100, 140)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l67t5"]
+atlas = ExtResource("1_k3v8b")
+region = Rect2(1000, 0, 100, 140)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqkqq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jjw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ove1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lil5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ponqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pq1yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xps2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6crc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8smg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnuei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6qlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l67t5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_i5apt"]
+resource_name = "idle"
+loop_mode = 2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e73k3"]
+_data = {
+"idle": SubResource("Animation_i5apt")
+}
+
+[node name="boss_tower" type="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(690.811, 191.514)
+sprite_frames = SubResource("SpriteFrames_bqkqq")
+animation = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e73k3")
+}
+autoplay = "idle"
