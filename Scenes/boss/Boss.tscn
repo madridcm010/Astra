@@ -1,8 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://8db3364bfgbo"]
+[gd_scene load_steps=23 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://byt2q3rt0lj2f" path="res://Placeholder Assets/Spritesheet/Agis.png" id="1_5kln2"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
-[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player.tscn" id="3_ostie"]
+[ext_resource type="PackedScene" uid="uid://cqlp6e35s2me8" path="res://Scenes/healthbar.tscn" id="3_bsaji"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3f8ks"]
 atlas = ExtResource("1_5kln2")
@@ -115,7 +115,15 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 15.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"arrive",
+"speed": 5.0
 }]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_emweb"]
+states/Start/position = Vector2(88, 194)
 
 [sub_resource type="Animation" id="Animation_satj1"]
 resource_name = "idle"
@@ -142,12 +150,15 @@ _data = {
 
 [node name="Boss" type="AnimatedSprite2D"]
 texture_filter = 1
-position = Vector2(970, 155)
+position = Vector2(961, 301)
+scale = Vector2(-2.19467, 2.31967)
 sprite_frames = SubResource("SpriteFrames_muwou")
 animation = &"Idle"
-frame = 12
-frame_progress = 0.201392
 script = ExtResource("2_ilpij")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_emweb")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -155,5 +166,17 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="Player" parent="." instance=ExtResource("3_ostie")]
-position = Vector2(-6, 769)
+[node name="healthbar" parent="." instance=ExtResource("3_bsaji")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -135.0
+offset_right = 8.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
