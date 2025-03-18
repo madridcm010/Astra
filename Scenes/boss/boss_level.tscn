@@ -1,82 +1,80 @@
-[gd_scene load_steps=27 format=3 uid="uid://bgdawxa72d10u"]
+[gd_scene load_steps=25 format=3 uid="uid://d7gyxg8dhn3s"]
 
-[ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="1_d8kcr"]
-[ext_resource type="Script" path="res://Scripts/world.gd" id="1_jo34f"]
-[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player.tscn" id="2_6p824"]
-[ext_resource type="Texture2D" uid="uid://d2nsjeku7lxk3" path="res://Scenes/boss/ScrollBar.png" id="4_pxak6"]
-[ext_resource type="Texture2D" uid="uid://cu7x864ryjx3s" path="res://Scenes/boss/dfj0320-c8556228-efa4-4d2a-bb1e-5592cf57c366-ezgif.com-gif-to-sprite-converter-removebg-preview (1).png" id="5_37kxo"]
+[ext_resource type="Texture2D" uid="uid://d2nsjeku7lxk3" path="res://Scenes/boss/ScrollBar.png" id="1_fih28"]
+[ext_resource type="Texture2D" uid="uid://cu7x864ryjx3s" path="res://Scenes/boss/dfj0320-c8556228-efa4-4d2a-bb1e-5592cf57c366-ezgif.com-gif-to-sprite-converter-removebg-preview (1).png" id="2_dkbd0"]
+[ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="3_yyosv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oegfd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx2qe"]
 size = Vector2(58, 1090)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmiea"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0lu0"]
 size = Vector2(1232, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7p0k"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(0, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nfbd1"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(95, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y283"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(190, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lv0lv"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(285, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2x6qw"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(380, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q05jq"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(475, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqjmw"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(570, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3f3o"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(665, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvwjg"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(760, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohrv0"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(855, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_be7od"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(950, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esn8t"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(1045, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bvvh"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(1140, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54l2f"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(1235, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsnqb"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(1330, 0, 95, 164)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ckilh"]
-atlas = ExtResource("5_37kxo")
+atlas = ExtResource("2_dkbd0")
 region = Rect2(1425, 0, 95, 164)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_n4e08"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwkpf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -154,51 +152,29 @@ _data = {
 "idle": SubResource("Animation_i0fik")
 }
 
-[node name="World" type="Node2D"]
-script = ExtResource("1_jo34f")
-
-[node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(0, 1080)
-autoscroll = Vector2(0, 300)
-repeat_times = 2
-
-[node name="Black" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(968, 522)
-scale = Vector2(4.3, 4.25875)
-texture = ExtResource("1_d8kcr")
-
-[node name="Player" parent="." instance=ExtResource("2_6p824")]
-position = Vector2(966, 799)
-
-[node name="Weapon" type="Node2D" parent="."]
+[node name="BossLevel" type="Node2D"]
 
 [node name="Borders" type="StaticBody2D" parent="."]
 
 [node name="BorderLeft" type="CollisionShape2D" parent="Borders"]
 position = Vector2(446, 523)
-shape = SubResource("RectangleShape2D_oegfd")
+shape = SubResource("RectangleShape2D_vx2qe")
 one_way_collision_margin = 0.0
 
 [node name="BorderRight" type="CollisionShape2D" parent="Borders"]
 position = Vector2(1491, 534)
-shape = SubResource("RectangleShape2D_oegfd")
+shape = SubResource("RectangleShape2D_vx2qe")
 one_way_collision_margin = 0.0
 
 [node name="BorderTop" type="CollisionShape2D" parent="Borders"]
 position = Vector2(980, 28)
-shape = SubResource("RectangleShape2D_cmiea")
+shape = SubResource("RectangleShape2D_y0lu0")
 one_way_collision_margin = 0.0
 
 [node name="BorderBottom" type="CollisionShape2D" parent="Borders"]
 position = Vector2(959, 1063)
-shape = SubResource("RectangleShape2D_cmiea")
+shape = SubResource("RectangleShape2D_y0lu0")
 one_way_collision_margin = 0.0
-
-[node name="EnemySpawn" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
-[node name="Enemies" type="Node2D" parent="."]
 
 [node name="ui" type="CanvasLayer" parent="."]
 
@@ -213,7 +189,7 @@ offset_bottom = 1073.0
 position = Vector2(968, -979)
 rotation = -1.56868
 scale = Vector2(0.260022, 39.4788)
-texture = ExtResource("4_pxak6")
+texture = ExtResource("1_fih28")
 
 [node name="Label" type="Label" parent="ui/Control"]
 layout_mode = 1
@@ -232,16 +208,21 @@ text = "The Nightmare"
 [node name="sidebar" type="AnimatedSprite2D" parent="ui"]
 position = Vector2(180, 971)
 scale = Vector2(0.986299, 0.866769)
-sprite_frames = SubResource("SpriteFrames_n4e08")
+sprite_frames = SubResource("SpriteFrames_mwkpf")
 animation = &"new_animation"
 autoplay = "new_animation"
-frame = 5
-frame_progress = 0.159124
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui/sidebar"]
 libraries = {
 "": SubResource("AnimationLibrary_pv803")
 }
 
-[connection signal="weapon" from="Player" to="." method="_on_player_weapon"]
-[connection signal="timeout" from="EnemySpawn" to="." method="_on_enemy_spawn_timeout"]
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1080)
+autoscroll = Vector2(0, 300)
+repeat_times = 2
+
+[node name="Black" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(968, 522)
+scale = Vector2(4.3, 4.25875)
+texture = ExtResource("3_yyosv")
