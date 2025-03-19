@@ -124,6 +124,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_qfu83")
 text = "Quit"
 
 [node name="SettingsMenu" parent="." instance=ExtResource("4_q2hrd")]
+visible = false
 layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
