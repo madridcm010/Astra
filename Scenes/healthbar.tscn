@@ -32,7 +32,7 @@ offset_bottom = 15.0
 size_flags_horizontal = 0
 theme_override_styles/background = SubResource("StyleBoxEmpty_l80fd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o2bns")
-value = 60.0
+fill_mode = 1
 show_percentage = false
 script = ExtResource("1_k38v7")
 
@@ -46,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_3pcb1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rskr7")
-value = 80.0
+fill_mode = 1
 show_percentage = false
 
 [node name="shieldbar" type="ProgressBar" parent="."]
@@ -60,7 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_pkrnd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5j6yo")
-value = 95.0
+fill_mode = 1
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]

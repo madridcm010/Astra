@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://8db3364bfgbo"]
+[gd_scene load_steps=24 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://byt2q3rt0lj2f" path="res://Placeholder Assets/Spritesheet/Agis.png" id="1_5kln2"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
@@ -142,9 +142,37 @@ tracks/0/keys = {
 "method": &"play"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 14.9285),
+"update": 0,
+"values": [Vector2(923, -284), Vector2(923, 55)]
+}
+
+[sub_resource type="Animation" id="Animation_omj3q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(961, 301)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qa0u4"]
 _data = {
+"RESET": SubResource("Animation_omj3q"),
 "idle": SubResource("Animation_satj1")
 }
 
@@ -164,9 +192,9 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_qa0u4")
 }
-autoplay = "idle"
 
 [node name="healthbar" parent="." instance=ExtResource("3_bsaji")]
+layout_direction = 2
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
