@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4lrr2hix0il"]
+
+[ext_resource type="Texture2D" uid="uid://co0qbu1alislv" path="res://Backgrounds/Parallax Test/BGs/Oil BG.png" id="1_3rdqt"]
+[ext_resource type="Script" path="res://Scenes/parallax_test.gd" id="1_pavy6"]
+
+[node name="Parallax Test" type="Node2D"]
+script = ExtResource("1_pavy6")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("1_3rdqt")
+centered = false
+offset = Vector2(-3, 0)
+
+[node name="NebulaParallax" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1080)
+autoscroll = Vector2(0, 3)
+
+[node name="NebullaSprite" type="Sprite2D" parent="NebulaParallax"]
+centered = false
+
+[node name="StarsParallax" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1080)
+autoscroll = Vector2(0, 5)
+
+[node name="StarsSprite" type="Sprite2D" parent="StarsParallax"]
+centered = false
+
+[node name="DustParallax" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1080)
+autoscroll = Vector2(0, 8)
+
+[node name="DustSprite" type="Sprite2D" parent="DustParallax"]
+centered = false
+
+[node name="PlanetParallax" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 3240)
+autoscroll = Vector2(0, 15)
+
+[node name="PlanetSprite" type="Sprite2D" parent="PlanetParallax"]
+centered = false
