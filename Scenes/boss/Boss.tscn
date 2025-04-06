@@ -125,6 +125,21 @@ animations = [{
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_emweb"]
 states/Start/position = Vector2(88, 194)
 
+[sub_resource type="Animation" id="Animation_omj3q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(961, 301)]
+}
+
 [sub_resource type="Animation" id="Animation_satj1"]
 resource_name = "idle"
 loop_mode = 1
@@ -153,21 +168,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 14.9285),
 "update": 0,
 "values": [Vector2(923, -284), Vector2(923, 55)]
-}
-
-[sub_resource type="Animation" id="Animation_omj3q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(961, 301)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qa0u4"]
@@ -200,11 +200,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -232.0
-offset_top = -135.0
-offset_right = 8.0
-offset_bottom = -120.0
+offset_left = -307.929
+offset_top = -527.11
+offset_right = 453.071
+offset_bottom = -509.11
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(1, 2.31053)
 size_flags_horizontal = 4
 size_flags_vertical = 4

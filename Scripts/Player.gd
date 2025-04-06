@@ -34,7 +34,7 @@ func get_input():
 	velocity = input_direction * speed
 	if Input.is_action_just_pressed("flip") and flipReady:
 		playerFlip($PlayerImage.rotation_degrees)
-		flipReady = false
+		flipReady = false 
 		$FlipCD.start()
 		
 # constantly running function

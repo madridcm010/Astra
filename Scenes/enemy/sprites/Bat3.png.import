@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwrkvb8cojhp0"
-path="res://.godot/imported/preview.png-0bea763d6fde7fef4addb059ad64cce4.ctex"
+uid="uid://dc3dvuump0cg3"
+path="res://.godot/imported/Bat3.png-7bf9068bd043aa15556ac436df955763.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Placeholder Assets/preview.png"
-dest_files=["res://.godot/imported/preview.png-0bea763d6fde7fef4addb059ad64cce4.ctex"]
+source_file="res://Scenes/enemy/sprites/Bat3.png"
+dest_files=["res://.godot/imported/Bat3.png-7bf9068bd043aa15556ac436df955763.ctex"]
 
 [params]
 
