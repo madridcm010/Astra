@@ -155,24 +155,24 @@ _data = {
 
 [node name="BossLevel" type="Node2D"]
 
-[node name="Borders" type="StaticBody2D" parent="."]
+[node name="Borders" type="StaticBody2D" parent="." groups=["border"]]
 
-[node name="BorderLeft" type="CollisionShape2D" parent="Borders"]
+[node name="BorderLeft" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(446, 523)
 shape = SubResource("RectangleShape2D_vx2qe")
 one_way_collision_margin = 0.0
 
-[node name="BorderRight" type="CollisionShape2D" parent="Borders"]
+[node name="BorderRight" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(1491, 534)
 shape = SubResource("RectangleShape2D_vx2qe")
 one_way_collision_margin = 0.0
 
-[node name="BorderTop" type="CollisionShape2D" parent="Borders"]
+[node name="BorderTop" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(980, 28)
 shape = SubResource("RectangleShape2D_y0lu0")
 one_way_collision_margin = 0.0
 
-[node name="BorderBottom" type="CollisionShape2D" parent="Borders"]
+[node name="BorderBottom" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(959, 1063)
 shape = SubResource("RectangleShape2D_y0lu0")
 one_way_collision_margin = 0.0
@@ -225,13 +225,12 @@ scale = Vector2(4.3, 4.25875)
 texture = ExtResource("3_yyosv")
 
 [node name="SpreadWeapon" parent="." instance=ExtResource("4_mpwjo")]
-position = Vector2(960, 187)
-max_rotation = 360
-number_of_bullets = 12
-spawn_rate = 0.2
+position = Vector2(960, 172)
+number_of_bullets = 5
+spawn_rate = 0.5
 bullet_speed = 300
 bullet_lifetime = 1.0
-bullet_rotation_change = 90.0
+bullet_rotation_change = 25.0
 
 [node name="Boss" parent="." instance=ExtResource("4_v227x")]
 scale = Vector2(-0.947, 1.0236)
