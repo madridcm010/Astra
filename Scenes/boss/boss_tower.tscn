@@ -548,6 +548,7 @@ texture_filter = 1
 position = Vector2(690.811, 191.514)
 sprite_frames = SubResource("SpriteFrames_bqkqq")
 animation = &"idle"
+frame_progress = 0.059938
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

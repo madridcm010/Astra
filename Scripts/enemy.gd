@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export  var frequency = 5
+@export  var amplitude = 350
+var time = 0
 var speedchar = 100
 var spread_weapon_scene: PackedScene = load("res://Scenes/spread_weapon.tscn")
 
@@ -14,7 +17,11 @@ func _ready() -> void:
 	position = Vector2(randx, 200) 
 	
 func _process(delta):
-	position.y  += speedchar * delta
+	translate(Vector2.DOWN * speedchar * delta)
+	time += delta
+	var movement = cos(time*frequency)*amplitude
+	position.x += movement * delta
+	
 	
 func _on_enemy_area_area_entered(area: Area2D) -> void:
 	die()
@@ -42,3 +49,5 @@ func die():
 
 	# Optionally, destroy the character's node
 	#queue_free()
+
+ 

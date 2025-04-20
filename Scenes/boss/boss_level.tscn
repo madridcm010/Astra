@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://d7gyxg8dhn3s"]
+[gd_scene load_steps=27 format=3 uid="uid://d7gyxg8dhn3s"]
 
 [ext_resource type="Texture2D" uid="uid://cu7x864ryjx3s" path="res://Scenes/boss/dfj0320-c8556228-efa4-4d2a-bb1e-5592cf57c366-ezgif.com-gif-to-sprite-converter-removebg-preview (1).png" id="2_dkbd0"]
 [ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="3_yyosv"]
 [ext_resource type="PackedScene" uid="uid://cnkbtsdlgdxnr" path="res://Scenes/spread_weapon.tscn" id="4_mpwjo"]
 [ext_resource type="PackedScene" uid="uid://8db3364bfgbo" path="res://Scenes/boss/Boss.tscn" id="4_v227x"]
+[ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="5_ujo0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx2qe"]
 size = Vector2(58, 1090)
@@ -182,10 +183,10 @@ one_way_collision_margin = 0.0
 [node name="Control" type="Control" parent="ui"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 2.0
-offset_top = 1006.0
-offset_right = 419.0
-offset_bottom = 1079.0
+offset_left = -10.0
+offset_top = 999.0
+offset_right = 407.0
+offset_bottom = 1072.0
 
 [node name="Label" type="Label" parent="ui/Control"]
 layout_mode = 1
@@ -202,7 +203,7 @@ scale = Vector2(1.94158, 2.43645)
 text = "The Nightmare"
 
 [node name="sidebar" type="AnimatedSprite2D" parent="ui"]
-position = Vector2(191, 987)
+position = Vector2(191, 286)
 scale = Vector2(0.986299, 0.866769)
 sprite_frames = SubResource("SpriteFrames_mwkpf")
 animation = &"new_animation"
@@ -220,12 +221,13 @@ autoscroll = Vector2(0, 300)
 repeat_times = 2
 
 [node name="Black" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(970, 520)
+position = Vector2(973, 545)
 scale = Vector2(4.3, 4.25875)
 texture = ExtResource("3_yyosv")
 
 [node name="SpreadWeapon" parent="." instance=ExtResource("4_mpwjo")]
-position = Vector2(960, 172)
+position = Vector2(965, 366)
+scale = Vector2(1, 1)
 number_of_bullets = 5
 spawn_rate = 0.5
 bullet_speed = 300
@@ -233,4 +235,11 @@ bullet_lifetime = 1.0
 bullet_rotation_change = 25.0
 
 [node name="Boss" parent="." instance=ExtResource("4_v227x")]
-scale = Vector2(-0.947, 1.0236)
+position = Vector2(965, 256)
+scale = Vector2(-0.947, 1.04893)
+animation = &"ranged"
+autoplay = "ranged"
+frame_progress = 0.0
+
+[node name="Enemy" parent="." instance=ExtResource("5_ujo0n")]
+position = Vector2(892, -234)

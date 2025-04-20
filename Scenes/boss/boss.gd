@@ -30,5 +30,6 @@ func get_input():
 	#for i in range(0, hp + 1):
 		if Input.is_action_just_pressed("shoot"):
 			#_set_health(hp - _damage)
+			$Animationplayer.play("damage")
 			change_hp(_damage)
 		
