@@ -14,7 +14,7 @@ func _ready() -> void:
 	var width = get_viewport().get_visible_rect().size[0]
 	var randx = rng.randi_range(0, width)
 	
-	position = Vector2(randx, 200) 
+	#position = Vector2(randx, 200) 
 	
 func _process(delta):
 	translate(Vector2.DOWN * speedchar * delta)

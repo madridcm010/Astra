@@ -1,8 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://8db3364bfgbo"]
+[gd_scene load_steps=36 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://cuv6wjkbx0o8f" path="res://Scenes/boss/Spider_boss_sprite_sheet.png" id="1_guep4"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
 [ext_resource type="PackedScene" uid="uid://cqlp6e35s2me8" path="res://Scenes/healthbar.tscn" id="3_bsaji"]
+[ext_resource type="Script" path="res://Scenes/boss/state_machine.gd" id="4_7njfd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkugb"]
+radius = 179.0
+height = 492.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efg2a"]
 atlas = ExtResource("1_guep4")
@@ -72,14 +77,6 @@ region = Rect2(3340, 0, 334, 398)
 atlas = ExtResource("1_guep4")
 region = Rect2(3674, 0, 334, 398)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65rcs"]
-atlas = ExtResource("1_guep4")
-region = Rect2(6346, 0, 334, 398)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovbkx"]
-atlas = ExtResource("1_guep4")
-region = Rect2(6680, 0, 334, 398)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_e03ev"]
 atlas = ExtResource("1_guep4")
 region = Rect2(7014, 0, 334, 398)
@@ -124,7 +121,7 @@ animations = [{
 "duration": 1000.0,
 "texture": SubResource("AtlasTexture_cqtg4")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 8.0
 }, {
@@ -185,21 +182,15 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xqgbw")
 }],
-"loop": true,
+"loop": false,
 "name": &"Melee",
 "speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_65rcs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ovbkx")
-}, {
-"duration": 2.0,
 "texture": SubResource("AtlasTexture_e03ev")
 }],
-"loop": true,
+"loop": false,
 "name": &"damage",
 "speed": 8.0
 }, {
@@ -225,27 +216,13 @@ animations = [{
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_qvlk8")
 }],
-"loop": true,
+"loop": false,
 "name": &"ranged",
 "speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_omj3q"]
 length = 0.001
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.166667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"", -1, 1.0, false],
-"method": &"play"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_satj1"]
 resource_name = "idle"
@@ -277,40 +254,57 @@ tracks/1/keys = {
 "values": [Vector2(923, -284), Vector2(923, 55)]
 }
 
+[sub_resource type="Animation" id="Animation_iv8qr"]
+resource_name = "ranged attack"
+length = 0.750013
+step = 0.125
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qa0u4"]
 _data = {
 "RESET": SubResource("Animation_omj3q"),
-"idle": SubResource("Animation_satj1")
+"idle": SubResource("Animation_satj1"),
+"ranged attack": SubResource("Animation_iv8qr")
 }
 
-[node name="Boss" type="AnimatedSprite2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(976, 406)
+shape = SubResource("CapsuleShape2D_mkugb")
+
+[node name="Boss" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(982, 518)
-scale = Vector2(-2.19467, 2.31967)
+rotation = 3.14159
+scale = Vector2(1.2, -1.268)
 sprite_frames = SubResource("SpriteFrames_muwou")
 animation = &"damage"
-frame_progress = 0.34449
+frame_progress = 1.0
 script = ExtResource("2_ilpij")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_qa0u4")
-}
-autoplay = "RESET"
-
-[node name="healthbar" parent="." instance=ExtResource("3_bsaji")]
+[node name="healthbar" parent="Boss" instance=ExtResource("3_bsaji")]
 layout_direction = 2
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -596.0
-offset_top = -620.0
-offset_right = 279.0
-offset_bottom = -602.0
+offset_left = -643.667
+offset_top = -704.782
+offset_right = 335.333
+offset_bottom = -670.782
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1, 2.31053)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
+libraries = {
+"": SubResource("AnimationLibrary_qa0u4")
+}
+autoplay = "RESET"
+
+[node name="State Machine" type="Node2D" parent="Boss"]
+script = ExtResource("4_7njfd")
