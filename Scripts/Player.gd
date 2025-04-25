@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 400
 const rotation_speed = 180
-
+const PLAYER_BULLET = preload("res://Scenes/player/scenes/player_bullet.tscn")
+var can_shoot = true
 # signal to be sent level for laser spawns
 signal weapon(pos, rot)
 #signal spread_weapon(pos,rot)
@@ -21,8 +22,19 @@ func playerFlip(rot):
 func _ready():
 	if get_tree().get_current_scene().is_in_group("world"):
 		position = Vector2(973, 890)
-	elif get_tree().get_current_scene().is_in_group("Boss"):
+	elif get_tree().get_current_scene().is_in_group("boss_level"):
 		position = Vector2(-6,769)
+	#connect boss signal
+	
+	var boss = get_node("res://Scenes/boss/Boss.tscn")
+	if boss:
+		boss.connect("boss_defeated", _on_boss_defeated)
+		
+		
+#signal function
+func _on_boss_defeated():
+	
+	can_shoot = false
 
 # Starting values for player cooldowns
 var weaponReady : bool = true
@@ -43,9 +55,14 @@ func _process(_delta):
 	move_and_slide()
 	
 	# Checks for shoot input of player and checks that the weapon is not on cooldown
-	if Input.is_action_pressed("shoot") and weaponReady:
+	if Input.is_action_pressed("shoot") and weaponReady and can_shoot:
 		if $PlayerImage.rotation_degrees == 0:
-			weapon.emit($WeaponSpawnTop.global_position, 0)
+			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.position = $WeaponSpawnTop.get_global_position()
+			add_sibling(new_bullet)
+			
+			#weapon.emit($WeaponSpawnTop.global_position, 0)
+			
 		else:
 			weapon.emit($WeaponSpawnBot.global_position, 180)
 		weaponReady = false
@@ -54,6 +71,7 @@ func _process(_delta):
 # signal receiver for ship weapon cooldown timer
 func _on_Weapon_CD_timeout() -> void:
 	weaponReady = true
+
 
 # signal receiver for ship flip cooldown timer
 func _on_flip_cd_timeout() -> void:

@@ -18,13 +18,19 @@ func _ready() -> void:
 	
 func _process(delta):
 	translate(Vector2.DOWN * speedchar * delta)
+	$enemyArea/AnimatedSprite2D.play("idle_down")
 	time += delta
 	var movement = cos(time*frequency)*amplitude
 	position.x += movement * delta
 	
 	
 func _on_enemy_area_area_entered(area: Area2D) -> void:
-	die()
+	if area.is_in_group("bullet"):
+		await get_tree().create_timer(1).timeout
+		die()
+		await get_tree().create_timer(10).timeout
+		queue_free()
+		
 
 @export var attributes: BulletSpawnAttributes:
 	set(value):
@@ -41,13 +47,8 @@ func die():
 	velocity.y = 0
 
 	# Play a death animation
+	$enemyArea/AnimatedSprite2D.stop()
+	$enemyArea/AnimatedSprite2D.play("death_down")
 	
-	$AnimationPlayer.play("death_down", 0 , .5 , false)
-
-	# Emit a signal to notify other parts of the game
-	emit_signal("enemy_died")
-
-	# Optionally, destroy the character's node
-	#queue_free()
 
  

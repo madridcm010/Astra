@@ -9,22 +9,25 @@ enum phases { phase1 = 1, phase2 = 2, phase3 = 3 }
 @export var _damage = 2 : set = change_hp
 @onready var healthbar = $healthbar
 @onready var boss_anim = $Boss
-
+signal boss_defeated
 
 
 func _set_health(value: float):
-	hp = value 
-	healthbar.hp = hp
 	if hp<=0:
+		boss_defeated.emit()
 		await get_tree().create_timer(1).timeout
 		_dead()
 		await get_tree().create_timer(10).timeout
 		queue_free()
+	if hp>0:
+		hp = value 
+		healthbar.hp = hp
 		
 
 func change_hp(_damage: float):
 	#healthbar.value = hp
 	_set_health(hp - _damage)
+	
 	
 
 func _ready():
@@ -38,10 +41,15 @@ func get_input():
 	#for i in range(0, hp + 1):
 	if Input.is_action_just_pressed("shoot"):
 		#_set_health(hp - _damage)
+		
 		play("damage")
 		change_hp(_damage)
 		await get_tree().create_timer(.5).timeout
 		_Idle()
+		if hp<0:
+			change_hp(_damage)
+			
+			
 		
 		
 func _dead():

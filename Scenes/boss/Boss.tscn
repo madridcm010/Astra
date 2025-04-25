@@ -266,7 +266,7 @@ _data = {
 "ranged attack": SubResource("Animation_iv8qr")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="bossbody" type="CharacterBody2D"]
 position = Vector2(0, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

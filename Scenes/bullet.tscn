@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://6d68eojtapp5"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_d73iv"]
-[ext_resource type="Texture2D" uid="uid://dfx3jkblvg1m8" path="res://Scenes/enemy/sprites/bullet.png" id="2_k4jro"]
+[ext_resource type="Texture2D" uid="uid://dgccjirn4tcoj" path="res://Scenes/enemy/sprites/bullet.png" id="2_k4jro"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sl67o"]
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ery5m"]
+radius = 15.0333
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_d73iv")
@@ -14,7 +14,9 @@ lifetime = 5.0
 texture = ExtResource("2_k4jro")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_sl67o")
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_ery5m")
 
 [node name="Timer" type="Timer" parent="."]
 

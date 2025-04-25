@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5nhg8hv444y1"]
+[gd_scene load_steps=24 format=3 uid="uid://b5nhg8hv444y1"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_5advp"]
 [ext_resource type="Texture2D" uid="uid://ov67tqwjb8yg" path="res://Placeholder Assets/32x32-bat-sprite.png" id="2_p4n4b"]
@@ -166,7 +166,7 @@ resource_name = "new_animation"
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/path = NodePath("enemyArea/AnimatedSprite2D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -178,9 +178,13 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_0gs1l"]
+resource_name = "new_animation_2"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0vx4"]
 _data = {
-"new_animation": SubResource("Animation_c5qup")
+"new_animation": SubResource("Animation_c5qup"),
+"new_animation_2": SubResource("Animation_0gs1l")
 }
 
 [node name="Enemy" type="CharacterBody2D"]
@@ -195,11 +199,11 @@ shape = SubResource("CircleShape2D_yq3ys")
 [node name="enemyAreaCollision" type="CollisionShape2D" parent="enemyArea"]
 shape = SubResource("CircleShape2D_yq3ys")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemyArea"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_176if")
-animation = &"idle_down"
-frame_progress = 0.477098
+animation = &"death_down"
+frame_progress = 0.373262
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
