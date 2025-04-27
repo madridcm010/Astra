@@ -33,7 +33,6 @@ func _ready():
 		
 #signal function
 func _on_boss_defeated():
-	
 	can_shoot = false
 
 # Starting values for player cooldowns

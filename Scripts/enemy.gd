@@ -6,6 +6,11 @@ var time = 0
 var speedchar = 100
 var spread_weapon_scene: PackedScene = load("res://Scenes/spread_weapon.tscn")
 
+const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
+
+
+
+
 func _ready() -> void:
 	var rng := RandomNumberGenerator.new()
 	var enemy_scene = load("res://Scenes/enemy/scenes/enemy.tscn")
@@ -26,9 +31,9 @@ func _process(delta):
 	
 func _on_enemy_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
-		await get_tree().create_timer(1).timeout
-		die()
-		await get_tree().create_timer(10).timeout
+		var explosion = EXPLOSION.instantiate()
+		explosion.global_position = global_position
+		add_sibling(explosion)
 		queue_free()
 		
 

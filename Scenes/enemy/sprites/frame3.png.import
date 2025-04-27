@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwtgesdw4i6bg"
-path="res://.godot/imported/32x32-bat-sprite.png-963035c2a2af47cf139c037233dbcf1d.ctex"
+uid="uid://bois6u1svvmmf"
+path="res://.godot/imported/frame3.png-5d5bacf371f103b6bad33da1a7f93d82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/enemy/scenes/32x32-bat-sprite.png"
-dest_files=["res://.godot/imported/32x32-bat-sprite.png-963035c2a2af47cf139c037233dbcf1d.ctex"]
+source_file="res://Scenes/enemy/sprites/frame3.png"
+dest_files=["res://.godot/imported/frame3.png-5d5bacf371f103b6bad33da1a7f93d82.ctex"]
 
 [params]
 
