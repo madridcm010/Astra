@@ -1,8 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://d7gyxg8dhn3s"]
+[gd_scene load_steps=29 format=3 uid="uid://d7gyxg8dhn3s"]
 
-[ext_resource type="Texture2D" uid="uid://d2nsjeku7lxk3" path="res://Scenes/boss/ScrollBar.png" id="1_fih28"]
+[ext_resource type="Script" path="res://Scenes/boss/boss_level.gd" id="1_b0d01"]
 [ext_resource type="Texture2D" uid="uid://cu7x864ryjx3s" path="res://Scenes/boss/dfj0320-c8556228-efa4-4d2a-bb1e-5592cf57c366-ezgif.com-gif-to-sprite-converter-removebg-preview (1).png" id="2_dkbd0"]
 [ext_resource type="Texture2D" uid="uid://bu1qk3qo81ufg" path="res://Placeholder Assets/Graphics/Backgrounds/black.png" id="3_yyosv"]
+[ext_resource type="PackedScene" uid="uid://cnkbtsdlgdxnr" path="res://Scenes/spread_weapon.tscn" id="4_mpwjo"]
+[ext_resource type="PackedScene" uid="uid://8db3364bfgbo" path="res://Scenes/boss/Boss.tscn" id="4_v227x"]
+[ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="5_ujo0n"]
+[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="7_jd020"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx2qe"]
 size = Vector2(58, 1090)
@@ -153,25 +157,26 @@ _data = {
 }
 
 [node name="BossLevel" type="Node2D"]
+script = ExtResource("1_b0d01")
 
-[node name="Borders" type="StaticBody2D" parent="."]
+[node name="Borders" type="StaticBody2D" parent="." groups=["border"]]
 
-[node name="BorderLeft" type="CollisionShape2D" parent="Borders"]
+[node name="BorderLeft" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(446, 523)
 shape = SubResource("RectangleShape2D_vx2qe")
 one_way_collision_margin = 0.0
 
-[node name="BorderRight" type="CollisionShape2D" parent="Borders"]
+[node name="BorderRight" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(1491, 534)
 shape = SubResource("RectangleShape2D_vx2qe")
 one_way_collision_margin = 0.0
 
-[node name="BorderTop" type="CollisionShape2D" parent="Borders"]
+[node name="BorderTop" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(980, 28)
 shape = SubResource("RectangleShape2D_y0lu0")
 one_way_collision_margin = 0.0
 
-[node name="BorderBottom" type="CollisionShape2D" parent="Borders"]
+[node name="BorderBottom" type="CollisionShape2D" parent="Borders" groups=["border"]]
 position = Vector2(959, 1063)
 shape = SubResource("RectangleShape2D_y0lu0")
 one_way_collision_margin = 0.0
@@ -181,15 +186,11 @@ one_way_collision_margin = 0.0
 [node name="Control" type="Control" parent="ui"]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 1000.0
-offset_right = 417.0
-offset_bottom = 1073.0
-
-[node name="Sprite2D" type="Sprite2D" parent="ui/Control"]
-position = Vector2(968, -979)
-rotation = -1.56868
-scale = Vector2(0.260022, 39.4788)
-texture = ExtResource("1_fih28")
+offset_left = -10.0
+offset_top = 999.0
+offset_right = 407.0
+offset_bottom = 1072.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="ui/Control"]
 layout_mode = 1
@@ -206,13 +207,27 @@ scale = Vector2(1.94158, 2.43645)
 text = "The Nightmare"
 
 [node name="sidebar" type="AnimatedSprite2D" parent="ui"]
-position = Vector2(180, 971)
+position = Vector2(196, 993)
 scale = Vector2(0.986299, 0.866769)
 sprite_frames = SubResource("SpriteFrames_mwkpf")
 animation = &"new_animation"
 autoplay = "new_animation"
+frame_progress = 0.913836
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui/sidebar"]
+libraries = {
+"": SubResource("AnimationLibrary_pv803")
+}
+
+[node name="sidebar2" type="AnimatedSprite2D" parent="ui"]
+position = Vector2(1730, 988)
+scale = Vector2(0.986299, 0.866769)
+sprite_frames = SubResource("SpriteFrames_mwkpf")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.913836
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/sidebar2"]
 libraries = {
 "": SubResource("AnimationLibrary_pv803")
 }
@@ -220,9 +235,27 @@ libraries = {
 [node name="Parallax2D" type="Parallax2D" parent="."]
 repeat_size = Vector2(0, 1080)
 autoscroll = Vector2(0, 300)
-repeat_times = 2
+repeat_times = 15
 
 [node name="Black" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(968, 522)
+position = Vector2(973, 545)
 scale = Vector2(4.3, 4.25875)
 texture = ExtResource("3_yyosv")
+
+[node name="SpreadWeapon" parent="." instance=ExtResource("4_mpwjo")]
+position = Vector2(965, 522)
+number_of_bullets = 5
+spawn_rate = 0.5
+bullet_speed = 300
+bullet_lifetime = 1.0
+bullet_rotation_change = 25.0
+
+[node name="Boss" parent="." instance=ExtResource("4_v227x")]
+position = Vector2(1865, -119)
+scale = Vector2(-0.921623, 0.985043)
+
+[node name="Enemy" parent="." groups=["boss_level"] instance=ExtResource("5_ujo0n")]
+position = Vector2(1249, 374)
+
+[node name="Player" parent="." instance=ExtResource("7_jd020")]
+position = Vector2(972, 847)

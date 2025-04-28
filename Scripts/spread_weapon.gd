@@ -65,3 +65,9 @@ func _on_timer_timeout() -> void:
 		
 	if(log_to_console):
 		print("spawned bullets!")
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("border"):
+		queue_free()

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BulletSpawnAttributes" load_steps=2 format=3 uid="uid://ki3hcmav2m38"]
+
+[ext_resource type="Script" path="res://Scripts/new_script.gd" id="1_jnaee"]
+
+[resource]
+script = ExtResource("1_jnaee")
+min_rotation = 0
+max_rotation = 360
+number_of_bullets = 8
+is_random = false
+is_parent = false
+is_manual = false
+spawn_rate = 0.4
+bullet_speed = 5
+bullet_lifetime = 10.0
+bullet_rotation_change = 0.0

@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bm1icwr4my7nl"]
+
+[ext_resource type="Texture2D" uid="uid://c4yl23cnqat07" path="res://Scenes/enemy/sprites/frame1.png" id="1_dybtg"]
+[ext_resource type="Texture2D" uid="uid://cq71eovk33g0e" path="res://Scenes/enemy/sprites/frame2.png" id="2_e2ydr"]
+[ext_resource type="Texture2D" uid="uid://bois6u1svvmmf" path="res://Scenes/enemy/sprites/frame3.png" id="3_heycb"]
+[ext_resource type="Texture2D" uid="uid://cwnankxf52efu" path="res://Scenes/enemy/sprites/frame4.png" id="4_woqav"]
+[ext_resource type="Texture2D" uid="uid://bj0imh666t0sa" path="res://Scenes/enemy/sprites/frame5.png" id="5_3heca"]
+[ext_resource type="Texture2D" uid="uid://03cs8ojq3n0f" path="res://Scenes/enemy/sprites/frame6.png" id="6_ss72v"]
+[ext_resource type="Script" path="res://Scenes/enemy/scenes/explosion.gd" id="7_1rpox"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffelp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dybtg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e2ydr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_heycb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_woqav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3heca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ss72v")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ffelp")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+script = ExtResource("7_1rpox")

@@ -1,19 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccftvuwo52k2q"]
 
 [ext_resource type="Script" path="res://Scripts/basic_weapon.gd" id="1_0ndnk"]
-[ext_resource type="Texture2D" uid="uid://cqfxq70awknxn" path="res://Placeholder Assets/Graphics/Lasers/laserRed07.png" id="1_dhjn7"]
+[ext_resource type="Texture2D" uid="uid://j7a0nyb11qtw" path="res://Scenes/player/sprite/bullet2.png" id="2_swgkw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmfta"]
-radius = 4.0
-height = 36.0
+radius = 9.0
+height = 31.9997
 
-[node name="Basic Weapon" type="Area2D"]
+[node name="Basic Weapon" type="Area2D" groups=["bullet"]]
 script = ExtResource("1_0ndnk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dhjn7")
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["bullet"]]
+texture = ExtResource("2_swgkw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["bullet"]]
+position = Vector2(1, -5.68434e-14)
+rotation = 1.57528
 shape = SubResource("CapsuleShape2D_rmfta")
 
 [node name="Despawn" type="Timer" parent="."]

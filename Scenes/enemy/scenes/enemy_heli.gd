@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+
 @export  var frequency = 5
 @export  var amplitude = 350
 var time = 0
-var speedchar = 100
+var speedchar = 250
 var spread_weapon_scene: PackedScene = load("res://Scenes/spread_weapon.tscn")
 
 const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
@@ -13,7 +14,7 @@ const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
 
 func _ready() -> void:
 	var rng := RandomNumberGenerator.new()
-	var enemy_scene = load("res://Scenes/enemy/scenes/enemy.tscn")
+	var enemy_scene = load("res://Scenes/enemy/scenes/enemy_heli.tscn")
 	
 	#start position
 	var width = get_viewport().get_visible_rect().size[0]
@@ -23,10 +24,10 @@ func _ready() -> void:
 	
 func _process(delta):
 	translate(Vector2.DOWN * speedchar * delta)
-	$enemyArea/AnimatedSprite2D.play("idle_down")
-	time += delta
-	var movement = cos(time*frequency)*amplitude
-	position.x += movement * delta
+	$AnimatedSprite2D.play("idle_down")
+	#time += delta
+	#var movement = cos(time*frequency)*amplitude
+	#position.x += movement * delta
 	
 	
 func _on_enemy_area_area_entered(area: Area2D) -> void:
@@ -52,8 +53,8 @@ func die():
 	velocity.y = 0
 
 	# Play a death animation
-	$enemyArea/AnimatedSprite2D.stop()
-	$enemyArea/AnimatedSprite2D.play("death_down")
+	#$enemyArea/AnimatedSprite2D.stop()
+	#$enemyArea/AnimatedSprite2D.play("death_down")
 	
 
  
