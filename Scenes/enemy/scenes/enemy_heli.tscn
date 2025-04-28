@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3cw7un3s1oxn"]
+
+[ext_resource type="Script" path="res://Scenes/enemy/scenes/enemy_heli.gd" id="1_0vc0q"]
+[ext_resource type="Texture2D" uid="uid://bc4iqiuaqtw6x" path="res://Scenes/enemy/sprites/PSC-ezgif.com-gif-to-sprite-converter.png" id="2_8qpcp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdk80"]
+atlas = ExtResource("2_8qpcp")
+region = Rect2(800, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2wst"]
+atlas = ExtResource("2_8qpcp")
+region = Rect2(600, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i856a"]
+atlas = ExtResource("2_8qpcp")
+region = Rect2(400, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em28g"]
+atlas = ExtResource("2_8qpcp")
+region = Rect2(200, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c35na"]
+atlas = ExtResource("2_8qpcp")
+region = Rect2(0, 200, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyqya"]
+atlas = ExtResource("2_8qpcp")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bwex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdk80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2wst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i856a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_em28g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c35na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyqya")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ocbli"]
+
+[node name="helicopter" type="CharacterBody2D"]
+script = ExtResource("1_0vc0q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3bwex")
+animation = &"idle_down"
+frame_progress = 0.326713
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ocbli")

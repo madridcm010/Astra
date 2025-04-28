@@ -202,8 +202,7 @@ shape = SubResource("CircleShape2D_yq3ys")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="enemyArea"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_176if")
-animation = &"death_down"
-frame_progress = 0.373262
+animation = &"idle_down"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

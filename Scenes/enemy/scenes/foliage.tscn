@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw8wy5xjku6mi"]
+
+[ext_resource type="Texture2D" uid="uid://dqp3epgo7rtab" path="res://Scenes/enemy/sprites/tower.png" id="1_4rgx6"]
+
+[node name="foliage" type="Sprite2D"]
+position = Vector2(3.25, 5.25)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4rgx6")

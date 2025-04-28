@@ -190,6 +190,7 @@ offset_left = -10.0
 offset_top = 999.0
 offset_right = 407.0
 offset_bottom = 1072.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="ui/Control"]
 layout_mode = 1
@@ -214,6 +215,19 @@ autoplay = "new_animation"
 frame_progress = 0.913836
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui/sidebar"]
+libraries = {
+"": SubResource("AnimationLibrary_pv803")
+}
+
+[node name="sidebar2" type="AnimatedSprite2D" parent="ui"]
+position = Vector2(1730, 988)
+scale = Vector2(0.986299, 0.866769)
+sprite_frames = SubResource("SpriteFrames_mwkpf")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.913836
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui/sidebar2"]
 libraries = {
 "": SubResource("AnimationLibrary_pv803")
 }
