@@ -14,6 +14,7 @@ signal boss_defeated
 
 func _set_health(value: float):
 	if hp<=0:
+		$"../CollisionShape2D".disabled
 		boss_defeated.emit()
 		await get_tree().create_timer(1).timeout
 		_dead()

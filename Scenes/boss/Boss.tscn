@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://8db3364bfgbo"]
+[gd_scene load_steps=37 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://cuv6wjkbx0o8f" path="res://Scenes/boss/Spider_boss_sprite_sheet.png" id="1_guep4"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
 [ext_resource type="PackedScene" uid="uid://11eqod1vjyf8" path="res://Scenes/healthbar.tscn" id="3_bsaji"]
 [ext_resource type="Script" path="res://Scenes/boss/state_machine.gd" id="4_7njfd"]
+[ext_resource type="FontFile" uid="uid://b3qf8xclgupjj" path="res://Font Files/Main Font/TitilliumWeb-Light.ttf" id="4_ld373"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkugb"]
 radius = 179.0
@@ -279,8 +280,7 @@ position = Vector2(982, 518)
 rotation = 3.14159
 scale = Vector2(1.2, -1.268)
 sprite_frames = SubResource("SpriteFrames_muwou")
-animation = &"damage"
-frame_progress = 1.0
+animation = &"Death"
 script = ExtResource("2_ilpij")
 
 [node name="healthbar" parent="Boss" instance=ExtResource("3_bsaji")]
@@ -290,15 +290,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -643.667
-offset_top = -704.782
-offset_right = 335.333
-offset_bottom = -670.782
+offset_left = -644.0
+offset_top = -705.0
+offset_right = 335.0
+offset_bottom = -681.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1, 2.31053)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="name" type="Label" parent="Boss/healthbar"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -26.0
+offset_right = 69.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_ld373")
+theme_override_font_sizes/font_size = 25
+text = "Nightmare"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
 libraries = {

@@ -62,8 +62,11 @@ func _process(_delta):
 			
 			#weapon.emit($WeaponSpawnTop.global_position, 0)
 			
-		else:
-			weapon.emit($WeaponSpawnBot.global_position, 180)
+		elif Input.is_action_pressed("shoot") and weaponReady and can_shoot:
+			if $PlayerImage.rotation_degrees == 180:
+				var new_bullet = PLAYER_BULLET.instantiate()
+				new_bullet.position = $WeaponSpawnBot.get_global_position()
+			#weapon.emit($WeaponSpawnBot.global_position, 180)
 		weaponReady = false
 		$WeaponCD.start()
 

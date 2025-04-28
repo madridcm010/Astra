@@ -30,13 +30,6 @@ func _process(delta):
 	#position.x += movement * delta
 	
 	
-func _on_enemy_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("bullet"):
-		var explosion = EXPLOSION.instantiate()
-		explosion.global_position = global_position
-		add_sibling(explosion)
-		queue_free()
-		
 
 @export var attributes: BulletSpawnAttributes:
 	set(value):
@@ -58,3 +51,11 @@ func die():
 	
 
  
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		var explosion = EXPLOSION.instantiate()
+		explosion.global_position = global_position
+		add_sibling(explosion)
+		queue_free()

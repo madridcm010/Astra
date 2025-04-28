@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://do60etbx637cd"]
+[gd_scene load_steps=8 format=3 uid="uid://do60etbx637cd"]
 
-[ext_resource type="Texture2D" uid="uid://dqhwl13jp1re0" path="res://Scenes/enemy/sprites/background.png" id="1_byfu7"]
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_eutbs"]
-[ext_resource type="PackedScene" uid="uid://dw8wy5xjku6mi" path="res://Scenes/enemy/scenes/foliage.tscn" id="2_njhmb"]
 [ext_resource type="PackedScene" uid="uid://b3cw7un3s1oxn" path="res://Scenes/enemy/scenes/enemy_heli.tscn" id="3_wq1x4"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="5_s232t"]
-[ext_resource type="PackedScene" uid="uid://dxim3xwcrkcgd" path="res://Scenes/boss/boss_tower.tscn" id="6_akvt1"]
+[ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="6_di5i1"]
+[ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="7_qhuoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hui1"]
 size = Vector2(58, 1090)
@@ -16,34 +15,7 @@ size = Vector2(1232, 56)
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_eutbs")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(0, 1300)
-autoscroll = Vector2(0, 650)
-repeat_times = 15
-
-[node name="Black" type="Sprite2D" parent="Parallax2D"]
-z_index = -1
-position = Vector2(973, 545)
-scale = Vector2(4.3, 4.25875)
-texture = ExtResource("1_byfu7")
-
-[node name="Foliage" parent="Parallax2D" instance=ExtResource("2_njhmb")]
-position = Vector2(565, 809)
-
-[node name="foliage" parent="Parallax2D" instance=ExtResource("2_njhmb")]
-position = Vector2(1063, 595)
-
-[node name="foliage2" parent="Parallax2D" instance=ExtResource("2_njhmb")]
-position = Vector2(531, 98)
-
-[node name="foliage3" parent="Parallax2D" instance=ExtResource("2_njhmb")]
-position = Vector2(1345, 324)
-
-[node name="foliage4" parent="Parallax2D" instance=ExtResource("2_njhmb")]
-position = Vector2(961, -66)
-
-[node name="foliage5" parent="Parallax2D" instance=ExtResource("2_njhmb")]
-position = Vector2(1383, -135)
+[node name="Parallax Test" parent="." instance=ExtResource("6_di5i1")]
 
 [node name="Borders" type="StaticBody2D" parent="." groups=["border"]]
 
@@ -238,38 +210,4 @@ position = Vector2(978, -9137)
 [node name="Player" parent="." instance=ExtResource("5_s232t")]
 position = Vector2(960, 976)
 
-[node name="boss_tower" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(555, 729)
-
-[node name="boss_tower2" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1056, 523)
-
-[node name="boss_tower3" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1335, 250)
-
-[node name="boss_tower4" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(953.811, -137.486)
-
-[node name="boss_tower5" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(521.811, -1279.49)
-
-[node name="boss_tower6" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1055.81, -2080.49)
-
-[node name="boss_tower7" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1337.81, -3645.49)
-
-[node name="boss_tower8" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(556.811, -4464.49)
-
-[node name="boss_tower9" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(953.811, -5337.49)
-
-[node name="boss_tower10" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1052, -7280)
-
-[node name="boss_tower11" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(956.811, -7931.49)
-
-[node name="boss_tower12" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1334.81, -8845.49)
+[node name="Pause Menu" parent="." instance=ExtResource("7_qhuoi")]

@@ -54,6 +54,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ocbli"]
+radius = 55.0
+height = 138.0
 
 [node name="helicopter" type="CharacterBody2D"]
 script = ExtResource("1_0vc0q")
@@ -63,5 +65,14 @@ sprite_frames = SubResource("SpriteFrames_3bwex")
 animation = &"idle_down"
 frame_progress = 0.326713
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_ocbli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -8)
+shape = SubResource("CapsuleShape2D_ocbli")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
