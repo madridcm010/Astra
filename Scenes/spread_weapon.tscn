@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnkbtsdlgdxnr"]
 
-[ext_resource type="Script" path="res://Scripts/spread_weapon.gd" id="1_nkalt"]
+[ext_resource type="Script" path="res://Scenes/spread_weapon.gd" id="1_nkalt"]
 [ext_resource type="PackedScene" uid="uid://6d68eojtapp5" path="res://Scenes/bullet.tscn" id="2_ahr0a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sggtj"]

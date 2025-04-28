@@ -239,13 +239,13 @@ position = Vector2(978, -9137)
 position = Vector2(960, 976)
 
 [node name="boss_tower" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(555, 2035)
+position = Vector2(555, 729)
 
 [node name="boss_tower2" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1056, 1818)
+position = Vector2(1056, 523)
 
 [node name="boss_tower3" parent="." instance=ExtResource("6_akvt1")]
-position = Vector2(1375.81, 1088.51)
+position = Vector2(1335, 250)
 
 [node name="boss_tower4" parent="." instance=ExtResource("6_akvt1")]
 position = Vector2(953.811, -137.486)

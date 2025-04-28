@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cuv6wjkbx0o8f" path="res://Scenes/boss/Spider_boss_sprite_sheet.png" id="1_guep4"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
-[ext_resource type="PackedScene" uid="uid://cqlp6e35s2me8" path="res://Scenes/healthbar.tscn" id="3_bsaji"]
+[ext_resource type="PackedScene" uid="uid://11eqod1vjyf8" path="res://Scenes/healthbar.tscn" id="3_bsaji"]
 [ext_resource type="Script" path="res://Scenes/boss/state_machine.gd" id="4_7njfd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkugb"]
