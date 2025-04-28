@@ -14,23 +14,16 @@ offset = Vector2(-3, 0)
 
 [node name="NebulaParallax" type="Parallax2D" parent="."]
 repeat_size = Vector2(0, 1080)
-autoscroll = Vector2(0, 3)
+autoscroll = Vector2(0, 10)
 
 [node name="NebullaSprite" type="Sprite2D" parent="NebulaParallax"]
 centered = false
 
 [node name="StarsParallax" type="Parallax2D" parent="."]
 repeat_size = Vector2(0, 1080)
-autoscroll = Vector2(0, 5)
+autoscroll = Vector2(0, 20)
 
 [node name="StarsSprite" type="Sprite2D" parent="StarsParallax"]
-centered = false
-
-[node name="DustParallax" type="Parallax2D" parent="."]
-repeat_size = Vector2(0, 1080)
-autoscroll = Vector2(0, 8)
-
-[node name="DustSprite" type="Sprite2D" parent="DustParallax"]
 centered = false
 
 [node name="PlanetParallax" type="Parallax2D" parent="."]
@@ -38,4 +31,11 @@ repeat_size = Vector2(0, 3240)
 autoscroll = Vector2(0, 15)
 
 [node name="PlanetSprite" type="Sprite2D" parent="PlanetParallax"]
+centered = false
+
+[node name="DustParallax" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 1080)
+autoscroll = Vector2(0, 45)
+
+[node name="DustSprite" type="Sprite2D" parent="DustParallax"]
 centered = false

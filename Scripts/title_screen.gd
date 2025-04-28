@@ -44,6 +44,10 @@ func startGame():
 
 # Runs Start Game animation, then signals "Start Game" animFinished
 func _on_new_game_pressed() -> void:
+	#$"Parallax Test".get_node("DustParallax").set_autoscroll(Vector2(0, 400))
+	#$"Parallax Test".get_node("PlanetParallax").set_autoscroll(Vector2(0, 500))
+	#$"Parallax Test".get_node("StarsParallax").set_autoscroll(Vector2(0, 2))
+	#$"Parallax Test".get_node("NebulaParallax").set_autoscroll(Vector2(0, 100))
 	$AnimationPlayer.play("Start Game")
 	
 # Quits the game on button press

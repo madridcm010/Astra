@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://h6kvaui48s50"]
+[gd_scene load_steps=6 format=3 uid="uid://h6kvaui48s50"]
 
 [ext_resource type="Texture2D" uid="uid://b6sdr6leseim4" path="res://Backgrounds/Hub Placeholders/Spaceport Placeholder Scaled.jpg" id="1_xdul4"]
+[ext_resource type="FontFile" uid="uid://b3qf8xclgupjj" path="res://Font Files/Main Font/TitilliumWeb-Light.ttf" id="2_58xsh"]
 [ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="2_srj18"]
 
 [sub_resource type="FontVariation" id="FontVariation_lk1b6"]
 base_font = ExtResource("2_srj18")
 baseline_offset = 0.115
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2d152"]
 
 [node name="Hub World" type="Node2D"]
 
@@ -13,7 +16,7 @@ baseline_offset = 0.115
 position = Vector2(960, 540)
 texture = ExtResource("1_xdul4")
 
-[node name="Locations Control" type="Control" parent="."]
+[node name="HolopadControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,23 +26,196 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Locations Control"]
-layout_mode = 0
-offset_left = 960.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_constants/margin_left = 200
+[node name="HolopadMargin" type="MarginContainer" parent="HolopadControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Locations Control/MarginContainer"]
+[node name="HolopagBG" type="ColorRect" parent="HolopadControl/HolopadMargin"]
+layout_mode = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.811765)
+
+[node name="HolopadMargin" type="MarginContainer" parent="HolopadControl/HolopadMargin/HolopagBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HolopadSplit" type="HSplitContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Locations Control/MarginContainer/VBoxContainer"]
+[node name="SelectionBG" type="ColorRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit"]
+custom_minimum_size = Vector2(1320, 0)
+layout_mode = 2
+color = Color(0, 0.145098, 0.372549, 0.580392)
+
+[node name="InprocessMargin" type="MarginContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterBox" type="ColorRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 0
+color = Color(1, 1, 1, 0)
+
+[node name="CharacterSplit" type="HSplitContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterImage" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+expand_mode = 1
+
+[node name="StatsVBox" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit"]
+layout_mode = 2
+
+[node name="CharacterNamee" type="RichTextLabel" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit/StatsVBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_58xsh")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Character Name[/center]
+"
+scroll_active = false
+
+[node name="StatsGrid" type="GridContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit/StatsVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 500
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="ClassLabel" type="Label" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit/StatsVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_58xsh")
+theme_override_font_sizes/font_size = 30
+text = "Class Placeholder"
+
+[node name="Label2" type="Label" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit/StatsVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_58xsh")
+theme_override_font_sizes/font_size = 30
+text = "Skill Placeholder"
+
+[node name="Label3" type="Label" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit/StatsVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_58xsh")
+theme_override_font_sizes/font_size = 30
+text = "Rank Placeholder"
+
+[node name="Label4" type="Label" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/InprocessMargin/ScrollContainer/VBoxContainer/CharacterBox/CharacterSplit/StatsVBox/StatsGrid"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_58xsh")
+theme_override_font_sizes/font_size = 30
+text = "Cost Placeholder
+"
+
+[node name="OptionsMargin" type="MarginContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit"]
+layout_mode = 2
+
+[node name="OptionsVBox" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="UpgradeButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
+theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
 theme_override_fonts/font = SubResource("FontVariation_lk1b6")
 theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
+text = "HUB UPGRADES"
+
+[node name="HangarButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
+theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
+theme_override_fonts/font = SubResource("FontVariation_lk1b6")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
 text = "HANGAR"
+
+[node name="InprocessingButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
+theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
+theme_override_fonts/font = SubResource("FontVariation_lk1b6")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
+text = "InProcessing"
+
+[node name="CrewButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
+theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
+theme_override_fonts/font = SubResource("FontVariation_lk1b6")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
+text = "Crew Quarters"
+
+[node name="ManifestButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
+theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
+theme_override_fonts/font = SubResource("FontVariation_lk1b6")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
+text = "Manifest"
+
+[node name="Spacer" type="Control" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+
+[node name="SendButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
+theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
+theme_override_fonts/font = SubResource("FontVariation_lk1b6")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
+text = "Send Crew"
