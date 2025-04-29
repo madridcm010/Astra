@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Enemystats" load_steps=3 format=3 uid="uid://qikff8dej3hn"]
 
+[ext_resource type="Texture2D" uid="uid://blghd8s3huv56" path="res://Placeholder Assets/Graphics/Enemies/enemyBlue2.png" id="1_6j024"]
 [ext_resource type="Script" path="res://Scenes/enemy/Resource/enemy_stats.gd" id="1_8kwo1"]
-[ext_resource type="Texture2D" uid="uid://bois6u1svvmmf" path="res://Scenes/enemy/sprites/frame3.png" id="1_tdywb"]
 
 [resource]
 script = ExtResource("1_8kwo1")
-enemy_sprite = ExtResource("1_tdywb")
-enemy_speed = 150.0
+enemy_sprite = ExtResource("1_6j024")
+enemy_speed = 200.0
 enemy_hp = 1
-enemy_frequency = 5
+enemy_frequency = 10
 enemy_amplitude = 360
 enemy_num_of_shots = 0.0
 enemy_damage_of_shots = 0.0

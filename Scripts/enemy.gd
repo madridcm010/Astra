@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var stats : Enemystats
+#var sprite = stats.enemy_sprite
 
 var time = 0
 var speedchar = 100
@@ -39,13 +40,7 @@ func _on_enemy_area_area_entered(area: Area2D) -> void:
 		queue_free()
 		
 
-@export var attributes: BulletSpawnAttributes:
-	set(value):
-		attributes = value
-	
-@export var speed: int = 300
-@export var min_rotation: int = 90
-@export var max_rotation: int = 360
+
 
 
 func die():
