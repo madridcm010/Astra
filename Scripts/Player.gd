@@ -62,6 +62,8 @@ func _process(_delta):
 			add_sibling(new_bullet)
 		if $PlayerImage.rotation_degrees == 180:
 			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.speed *= -1
+			new_bullet.flip_sprite == true
 			new_bullet.position = $WeaponSpawnBot.get_global_position()
 			
 			add_sibling(new_bullet)

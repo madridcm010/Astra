@@ -5,17 +5,18 @@ const PLAYER = preload("res://Scenes/player/scenes/player.tscn")
 @export var lifetime = 10.00
 @export var rotation_change = 0.0
 @export var direction : Vector2
+@export var flip_sprite: bool
 
 func _ready():
 	$Timer.start(lifetime)
 	
 func _process(delta: float) -> void:
-	if player== false:
-		translate(Vector2.UP * speed * delta)
-	#if player.rotat:
-	#elif $Player/PlayerImage.rotation_degrees == 180:
-		#translate(Vector2.DOWN * speed * delta)
-		
+	#TODO NEED TO SETUP ROTATION FOR SHOOTING
+	translate(Vector2.UP * speed * delta)
+	if flip_sprite == true:
+		$Sprite2D.scale.y = -1
+	else:
+		$Sprite2D.scale.y = 1
 
 func _on_timer_timeout() -> void:
 	queue_free()
