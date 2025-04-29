@@ -27,9 +27,9 @@ func _on_player_weapon(pos, rot) -> void:
 	weapon.position = pos
 
 #enemy spawner test
-func _on_enemy_spawn_timeout() -> void:
-	var enemy = enemy_scene.instantiate()
-	add_child(enemy)
+#func _on_enemy_spawn_timeout() -> void:
+	#var enemy = enemy_scene.instantiate()
+	#add_child(enemy)
 	
 func pause_game():
 	if paused:

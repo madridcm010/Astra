@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgmeagmdddart"]
+
+[ext_resource type="Texture2D" uid="uid://bmwbvhc0y2mvg" path="res://Placeholder Assets/Graphics/Players/playerShip1_blue.png" id="1_hjgdd"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_13ywc"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("2_13ywc")
+speed = 800
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_hjgdd")
+
+[node name="PlayerCollision" type="CollisionPolygon2D" parent="."]
+position = Vector2(-370, -912)
+polygon = PackedVector2Array(362, 874, 349, 937, 392, 937, 378, 874)
+
+[node name="WeaponSpawnTop" type="Marker2D" parent="."]
+position = Vector2(0, -60)
+
+[node name="WeaponSpawnBot" type="Marker2D" parent="."]
+position = Vector2(0, 60)
+
+[node name="WeaponCD" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="FlipCD" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="WeaponCD" to="." method="_on_Weapon_CD_timeout"]
+[connection signal="timeout" from="FlipCD" to="." method="_on_flip_cd_timeout"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Enemystats" load_steps=3 format=3 uid="uid://cvnl247m7cdep"]
+
+[ext_resource type="Texture2D" uid="uid://bmmxn5a80ptug" path="res://Placeholder Assets/Graphics/Enemies/enemyRed2.png" id="1_oi74n"]
+[ext_resource type="Script" path="res://Scenes/enemy/Resource/enemy_stats.gd" id="2_fsue8"]
+
+[resource]
+script = ExtResource("2_fsue8")
+enemy_sprite = ExtResource("1_oi74n")
+enemy_speed = 500.0
+enemy_hp = 0
+enemy_frequency = 0
+enemy_amplitude = 0
+enemy_num_of_shots = 0.0
+enemy_damage_of_shots = 0.0

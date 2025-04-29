@@ -1,10 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://rj3j768rk57o"]
+[gd_scene load_steps=21 format=3 uid="uid://bi3gm26ra651v"]
 
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_570ua"]
 [ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="2_vkysl"]
-[ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="2_y5loa"]
+[ext_resource type="PackedScene" path="res://Scenes/parallax_test.tscn" id="2_y5loa"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="4_jjdww"]
-[ext_resource type="PackedScene" uid="uid://c14ymhav7xwq4" path="res://Scenes/settings_menu.tscn" id="5_1ifiy"]
+[ext_resource type="PackedScene" path="res://Scenes/settings_menu.tscn" id="5_1ifiy"]
 [ext_resource type="AudioStream" uid="uid://cm83nrjgws864" path="res://Sound Files/ObservingTheStar.ogg" id="6_1a1ky"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htjbv"]
@@ -371,7 +371,6 @@ offset_bottom = 1090.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_1a1ky")
-bus = &"Music"
 
 [connection signal="close_settings" from="." to="SettingsMenu" method="_on_title_screen_close_settings"]
 [connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/New Game" to="." method="_on_new_game_pressed"]

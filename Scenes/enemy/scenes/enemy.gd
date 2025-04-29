@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Sprite2D
 
 @export var stats : Enemystats
 
@@ -13,13 +13,13 @@ const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
 
 func _ready() -> void:
 	#sprite loading
-	$Texture.texture = stats.enemy_sprite
+	$Sprite2D.texture = stats.enemy_sprite
 	var rng := RandomNumberGenerator.new()
-	#var enemy_scene = load("res://Scenes/enemy/scenes/enemy.tscn")
+	var enemy_scene = load("res://Scenes/enemy/scenes/enemy.tscn")
 	
 	#start position
-	#var width = get_viewport().get_visible_rect().size[0]
-	#var randx = rng.randi_range(0, width)
+	var width = get_viewport().get_visible_rect().size[0]
+	var randx = rng.randi_range(0, width)
 	
 	#position = Vector2(randx, 200) 
 	
@@ -56,6 +56,3 @@ func die():
 	# Play a death animation
 	$enemyArea/AnimatedSprite2D.stop()
 	$enemyArea/AnimatedSprite2D.play("death_down")
-	
-
- 
