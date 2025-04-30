@@ -1,6 +1,8 @@
 extends CharacterBody2D
-class_name Player
-@export var speed = 400
+
+@export var stats : PlayerStats
+
+var speed = stats.Speed
 var current_rotation :float =  0.0
 const rotation_speed = 180
 const PLAYER_BULLET = preload("res://Scenes/player/scenes/player_bullet.tscn")
@@ -69,15 +71,23 @@ func _process(_delta):
 			add_sibling(new_bullet)
 			#weapon.emit($WeaponSpawnTop.global_position, 0)
 			
-		elif Input.is_action_pressed("shoot") and weaponReady and can_shoot:
-			if $PlayerImage.rotation_degrees == 180:
-				var new_bullet = PLAYER_BULLET.instantiate()
-				new_bullet.position = $WeaponSpawnBot.get_global_position()
+		#elif Input.is_action_pressed("shoot") and weaponReady and can_shoot:
+			#if $PlayerImage.rotation_degrees == 180:
+				#var new_bullet = PLAYER_BULLET.instantiate()
+				#new_bullet.position = $WeaponSpawnBot.get_global_position()
 			#weapon.emit($WeaponSpawnBot.global_position, 180)
 		weaponReady = false
 		$WeaponCD.start()
 
+
+#Timers for player using resource
+	$WeaponCD.wait_time = stats.WeaponCD
+	$FlipCD.wait_time = stats.FlipCD
+
+
 # signal receiver for ship weapon cooldown timer
+
+
 func _on_Weapon_CD_timeout() -> void:
 	weaponReady = true
 
