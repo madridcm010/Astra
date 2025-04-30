@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Playerstats" load_steps=2 format=3 uid="uid://wx21prccd2s6"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="2_ho836"]
+
+[resource]
+script = ExtResource("2_ho836")
+Speed = 0.0
+WeaponCD = 0.0
+FlipCD = 0.0
+WeaponType = 0
