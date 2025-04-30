@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_62qal")
-Speed = 150.0
+Speed = 250.0
 Sprite = ExtResource("1_85re7")
 WeaponCD = 0.25
 FlipCD = 0.1

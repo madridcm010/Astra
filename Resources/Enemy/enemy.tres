@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Enemystats" load_steps=2 format=3 uid="uid://cvnl247m7cdep"]
+[gd_resource type="Resource" script_class="Enemystats" load_steps=3 format=3 uid="uid://cvnl247m7cdep"]
 
+[ext_resource type="Texture2D" uid="uid://dp56yef1hkn0w" path="res://Placeholder Assets/Graphics/UI/playerLife1_blue.png" id="1_v1k57"]
 [ext_resource type="Script" path="res://Resources/Scripts/enemy_stats.gd" id="2_fsue8"]
 
 [resource]
 script = ExtResource("2_fsue8")
+enemy_sprite = ExtResource("1_v1k57")
 enemy_speed = 500.0
 enemy_hp = 1
 enemy_frequency = 5

@@ -1,5 +1,5 @@
 extends Resource
-class_name PlayerStats
+class_name Playerstats
 enum WeaponTypes {Basic = 1 , Shotgun = 2, Laser = 3, MachineGun = 4 }
 #Variables that need to be changed for each player ship
 @export var Speed: float

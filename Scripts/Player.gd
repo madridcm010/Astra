@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var stats : PlayerStats
+@export var stats : Playerstats
 
-var speed = stats.Speed
+#var speed = stats.Speed
 var current_rotation :float =  0.0
 const rotation_speed = 180
 const PLAYER_BULLET = preload("res://Scenes/player/scenes/player_bullet.tscn")
@@ -22,16 +22,16 @@ func playerFlip(rot):
 		$PlayerCollision.rotation_degrees = 0
 
 # starting position of Player
-func _ready():
-	if get_tree().get_current_scene().is_in_group("world"):
-		position = Vector2(973, 890)
-	elif get_tree().get_current_scene().is_in_group("boss_level"):
-		position = Vector2(-6,769)
+#func _ready():
+	#if get_tree().get_current_scene().is_in_group("world"):
+		#position = Vector2(973, 890)
+	#elif get_tree().get_current_scene().is_in_group("boss_level"):
+		#position = Vector2(-6,769)
 	#connect boss signal
 	
-	var boss = get_node("res://Scenes/boss/Boss.tscn")
-	if boss:
-		boss.connect("boss_defeated", _on_boss_defeated)
+	#var boss = get_node("res://Scenes/boss/Boss.tscn")
+	#if boss:
+		#boss.connect("boss_defeated", _on_boss_defeated)
 		
 		
 #signal function
@@ -45,7 +45,7 @@ var flipReady : bool = true
 # function for getting directional and flip input of player
 func get_input():
 	var input_direction = Input.get_vector("left","right","up", "down")
-	velocity = input_direction * speed
+	velocity = input_direction * stats.Speed
 	if Input.is_action_just_pressed("flip") and flipReady:
 		playerFlip($PlayerImage.rotation_degrees)
 		flipReady = false 
@@ -53,6 +53,9 @@ func get_input():
 		
 # constantly running function
 func _process(_delta):
+	#speed = stats.Speed
+	#var speed = stats.Speed
+	
 	get_input()
 	move_and_slide()
 	
