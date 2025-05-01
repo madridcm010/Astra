@@ -13,10 +13,10 @@ texture = ExtResource("1_hjgdd")
 position = Vector2(-370, -912)
 polygon = PackedVector2Array(362, 874, 349, 937, 392, 937, 378, 874)
 
-[node name="WeaponSpawnTop" type="Marker2D" parent="."]
+[node name="WeaponSpawnTop1" type="Marker2D" parent="."]
 position = Vector2(0, -60)
 
-[node name="WeaponSpawnBot" type="Marker2D" parent="."]
+[node name="WeaponSpawnBot1" type="Marker2D" parent="."]
 position = Vector2(0, 60)
 
 [node name="WeaponCD" type="Timer" parent="."]
@@ -26,6 +26,18 @@ one_shot = true
 [node name="FlipCD" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="WeaponSpawnTop2" type="Marker2D" parent="."]
+position = Vector2(-30, -60)
+
+[node name="WeaponSpawnTop3" type="Marker2D" parent="."]
+position = Vector2(30, -60)
+
+[node name="WeaponSpawnBot2" type="Marker2D" parent="."]
+position = Vector2(-30, 60)
+
+[node name="WeaponSpawnBot3" type="Marker2D" parent="."]
+position = Vector2(30, 60)
 
 [connection signal="timeout" from="WeaponCD" to="." method="_on_Weapon_CD_timeout"]
 [connection signal="timeout" from="FlipCD" to="." method="_on_flip_cd_timeout"]

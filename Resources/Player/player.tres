@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("2_ho836")
-Speed = 0.0
-WeaponCD = 0.0
-FlipCD = 0.0
-WeaponType = 0
+Speed = 500.0
+WeaponCD = 0.2
+FlipCD = 0.2
+WeaponType = 2

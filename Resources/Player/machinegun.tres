@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Playerstats" load_steps=2 format=3 uid="uid://cp81wy865cl4m"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="1_iutmv"]
+
+[resource]
+script = ExtResource("1_iutmv")
+Speed = 700.0
+WeaponCD = 0.1
+FlipCD = 0.25
+WeaponType = 2
+WeaponChoice = 4

@@ -7,6 +7,7 @@ var current_rotation :float =  0.0
 const rotation_speed = 180
 const PLAYER_BULLET = preload("res://Scenes/player/scenes/player_bullet.tscn")
 var can_shoot = true
+#var fire_type := stats.WeaponChoice == 1
 # signal to be sent level for laser spawns
 signal weapon(pos, rot)
 #signal spread_weapon(pos,rot)
@@ -61,31 +62,71 @@ func _process(_delta):
 	
 	# Checks for shoot input of player and checks that the weapon is not on cooldown
 	if Input.is_action_pressed("shoot") and weaponReady and can_shoot:
-		if $PlayerImage.rotation_degrees == 0:
-			var new_bullet = PLAYER_BULLET.instantiate()
-			new_bullet.position = $WeaponSpawnTop.get_global_position()
-			add_sibling(new_bullet)
-		if $PlayerImage.rotation_degrees == 180:
-			var new_bullet = PLAYER_BULLET.instantiate()
-			new_bullet.speed *= -1
-			new_bullet.flip_sprite == true
-			new_bullet.position = $WeaponSpawnBot.get_global_position()
+		#comments for bullets
+		fire()
+		
 			
-			add_sibling(new_bullet)
 			#weapon.emit($WeaponSpawnTop.global_position, 0)
 			
-		#elif Input.is_action_pressed("shoot") and weaponReady and can_shoot:
-			#if $PlayerImage.rotation_degrees == 180:
-				#var new_bullet = PLAYER_BULLET.instantiate()
-				#new_bullet.position = $WeaponSpawnBot.get_global_position()
-			#weapon.emit($WeaponSpawnBot.global_position, 180)
+		
 		weaponReady = false
 		$WeaponCD.start()
-
 
 #Timers for player using resource
 	$WeaponCD.wait_time = stats.WeaponCD
 	$FlipCD.wait_time = stats.FlipCD
+	
+# gun functionality
+func fire():
+	
+	if $PlayerImage.rotation_degrees == 0:
+		if stats.WeaponChoice == 1 :
+			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.position = $WeaponSpawnTop1.get_global_position()
+			add_sibling(new_bullet)
+		elif stats.WeaponChoice == 2:
+			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.position = $WeaponSpawnTop1.get_global_position()
+			add_sibling(new_bullet)
+			var new_bullet2 = PLAYER_BULLET.instantiate()
+			new_bullet2.position = $WeaponSpawnTop2.get_global_position()
+			add_sibling(new_bullet2)
+			var new_bullet3 = PLAYER_BULLET.instantiate()
+			new_bullet3.position = $WeaponSpawnTop3.get_global_position()
+			add_sibling(new_bullet3)
+		elif stats.WeaponChoice == 4:
+			#change the weaponcd time to .15 inside of .tres file
+			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.position = $WeaponSpawnTop1.get_global_position()
+			add_sibling(new_bullet)
+	if $PlayerImage.rotation_degrees == 180:
+		if stats.WeaponChoice == 1:
+			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.speed *= -1
+			new_bullet.flip_sprite == true
+			new_bullet.position = $WeaponSpawnBot1.get_global_position()
+			add_sibling(new_bullet)
+		elif stats.WeaponChoice == 2:
+			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.speed *= -1
+			new_bullet.position = $WeaponSpawnBot1.get_global_position()
+			add_sibling(new_bullet)
+			var new_bullet2 = PLAYER_BULLET.instantiate()
+			new_bullet2.speed *= -1
+			new_bullet2.position = $WeaponSpawnBot2.get_global_position()
+			add_sibling(new_bullet2)
+			var new_bullet3 = PLAYER_BULLET.instantiate()
+			new_bullet3.speed *= -1
+			new_bullet3.position = $WeaponSpawnBot3.get_global_position()
+			add_sibling(new_bullet3)
+		# TODO laser mechanics added here
+		elif stats.WeaponChoice == 4:
+			#change the weaponcd time to .15 inside of .tres file
+			var new_bullet = PLAYER_BULLET.instantiate()
+			new_bullet.speed *= -1
+			new_bullet.position = $WeaponSpawnBot1.get_global_position()
+			add_sibling(new_bullet)
+			
 
 
 # signal receiver for ship weapon cooldown timer
