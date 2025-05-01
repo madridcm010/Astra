@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5ihbctteub5s"]
+[gd_scene load_steps=9 format=3 uid="uid://b5ihbctteub5s"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_eutbs"]
-[ext_resource type="PackedScene" uid="uid://b3cw7un3s1oxn" path="res://Scenes/enemy/scenes/enemy_heli.tscn" id="3_wq1x4"]
+[ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_1a646"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="5_s232t"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="6_di5i1"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="7_qhuoi"]
@@ -11,6 +11,14 @@ size = Vector2(58, 1090)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iewet"]
 size = Vector2(1232, 56)
+
+[sub_resource type="Resource" id="Resource_aurrp"]
+script = ExtResource("4_1a646")
+Speed = 750.0
+WeaponCD = 0.25
+FlipCD = 0.25
+WeaponType = 1
+WeaponChoice = 1
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_eutbs")
@@ -39,175 +47,8 @@ position = Vector2(959, 1063)
 shape = SubResource("RectangleShape2D_iewet")
 one_way_collision_margin = 0.0
 
-[node name="helicopter" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(540, -479)
-
-[node name="helicopter2" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1288, -213)
-
-[node name="helicopter3" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(704, -225)
-
-[node name="helicopter4" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1412, -479)
-
-[node name="helicopter5" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(997, -473)
-
-[node name="helicopter6" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(721, -709)
-
-[node name="helicopter7" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1231, -725)
-
-[node name="helicopter8" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(540, -2578)
-
-[node name="helicopter9" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1288, -2312)
-
-[node name="helicopter10" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(704, -2324)
-
-[node name="helicopter11" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1412, -2578)
-
-[node name="helicopter12" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(809, -3030)
-
-[node name="helicopter13" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(721, -2808)
-
-[node name="helicopter14" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1231, -2824)
-
-[node name="helicopter15" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(514, -1574)
-
-[node name="helicopter16" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1262, -1308)
-
-[node name="helicopter17" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(678, -1320)
-
-[node name="helicopter18" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1386, -1574)
-
-[node name="helicopter19" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1163, -1568)
-
-[node name="helicopter20" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(695, -1804)
-
-[node name="helicopter21" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1205, -1820)
-
-[node name="helicopter22" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(526, -3544)
-
-[node name="helicopter23" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1245, -3043)
-
-[node name="helicopter24" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(690, -3290)
-
-[node name="helicopter25" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1416, -3273)
-
-[node name="helicopter26" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1118, -3356)
-
-[node name="helicopter27" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(871, -3614)
-
-[node name="helicopter28" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(928, -3940)
-
-[node name="helicopter29" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(482, -4904)
-
-[node name="helicopter30" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1326, -4630)
-
-[node name="helicopter31" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(742, -4642)
-
-[node name="helicopter32" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1450, -4896)
-
-[node name="helicopter33" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1035, -4890)
-
-[node name="helicopter34" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(759, -4894)
-
-[node name="helicopter35" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1261, -4878)
-
-[node name="helicopter36" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(532, -6168)
-
-[node name="helicopter37" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1018, -5811)
-
-[node name="helicopter38" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(696, -5914)
-
-[node name="helicopter39" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1404, -6168)
-
-[node name="helicopter40" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1332, -5850)
-
-[node name="helicopter41" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(975, -6237)
-
-[node name="helicopter42" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(759, -6495)
-
-[node name="helicopter43" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(507, -7179)
-
-[node name="helicopter44" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1255, -6913)
-
-[node name="helicopter45" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(671, -6925)
-
-[node name="helicopter46" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1379, -7179)
-
-[node name="helicopter47" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(976, -6843)
-
-[node name="helicopter48" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(964, -7169)
-
-[node name="helicopter49" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(689, -7425)
-
-[node name="helicopter50" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(525, -8404)
-
-[node name="helicopter51" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1424, -8380)
-
-[node name="helicopter52" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(915, -8381)
-
-[node name="helicopter53" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(1378, -8729)
-
-[node name="helicopter54" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(676, -8663)
-
-[node name="helicopter55" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(687, -8959)
-
-[node name="helicopter56" parent="." instance=ExtResource("3_wq1x4")]
-position = Vector2(978, -9137)
-
 [node name="Player" parent="." instance=ExtResource("5_s232t")]
 position = Vector2(960, 976)
+stats = SubResource("Resource_aurrp")
 
 [node name="Pause Menu" parent="." instance=ExtResource("7_qhuoi")]

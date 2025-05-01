@@ -1,6 +1,6 @@
 extends Node2D
 
-var mainGame = load("res://Scenes/world.tscn")
+var mainGame = load("res://Scenes/enemy/scenes/level1.tscn")
 
 signal close_settings
 # Called as soon as scene is ready

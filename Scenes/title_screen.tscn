@@ -294,6 +294,7 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 
 [node name="Continue Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
@@ -309,6 +310,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
 text = "Continue"
 
 [node name="New Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
@@ -324,6 +326,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
 text = "New Game"
 
 [node name="Settings" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
@@ -339,6 +342,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
 text = "Settings"
 
 [node name="Quit Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)

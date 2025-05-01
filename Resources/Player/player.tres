@@ -8,3 +8,4 @@ Speed = 500.0
 WeaponCD = 0.2
 FlipCD = 0.2
 WeaponType = 2
+WeaponChoice = 0

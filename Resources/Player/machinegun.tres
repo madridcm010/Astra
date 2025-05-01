@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_iutmv")
-Speed = 700.0
-WeaponCD = 0.1
+Speed = 1500.0
+WeaponCD = 0.15
 FlipCD = 0.25
 WeaponType = 2
-WeaponChoice = 4
+WeaponChoice = 2
