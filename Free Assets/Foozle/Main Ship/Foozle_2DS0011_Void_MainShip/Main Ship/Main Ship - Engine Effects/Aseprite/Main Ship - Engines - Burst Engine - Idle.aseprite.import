@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3fbevm6divdn"
-path="res://.godot/imported/Main Ship - Engines - Burst Engine - Idle.aseprite-e98b02db302c81c3276e0079f118e1b8.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/Aseprite/Main Ship - Engines - Burst Engine - Idle.aseprite"
-dest_files=["res://.godot/imported/Main Ship - Engines - Burst Engine - Idle.aseprite-e98b02db302c81c3276e0079f118e1b8.ctex"]
 
 [params]
 

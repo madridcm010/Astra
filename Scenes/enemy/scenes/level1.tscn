@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5ihbctteub5s"]
+[gd_scene load_steps=12 format=3 uid="uid://b5ihbctteub5s"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_eutbs"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_1a646"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="6_jpip0"]
 [ext_resource type="Resource" uid="uid://cvnl247m7cdep" path="res://Resources/Enemy/enemy.tres" id="7_d08xo"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="7_qhuoi"]
+[ext_resource type="PackedScene" uid="uid://8db3364bfgbo" path="res://Scenes/boss/Boss.tscn" id="8_5e8kn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hui1"]
 size = Vector2(58, 1090)
@@ -67,6 +68,11 @@ stats = ExtResource("7_d08xo")
 wait_time = 0.5
 autostart = true
 
-[connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="bossbody" parent="." instance=ExtResource("8_5e8kn")]
+position = Vector2(2, -86)
+
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
+[connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]

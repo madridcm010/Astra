@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c088rat0fiin3"
-path="res://.godot/imported/Main Ship - Engines - Base Engine.aseprite-0bb8d15e7961bef8ab097b1c59005219.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engines/Aseprite/Main Ship - Engines - Base Engine.aseprite"
-dest_files=["res://.godot/imported/Main Ship - Engines - Base Engine.aseprite-0bb8d15e7961bef8ab097b1c59005219.ctex"]
 
 [params]
 

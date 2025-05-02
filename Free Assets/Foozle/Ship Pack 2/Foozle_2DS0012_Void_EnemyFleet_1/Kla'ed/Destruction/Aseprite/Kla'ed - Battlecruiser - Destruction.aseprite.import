@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7aakxoxhqwie"
-path="res://.godot/imported/Kla'ed - Battlecruiser - Destruction.aseprite-9d26ae0bdb8f5bef4576029fe4c8b8b6.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Destruction/Aseprite/Kla'ed - Battlecruiser - Destruction.aseprite"
-dest_files=["res://.godot/imported/Kla'ed - Battlecruiser - Destruction.aseprite-9d26ae0bdb8f5bef4576029fe4c8b8b6.ctex"]
 
 [params]
 

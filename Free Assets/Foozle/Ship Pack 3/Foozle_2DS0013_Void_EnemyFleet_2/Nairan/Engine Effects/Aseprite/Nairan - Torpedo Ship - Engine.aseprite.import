@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmu6bysk0deyh"
-path="res://.godot/imported/Nairan - Torpedo Ship - Engine.aseprite-c5858b3d99747ced8d7782146db05dfa.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Engine Effects/Aseprite/Nairan - Torpedo Ship - Engine.aseprite"
-dest_files=["res://.godot/imported/Nairan - Torpedo Ship - Engine.aseprite-c5858b3d99747ced8d7782146db05dfa.ctex"]
 
 [params]
 

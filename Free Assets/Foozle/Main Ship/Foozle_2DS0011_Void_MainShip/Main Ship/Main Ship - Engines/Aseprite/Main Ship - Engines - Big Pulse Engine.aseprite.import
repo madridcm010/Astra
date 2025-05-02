@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bopojkut17h8t"
-path="res://.godot/imported/Main Ship - Engines - Big Pulse Engine.aseprite-5483ef0ea6ef38d881928e277d6c97e3.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engines/Aseprite/Main Ship - Engines - Big Pulse Engine.aseprite"
-dest_files=["res://.godot/imported/Main Ship - Engines - Big Pulse Engine.aseprite-5483ef0ea6ef38d881928e277d6c97e3.ctex"]
 
 [params]
 

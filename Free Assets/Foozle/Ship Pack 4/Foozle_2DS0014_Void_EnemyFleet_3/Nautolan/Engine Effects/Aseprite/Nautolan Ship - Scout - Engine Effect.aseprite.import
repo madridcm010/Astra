@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://by4ceavvgrdrt"
-path="res://.godot/imported/Nautolan Ship - Scout - Engine Effect.aseprite-424bba0903e458773d9e9409ca76b2fc.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Scout - Engine Effect.aseprite"
-dest_files=["res://.godot/imported/Nautolan Ship - Scout - Engine Effect.aseprite-424bba0903e458773d9e9409ca76b2fc.ctex"]
 
 [params]
 

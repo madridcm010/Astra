@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://22cb8t2506ie"
-path="res://.godot/imported/Nautolan Ship - Battlecruiser - Weapons.aseprite-94f6f94ae9326fb611eef70bece4211d.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapons/Aseprite/Nautolan Ship - Battlecruiser - Weapons.aseprite"
-dest_files=["res://.godot/imported/Nautolan Ship - Battlecruiser - Weapons.aseprite-94f6f94ae9326fb611eef70bece4211d.ctex"]
 
 [params]
 

@@ -51,3 +51,11 @@ func _on_south_spawn_timeout() -> void:
 	enemy.rotation_degrees = 0
 	enemy.position = Vector2(rand_x,rand_y)
 	add_child(enemy)
+# END 
+
+#Start of spawnboss
+#func spawn_boss():
+	
+
+
+#END

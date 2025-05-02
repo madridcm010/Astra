@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c77c0y7uopomb"
-path="res://.godot/imported/Nairan - Scout - Engine.aseprite-92fb20f49d3145cfce8028eccb8b9e55.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Engine Effects/Aseprite/Nairan - Scout - Engine.aseprite"
-dest_files=["res://.godot/imported/Nairan - Scout - Engine.aseprite-92fb20f49d3145cfce8028eccb8b9e55.ctex"]
 
 [params]
 
