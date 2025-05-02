@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@export var stats : Enemystats
+@export var stats = load("res://Resources/Enemy/enemy.tres").duplicate()
 #var sprite = stats.enemy_sprite
+var spread_weapon_scene: PackedScene = load("res://Scenes/spread_weapon.tscn")
+const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
 
 var time = 0
-var speedchar = 100
-var spread_weapon_scene: PackedScene = load("res://Scenes/spread_weapon.tscn")
-
-const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
+#var speedchar = 100
+var direction : Vector2
 
 
 
@@ -25,8 +25,11 @@ func _ready() -> void:
 	#position = Vector2(randx, 200) 
 	
 func _process(delta):
-	translate(Vector2.DOWN * stats.enemy_speed * delta)
-	#$enemyArea/AnimatedSprite2D.play("idle_down")
+	if stats.enemy_spawn_location == 1:
+		#position.y += stats.enemy_speed * delta\
+		translate(Vector2.DOWN * stats.enemy_speed * delta)
+	if stats.enemy_spawn_location == 2:
+		translate(Vector2.UP * stats.enemy_speed * delta)
 	time += delta
 	var movement = cos(time*stats.enemy_frequency)*stats.enemy_amplitude
 	position.x += movement * delta

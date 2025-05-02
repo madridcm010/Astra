@@ -1,6 +1,6 @@
 extends Resource
 class_name Enemystats
-
+enum spawnlocation {North = 1 , South = 2, }
 # Variables used for enemy creation
 @export var enemy_sprite : Texture2D
 
@@ -10,7 +10,7 @@ class_name Enemystats
 @export var enemy_hp : int
 @export var enemy_frequency : int
 @export var enemy_amplitude : int
-
+@export var enemy_spawn_location : spawnlocation
 # Group for various enemy attacks
 @export_group("Attacks")
 @export var enemy_num_of_shots : float

@@ -10,5 +10,6 @@ enemy_speed = 500.0
 enemy_hp = 1
 enemy_frequency = 5
 enemy_amplitude = 360
+enemy_spawn_location = 1
 enemy_num_of_shots = 1.0
 enemy_damage_of_shots = 0.0

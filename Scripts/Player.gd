@@ -17,6 +17,7 @@ func playerFlip(rot):
 	rot = $PlayerImage.rotation_degrees
 	if (rot == 0):
 		$PlayerImage.rotation_degrees = 180
+		#TODO FIX THIS PLEASE!
 		#$PlayerCollision.rotation_degrees = 180
 	else:
 		$PlayerImage.rotation_degrees = 0

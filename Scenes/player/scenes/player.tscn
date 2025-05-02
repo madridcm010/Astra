@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_13ywc"]
 
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("2_13ywc")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
