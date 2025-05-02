@@ -81,15 +81,27 @@ func update_upgrade_images() -> void:
 	attackspeed_image.texture.region.position.x = advance_frame(hub_stats.attackspeed_level)
 	thruster_image.texture.region.position.x = advance_frame(hub_stats.thruster_level)
 	damage_image.texture.region.position.x = advance_frame(hub_stats.damage_level)
-
+	if (hub_stats.ship1purchased == true):
+		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy".set_text("OWNED")
+		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy".disabled = true
+	if (hub_stats.ship3purchased == true):
+		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy".set_text("OWNED")
+		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy".disabled = true
+		
+		
+		
+		
 func _on_ship_3_buy_pressed() -> void:
 	$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy".set_text("OWNED")
 	$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy".disabled = true
-
+	hub_stats.ship3purchased = true
+	save_hub_stats()
 
 func _on_ship_1_buy_pressed() -> void:
 	$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy".set_text("OWNED")
 	$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy".disabled = true
-
+	hub_stats.ship1purchased = true
+	save_hub_stats()
+	
 func save_hub_stats():
 	ResourceSaver.save(hub_stats, "res://Resources/Hub/HubStats.tres")
