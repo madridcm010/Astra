@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://h6kvaui48s50"]
+[gd_scene load_steps=19 format=3 uid="uid://h6kvaui48s50"]
 
 [ext_resource type="Script" path="res://Scenes/hub_world.gd" id="1_2rsmc"]
+[ext_resource type="Resource" uid="uid://dlvl2jghi2637" path="res://Resources/Hub/HubStats.tres" id="2_0exh7"]
 [ext_resource type="Texture2D" uid="uid://ihs703nqjg6r" path="res://Backgrounds/Hub Placeholders/Hub BG2 Sized2.png" id="2_1nacm"]
 [ext_resource type="Texture2D" uid="uid://b2x7yfjuchn33" path="res://Free Assets/PNG/Pause/Table.png" id="2_nmkl7"]
 [ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="2_srj18"]
@@ -27,6 +28,7 @@ baseline_offset = 0.115
 
 [node name="Hub World" type="Node2D"]
 script = ExtResource("1_2rsmc")
+hub_stats = ExtResource("2_0exh7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
