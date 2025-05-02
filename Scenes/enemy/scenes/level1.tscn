@@ -15,10 +15,10 @@ size = Vector2(1232, 56)
 [sub_resource type="Resource" id="Resource_aurrp"]
 script = ExtResource("4_1a646")
 Speed = 750.0
-WeaponCD = 0.25
-FlipCD = 0.25
+WeaponCD = 0.0
+FlipCD = 1.0
 WeaponType = 1
-WeaponChoice = 1
+WeaponChoice = 2
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_eutbs")

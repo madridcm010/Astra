@@ -17,23 +17,11 @@ func playerFlip(rot):
 	rot = $PlayerImage.rotation_degrees
 	if (rot == 0):
 		$PlayerImage.rotation_degrees = 180
-		$PlayerCollision.rotation_degrees = 180
+		#$PlayerCollision.rotation_degrees = 180
 	else:
 		$PlayerImage.rotation_degrees = 0
 		$PlayerCollision.rotation_degrees = 0
 
-# starting position of Player
-#func _ready():
-	#if get_tree().get_current_scene().is_in_group("world"):
-		#position = Vector2(973, 890)
-	#elif get_tree().get_current_scene().is_in_group("boss_level"):
-		#position = Vector2(-6,769)
-	#connect boss signal
-	
-	#var boss = get_node("res://Scenes/boss/Boss.tscn")
-	#if boss:
-		#boss.connect("boss_defeated", _on_boss_defeated)
-		
 		
 #signal function
 func _on_boss_defeated():
@@ -84,6 +72,8 @@ func fire():
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
 			add_sibling(new_bullet)
+			
+			
 		elif stats.WeaponChoice == 2:
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
@@ -94,11 +84,14 @@ func fire():
 			var new_bullet3 = PLAYER_BULLET.instantiate()
 			new_bullet3.position = $WeaponSpawnTop3.get_global_position()
 			add_sibling(new_bullet3)
+			
+			
 		elif stats.WeaponChoice == 4:
 			#change the weaponcd time to .15 inside of .tres file
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
 			add_sibling(new_bullet)
+			
 	if $PlayerImage.rotation_degrees == 180:
 		if stats.WeaponChoice == 1:
 			var new_bullet = PLAYER_BULLET.instantiate()
@@ -119,6 +112,8 @@ func fire():
 			new_bullet3.speed *= -1
 			new_bullet3.position = $WeaponSpawnBot3.get_global_position()
 			add_sibling(new_bullet3)
+			
+			
 		# TODO laser mechanics added here
 		elif stats.WeaponChoice == 4:
 			#change the weaponcd time to .15 inside of .tres file
