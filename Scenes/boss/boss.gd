@@ -6,7 +6,7 @@ enum phases { phase1 = 1, phase2 = 2, phase3 = 3 }
 @export var speed = 0.0
 @export var phase: phases
 @export var bullet_patterns: patterns
-@export var _damage = 2 : set = change_hp
+@export var _damage = 1 : set = change_hp
 @onready var healthbar = $healthbar
 @onready var boss_anim = $Boss
 signal boss_defeated
@@ -22,7 +22,7 @@ func _set_health(value: float):
 		queue_free()
 	if hp>0:
 		hp = value 
-		healthbar.hp = hp
+		healthbar.hp =  hp
 		
 
 func change_hp(_damage: float):

@@ -1,13 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5ihbctteub5s"]
+[gd_scene load_steps=9 format=3 uid="uid://b5ihbctteub5s"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_eutbs"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_1a646"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="5_s232t"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="6_di5i1"]
-[ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="6_jpip0"]
-[ext_resource type="Resource" uid="uid://cvnl247m7cdep" path="res://Resources/Enemy/enemy.tres" id="7_d08xo"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="7_qhuoi"]
-[ext_resource type="PackedScene" uid="uid://8db3364bfgbo" path="res://Scenes/boss/Boss.tscn" id="8_5e8kn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hui1"]
 size = Vector2(58, 1090)
@@ -26,27 +23,62 @@ WeaponChoice = 2
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_eutbs")
 
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control/HBoxContainer"]
+light_mask = 3
+visibility_layer = 3
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control" type="Control" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(1060, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Control/HBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="Parallax Test" parent="." instance=ExtResource("6_di5i1")]
 
 [node name="Borders" type="StaticBody2D" parent="." groups=["border"]]
 
 [node name="BorderLeft" type="CollisionShape2D" parent="Borders" groups=["border"]]
-position = Vector2(446, 523)
+position = Vector2(430, 540)
 shape = SubResource("RectangleShape2D_4hui1")
 one_way_collision_margin = 0.0
 
 [node name="BorderRight" type="CollisionShape2D" parent="Borders" groups=["border"]]
-position = Vector2(1491, 534)
+position = Vector2(1490, 540)
 shape = SubResource("RectangleShape2D_4hui1")
 one_way_collision_margin = 0.0
 
 [node name="BorderTop" type="CollisionShape2D" parent="Borders" groups=["border"]]
-position = Vector2(984, 12)
+position = Vector2(960, -18)
 shape = SubResource("RectangleShape2D_iewet")
 one_way_collision_margin = 0.0
 
 [node name="BorderBottom" type="CollisionShape2D" parent="Borders" groups=["border"]]
-position = Vector2(959, 1063)
+position = Vector2(960, 1098)
 shape = SubResource("RectangleShape2D_iewet")
 one_way_collision_margin = 0.0
 
@@ -60,19 +92,22 @@ stats = SubResource("Resource_aurrp")
 wait_time = 0.5
 autostart = true
 
-[node name="Enemy" parent="." instance=ExtResource("6_jpip0")]
-position = Vector2(-1, 3)
-stats = ExtResource("7_d08xo")
-
 [node name="SouthSpawn" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Spawnboss" type="Timer" parent="." groups=["enemy"]]
+wait_time = 2.0
+one_shot = true
 
-[node name="bossbody" parent="." instance=ExtResource("8_5e8kn")]
-position = Vector2(2, -86)
+[node name="Label" type="Label" parent="."]
+offset_left = 822.0
+offset_top = 513.0
+offset_right = 1102.0
+offset_bottom = 600.0
 
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]
+[connection signal="timeout" from="Spawnboss" to="." method="_on_spawnboss_timeout"]
+[connection signal="timeout" from="Spawnboss" to="." method="_on_spawn_boss_timeout"]

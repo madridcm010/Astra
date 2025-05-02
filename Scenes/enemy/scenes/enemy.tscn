@@ -17,7 +17,7 @@ _data = {
 "new_animation_2": SubResource("Animation_0gs1l")
 }
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_5advp")
 

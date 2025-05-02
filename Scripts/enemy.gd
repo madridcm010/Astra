@@ -8,7 +8,7 @@ const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
 var time = 0
 #var speedchar = 100
 var direction : Vector2
-
+signal enemy_defeated
 
 
 
@@ -37,6 +37,7 @@ func _process(delta):
 	
 func _on_enemy_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
+		enemy_defeated.emit()
 		var explosion = EXPLOSION.instantiate()
 		explosion.global_position = global_position
 		add_sibling(explosion)
@@ -46,14 +47,14 @@ func _on_enemy_area_area_entered(area: Area2D) -> void:
 
 
 
-func die():
-	# Stop the enemies movement
-	velocity.x = 0
-	velocity.y = 0
-
-	# Play a death animation
-	$enemyArea/AnimatedSprite2D.stop()
-	$enemyArea/AnimatedSprite2D.play("death_down")
+#func die():
+	## Stop the enemies movement
+	#velocity.x = 0
+	#velocity.y = 0
+#
+	## Play a death animation
+	#$enemyArea/AnimatedSprite2D.stop()
+	#$enemyArea/AnimatedSprite2D.play("death_down")
 	
 
  

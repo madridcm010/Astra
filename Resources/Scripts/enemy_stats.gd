@@ -11,6 +11,7 @@ enum spawnlocation {North = 1 , South = 2, }
 @export var enemy_frequency : int
 @export var enemy_amplitude : int
 @export var enemy_spawn_location : spawnlocation
+@export var enemy_kill_count : float
 # Group for various enemy attacks
 @export_group("Attacks")
 @export var enemy_num_of_shots : float
