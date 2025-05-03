@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://Levels/levls/Level1.gd" id="1_q8w2o"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_1a646"]
-[ext_resource type="Texture2D" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="4_o3m34"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="5_s232t"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="6_di5i1"]
 [ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="6_jpip0"]
@@ -15,10 +14,13 @@ size = Vector2(58, 1090)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iewet"]
 size = Vector2(1232, 56)
 
+[sub_resource type="Resource" id="Resource_3fdir"]
+metadata/__load_path__ = "res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png"
+
 [sub_resource type="Resource" id="Resource_n4iii"]
 script = ExtResource("4_1a646")
 Speed = 300.0
-Sprite = ExtResource("4_o3m34")
+Sprite = SubResource("Resource_3fdir")
 WeaponCD = 1.0
 FlipCD = 0.2
 WeaponType = 0
