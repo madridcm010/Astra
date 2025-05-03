@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm1icwr4my7nl"]
+[gd_scene load_steps=10 format=3 uid="uid://bm1icwr4my7nl"]
 
 [ext_resource type="Texture2D" uid="uid://c4yl23cnqat07" path="res://Scenes/enemy/sprites/frame1.png" id="1_dybtg"]
 [ext_resource type="Texture2D" uid="uid://cq71eovk33g0e" path="res://Scenes/enemy/sprites/frame2.png" id="2_e2ydr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bj0imh666t0sa" path="res://Scenes/enemy/sprites/frame5.png" id="5_3heca"]
 [ext_resource type="Texture2D" uid="uid://03cs8ojq3n0f" path="res://Scenes/enemy/sprites/frame6.png" id="6_ss72v"]
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/explosion.gd" id="7_1rpox"]
+[ext_resource type="AudioStream" uid="uid://dxvb18un0pctx" path="res://Sound Files/Explosion/322508__liamg_sfx__explosion-2.wav" id="8_lpu4d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ffelp"]
 animations = [{
@@ -35,8 +36,13 @@ animations = [{
 }]
 
 [node name="Explosion" type="AnimatedSprite2D"]
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_ffelp")
 autoplay = "default"
 frame = 5
 frame_progress = 1.0
 script = ExtResource("7_1rpox")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_lpu4d")
+bus = &"SFX"

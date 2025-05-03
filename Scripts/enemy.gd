@@ -14,19 +14,16 @@ signal enemy_defeated
 
 func _ready() -> void:
 	#sprite loading
+	$Texture.scale = Vector2(2,2)
+	
+	#$enemyCollision.scale = Vector2(2,2)
+	#$enemyArea.scale = Vector2(2,2)
 	$Texture.texture = stats.enemy_sprite
 	var rng := RandomNumberGenerator.new()
-	#var enemy_scene = load("res://Scenes/enemy/scenes/enemy.tscn")
 	
-	#start position
-	#var width = get_viewport().get_visible_rect().size[0]
-	#var randx = rng.randi_range(0, width)
-	
-	#position = Vector2(randx, 200) 
 	
 func _process(delta):
 	if stats.enemy_spawn_location == 1:
-		#position.y += stats.enemy_speed * delta\
 		translate(Vector2.DOWN * stats.enemy_speed * delta)
 	if stats.enemy_spawn_location == 2:
 		translate(Vector2.UP * stats.enemy_speed * delta)
@@ -42,19 +39,7 @@ func _on_enemy_area_area_entered(area: Area2D) -> void:
 		explosion.global_position = global_position
 		add_sibling(explosion)
 		queue_free()
-		
-
-
-
-
-#func die():
-	## Stop the enemies movement
-	#velocity.x = 0
-	#velocity.y = 0
-#
-	## Play a death animation
-	#$enemyArea/AnimatedSprite2D.stop()
-	#$enemyArea/AnimatedSprite2D.play("death_down")
 	
+
 
  

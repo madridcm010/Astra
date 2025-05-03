@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d7gyxg8dhn3s"]
+[gd_scene load_steps=30 format=3 uid="uid://d7gyxg8dhn3s"]
 
 [ext_resource type="Script" path="res://Scenes/boss/boss_level.gd" id="1_b0d01"]
 [ext_resource type="Texture2D" uid="uid://cu7x864ryjx3s" path="res://Scenes/boss/dfj0320-c8556228-efa4-4d2a-bb1e-5592cf57c366-ezgif.com-gif-to-sprite-converter-removebg-preview (1).png" id="2_dkbd0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8db3364bfgbo" path="res://Scenes/boss/Boss.tscn" id="4_v227x"]
 [ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="5_ujo0n"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="7_jd020"]
+[ext_resource type="Resource" uid="uid://wx21prccd2s6" path="res://Resources/Player/player.tres" id="8_b3gpo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx2qe"]
 size = Vector2(58, 1090)
@@ -251,3 +252,4 @@ position = Vector2(1249, 374)
 
 [node name="Player" parent="." instance=ExtResource("7_jd020")]
 position = Vector2(972, 847)
+stats = ExtResource("8_b3gpo")

@@ -7,6 +7,8 @@ var current_rotation :float =  0.0
 const rotation_speed = 180
 const PLAYER_BULLET = preload("res://Scenes/player/scenes/player_bullet.tscn")
 var can_shoot = true
+var is_playing = false
+@onready var audio_player = $AudioStreamPlayer2D
 #var fire_type := stats.WeaponChoice == 1
 # signal to be sent level for laser spawns
 signal weapon(pos, rot)
@@ -42,6 +44,9 @@ func get_input():
 		$FlipCD.start()
 		
 # constantly running function
+
+func _ready() -> void:
+	$PlayerImage.texture = stats.Sprite
 func _process(_delta):
 	#speed = stats.Speed
 	#var speed = stats.Speed
@@ -53,6 +58,10 @@ func _process(_delta):
 	if Input.is_action_pressed("shoot") and weaponReady and can_shoot:
 		#comments for bullets
 		fire()
+		if !is_playing:
+			#$AudioStreamPlayer2D.play()
+			randomize_pitch_and_play()
+			
 		
 			
 			#weapon.emit($WeaponSpawnTop.global_position, 0)
@@ -70,12 +79,14 @@ func fire():
 	
 	if $PlayerImage.rotation_degrees == 0:
 		if stats.WeaponChoice == 1 :
+			stats.WeaponDamage = 10
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
 			add_sibling(new_bullet)
 			
 			
 		elif stats.WeaponChoice == 2:
+			stats.WeaponDamage = 2
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
 			add_sibling(new_bullet)
@@ -88,6 +99,7 @@ func fire():
 			
 			
 		elif stats.WeaponChoice == 4:
+			stats.WeaponDamage = 5
 			#change the weaponcd time to .15 inside of .tres file
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
@@ -95,12 +107,14 @@ func fire():
 			
 	if $PlayerImage.rotation_degrees == 180:
 		if stats.WeaponChoice == 1:
+			stats.WeaponDamage = 10
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.speed *= -1
 			new_bullet.flip_sprite == true
 			new_bullet.position = $WeaponSpawnBot1.get_global_position()
 			add_sibling(new_bullet)
 		elif stats.WeaponChoice == 2:
+			stats.WeaponDamage = 2
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.speed *= -1
 			new_bullet.position = $WeaponSpawnBot1.get_global_position()
@@ -117,12 +131,20 @@ func fire():
 			
 		# TODO laser mechanics added here
 		elif stats.WeaponChoice == 4:
+			stats.WeaponDamage = 5
 			#change the weaponcd time to .15 inside of .tres file
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.speed *= -1
 			new_bullet.position = $WeaponSpawnBot1.get_global_position()
 			add_sibling(new_bullet)
-			
+	
+func randomize_pitch_and_play():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+
+	#random pitch and temp
+	audio_player.pitch_scale = rng.randf_range(1.5,3)
+	audio_player.play()
 
 
 # signal receiver for ship weapon cooldown timer

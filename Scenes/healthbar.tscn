@@ -32,6 +32,7 @@ offset_bottom = 15.0
 size_flags_horizontal = 0
 theme_override_styles/background = SubResource("StyleBoxEmpty_l80fd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o2bns")
+max_value = 500.0
 show_percentage = false
 script = ExtResource("1_k38v7")
 

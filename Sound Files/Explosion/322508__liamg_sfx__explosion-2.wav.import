@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxvb18un0pctx"
+path="res://.godot/imported/322508__liamg_sfx__explosion-2.wav-4f0121a5bfc9d2d21d60fed06a08f676.sample"
+
+[deps]
+
+source_file="res://Sound Files/Explosion/322508__liamg_sfx__explosion-2.wav"
+dest_files=["res://.godot/imported/322508__liamg_sfx__explosion-2.wav-4f0121a5bfc9d2d21d60fed06a08f676.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

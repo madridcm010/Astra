@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Enemystats" load_steps=3 format=3 uid="uid://baw0n4c4txdcb"]
+
+[ext_resource type="Texture2D" uid="uid://dr06tgd4cistm" path="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Frigate - Base.png" id="1_x3ca3"]
+[ext_resource type="Script" path="res://Resources/Scripts/enemy_stats.gd" id="2_g1y77"]
+
+[resource]
+script = ExtResource("2_g1y77")
+enemy_sprite = ExtResource("1_x3ca3")
+enemy_speed = 250.0
+enemy_hp = 15
+enemy_frequency = 10
+enemy_amplitude = 100
+enemy_spawn_location = 0
+enemy_kill_count = 0.0
+enemy_num_of_shots = 0.0
+enemy_damage_of_shots = 0.0
