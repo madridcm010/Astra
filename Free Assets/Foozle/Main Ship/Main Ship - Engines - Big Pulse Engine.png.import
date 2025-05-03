@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qg6e2iku3vph"
-path="res://.godot/imported/Main Ship - Engines - Big Pulse Engine.png-0480f6fecc822a45393cec9168a4a27e.ctex"
+path="res://.godot/imported/Main Ship - Engines - Big Pulse Engine.png-c48495e31344cdc999bbb591bd719d09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png"
-dest_files=["res://.godot/imported/Main Ship - Engines - Big Pulse Engine.png-0480f6fecc822a45393cec9168a4a27e.ctex"]
+source_file="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png"
+dest_files=["res://.godot/imported/Main Ship - Engines - Big Pulse Engine.png-c48495e31344cdc999bbb591bd719d09.ctex"]
 
 [params]
 
