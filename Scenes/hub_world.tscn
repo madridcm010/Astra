@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://h6kvaui48s50"]
+[gd_scene load_steps=34 format=3 uid="uid://h6kvaui48s50"]
 
 [ext_resource type="Script" path="res://Scenes/hub_world.gd" id="1_2rsmc"]
 [ext_resource type="Resource" uid="uid://dlvl2jghi2637" path="res://Resources/Hub/HubStats.tres" id="2_0exh7"]
@@ -11,20 +11,60 @@
 [ext_resource type="Texture2D" uid="uid://b5ukqofcd3no" path="res://UI Assets/Hub UI/Hub Container Test.png" id="8_fo6ir"]
 [ext_resource type="Texture2D" uid="uid://cbjhwtu7by4di" path="res://UI Assets/Hub UI/Hub Container Hover.png" id="9_8nhyl"]
 [ext_resource type="Texture2D" uid="uid://dnlsyt3o7ljgx" path="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Bomber - Base.png" id="10_f87yj"]
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="12_1mtue"]
+[ext_resource type="Texture2D" path="res://UI Assets/Hub UI/Hub Container Disabled.png" id="10_wp13j"]
+[ext_resource type="Texture2D" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="12_1mtue"]
 [ext_resource type="Texture2D" uid="uid://gab7243nij0q" path="res://UI Assets/Currency/coin2_20x20.png" id="12_5a6nn"]
 [ext_resource type="Texture2D" uid="uid://d2kekgqt2eoft" path="res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Frigate - Base.png" id="13_jdgl2"]
 [ext_resource type="Texture2D" uid="uid://dlqi8qp18aspb" path="res://UI Assets/Hub UI/Upgrade Pips-SheetAtlas.png" id="14_ym4nd"]
+[ext_resource type="FontFile" path="res://Font Files/RealMadrid2022.ttf" id="15_vvdou"]
+[ext_resource type="FontFile" path="res://Font Files/BoldPixels.ttf" id="16_rd15d"]
+[ext_resource type="AudioStream" path="res://Sound Files/670088__sergequadrado__ad-astra.wav" id="18_6vcrp"]
+
+[sub_resource type="FontVariation" id="FontVariation_xgadt"]
+base_font = ExtResource("16_rd15d")
+baseline_offset = 0.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivpbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8xcr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f42nu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djgid"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftnbm"]
 atlas = ExtResource("14_ym4nd")
 region = Rect2(0, 0, 432, 96)
 
+[sub_resource type="FontVariation" id="FontVariation_vnx3c"]
+base_font = ExtResource("16_rd15d")
+baseline_offset = 0.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3elpy"]
+
+[sub_resource type="FontVariation" id="FontVariation_lefby"]
+base_font = ExtResource("15_vvdou")
+baseline_offset = 0.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2d152"]
+
+[sub_resource type="FontVariation" id="FontVariation_ek8o0"]
+base_font = ExtResource("15_vvdou")
+baseline_offset = 0.1
+
+[sub_resource type="FontVariation" id="FontVariation_ogs13"]
+base_font = ExtResource("16_rd15d")
+baseline_offset = 0.1
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qxt55"]
+color = Color(0.697519, 0.555677, 0.321679, 1)
+grow_begin = -10.0
+grow_end = -10.0
+thickness = 5
+
 [sub_resource type="FontVariation" id="FontVariation_lk1b6"]
 base_font = ExtResource("2_srj18")
 baseline_offset = 0.115
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2d152"]
 
 [node name="Hub World" type="Node2D"]
 script = ExtResource("1_2rsmc")
@@ -95,6 +135,11 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin"]
 layout_mode = 2
 
+[node name="ClosedSpacer" type="Control" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+
 [node name="NinePatchRect" type="NinePatchRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer"]
 custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
@@ -144,18 +189,20 @@ text = "[center]Actias Luna[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox"]
+[node name="Ship1Button" type="TextureButton" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox"]
 custom_minimum_size = Vector2(260, 260)
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 button_group = ExtResource("6_o1w1f")
 texture_normal = ExtResource("8_fo6ir")
 texture_pressed = ExtResource("9_8nhyl")
 texture_hover = ExtResource("9_8nhyl")
+texture_disabled = ExtResource("10_wp13j")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/Ship1Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -202,8 +249,15 @@ expand_mode = 2
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("5_25f27")
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_colors/font_hover_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_fonts/font = SubResource("FontVariation_xgadt")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ivpbf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u8xcr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f42nu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_djgid")
 
 [node name="Spacer" type="Control" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(223, 0)
@@ -221,9 +275,10 @@ text = "[center]Kalidris[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship2 VBox"]
+[node name="Ship2Button" type="TextureButton" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship2 VBox"]
 custom_minimum_size = Vector2(260, 260)
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 button_group = ExtResource("6_o1w1f")
 texture_normal = ExtResource("8_fo6ir")
@@ -232,7 +287,7 @@ texture_hover = ExtResource("9_8nhyl")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship2 VBox/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship2 VBox/Ship2Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -283,18 +338,20 @@ text = "[center]Lopidea[/center]"
 fit_content = true
 scroll_active = false
 
-[node name="TextureButton" type="TextureButton" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox"]
+[node name="Ship3Button" type="TextureButton" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox"]
 custom_minimum_size = Vector2(260, 260)
 layout_mode = 2
+focus_mode = 0
 toggle_mode = true
 button_group = ExtResource("6_o1w1f")
 texture_normal = ExtResource("8_fo6ir")
 texture_pressed = ExtResource("9_8nhyl")
 texture_hover = ExtResource("9_8nhyl")
+texture_disabled = ExtResource("10_wp13j")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="TextureRect" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/Ship3Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -341,8 +398,15 @@ expand_mode = 2
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("5_25f27")
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_colors/font_hover_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_fonts/font = SubResource("FontVariation_xgadt")
 theme_override_font_sizes/font_size = 25
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ivpbf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u8xcr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f42nu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_djgid")
 toggle_mode = true
 
 [node name="GridContainer" type="GridContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer"]
@@ -383,10 +447,17 @@ texture = ExtResource("12_5a6nn")
 expand_mode = 2
 
 [node name="HealthButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/HealthVBox/HBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Purchase Price"
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.889112, 0.799374, 0.428154, 1)
+theme_override_colors/font_hover_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_fonts/font = SubResource("FontVariation_vnx3c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3elpy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u8xcr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f42nu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_djgid")
 
 [node name="ASVBox" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(655, 0)
@@ -420,10 +491,17 @@ texture = ExtResource("12_5a6nn")
 expand_mode = 2
 
 [node name="ASButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/ASVBox/HBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Purchase Price"
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.889112, 0.799374, 0.428154, 1)
+theme_override_colors/font_hover_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_fonts/font = SubResource("FontVariation_vnx3c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3elpy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u8xcr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f42nu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_djgid")
 
 [node name="ThrusterVBox" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(655, 0)
@@ -457,10 +535,17 @@ texture = ExtResource("12_5a6nn")
 expand_mode = 2
 
 [node name="ThrusterButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/ThrusterVBox/HBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Purchase Price"
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.889112, 0.799374, 0.428154, 1)
+theme_override_colors/font_hover_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_fonts/font = SubResource("FontVariation_vnx3c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3elpy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u8xcr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f42nu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_djgid")
 
 [node name="DamageVBox" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(655, 0)
@@ -494,10 +579,17 @@ texture = ExtResource("12_5a6nn")
 expand_mode = 2
 
 [node name="DamageButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/DamageVBox/HBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Purchase Price"
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0.889112, 0.799374, 0.428154, 1)
+theme_override_colors/font_hover_color = Color(0.890196, 0.8, 0.427451, 1)
+theme_override_fonts/font = SubResource("FontVariation_vnx3c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3elpy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u8xcr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f42nu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_djgid")
 
 [node name="OptionsMargin" type="MarginContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit"]
 layout_mode = 2
@@ -506,39 +598,80 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="UpgradeButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
-theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
-theme_override_fonts/font = SubResource("FontVariation_lk1b6")
-theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
-text = "HUB UPGRADES"
-
 [node name="HangarButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
 theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
-theme_override_fonts/font = SubResource("FontVariation_lk1b6")
+theme_override_fonts/font = SubResource("FontVariation_lefby")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
 text = "HANGAR"
 
-[node name="ManifestButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
+[node name="UpgradeButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.39697, 0.643079, 0.861234, 1)
 theme_override_colors/font_pressed_color = Color(0.396078, 0.643137, 0.862745, 1)
-theme_override_fonts/font = SubResource("FontVariation_lk1b6")
+theme_override_fonts/font = SubResource("FontVariation_ek8o0")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
-text = "Manifest"
+text = "Ship Upgrade"
 
 [node name="Spacer" type="Control" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
-custom_minimum_size = Vector2(0, 460)
+custom_minimum_size = Vector2(0, 600)
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.5
+offset_top = -64.5
+offset_right = 195.5
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+texture = ExtResource("12_5a6nn")
+
+[node name="Label" type="Label" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_ogs13")
+theme_override_font_sizes/font_size = 45
+text = "Credz"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+texture = ExtResource("12_5a6nn")
+
+[node name="HSeparator" type="HSeparator" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxLine_qxt55")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("16_rd15d")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center][/center]"
+fit_content = true
 
 [node name="SendButton" type="Button" parent="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox"]
 custom_minimum_size = Vector2(0, 100)
@@ -550,9 +683,21 @@ theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2d152")
 text = "Send Crew"
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_6vcrp")
+volume_db = -20.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/Ship1Button" to="." method="_on_ship_1_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy" to="." method="_on_ship_1_buy_pressed"]
+[connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship2 VBox/Ship2Button" to="." method="_on_ship_2_button_pressed"]
+[connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/Ship3Button" to="." method="_on_ship_3_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy" to="." method="_on_ship_3_buy_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/HealthVBox/HBoxContainer/HealthButton" to="." method="_on_health_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/ASVBox/HBoxContainer/ASButton" to="." method="_on_as_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/ThrusterVBox/HBoxContainer/ThrusterButton" to="." method="_on_thruster_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/DamageVBox/HBoxContainer/DamageButton" to="." method="_on_damage_button_pressed"]
+[connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/HangarButton" to="." method="_on_hangar_button_pressed"]
+[connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

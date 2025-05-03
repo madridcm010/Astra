@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq34fdxorll0c"]
+[gd_scene load_steps=10 format=3 uid="uid://dk22k4gre36w3"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_hew0i"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="2_aj6pi"]
@@ -106,5 +106,5 @@ one_shot = true
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]
-[connection signal="timeout" from="Spawnboss" to="." method="_on_spawnboss_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawn_boss_timeout"]
+[connection signal="timeout" from="Spawnboss" to="." method="_on_spawnboss_timeout"]

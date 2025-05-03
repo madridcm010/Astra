@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwsdyrkmhvpa3"]
+
+[ext_resource type="Texture2D" path="res://UI Assets/Level UI/HealthBarBG.png" id="1_720ew"]
+[ext_resource type="Script" path="res://Scenes/player/scenes/player_health_bar.gd" id="1_4242w"]
+[ext_resource type="Texture2D" path="res://UI Assets/Level UI/HealthBarOver.png" id="2_e47og"]
+[ext_resource type="Texture2D" path="res://UI Assets/Level UI/HealthBarFill.png" id="3_3dqkl"]
+
+[node name="PlayerHealthBar" type="TextureProgressBar"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
+allow_greater = true
+texture_under = ExtResource("1_720ew")
+texture_over = ExtResource("2_e47og")
+texture_progress = ExtResource("3_3dqkl")
+script = ExtResource("1_4242w")
