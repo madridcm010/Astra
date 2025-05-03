@@ -10,6 +10,9 @@ position = Vector2(875, 471)
 script = ExtResource("1_nkalt")
 bullet_scene = ExtResource("2_ahr0a")
 max_rotation = 180
+number_of_bullets = 12
+spawn_rate = 0.2
+bullet_speed = 500
 
 [node name="Timer" type="Timer" parent="."]
 

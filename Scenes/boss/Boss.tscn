@@ -269,11 +269,9 @@ _data = {
 [node name="bossbody" type="CharacterBody2D"]
 position = Vector2(0, 5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(980, 408)
-shape = SubResource("CapsuleShape2D_mkugb")
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(980, 408)
 shape = SubResource("CapsuleShape2D_mkugb")
 
@@ -316,3 +314,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "The Nightmare"
 uppercase = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(980, 408)
+shape = SubResource("CapsuleShape2D_mkugb")
+
+[connection signal="area_entered" from="Area2D" to="Boss" method="_on_area_2d_area_entered"]
