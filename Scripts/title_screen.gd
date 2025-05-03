@@ -1,6 +1,9 @@
 extends Node2D
 
-var mainGame = load("res://Scenes/enemy/scenes/level1.tscn")
+@onready var mainGame = load("res://Scenes/enemy/scenes/level1.tscn")
+@onready var player_stats = load("res://Resources/Player/player.tres").duplicate()
+@onready var hub_stats = load("res://Resources/Hub/HubStats.tres").duplicate()
+@onready var save_data = load("res://Resources/SaveData.tres").duplicate()
 
 signal close_settings
 # Called as soon as scene is ready
@@ -9,6 +12,12 @@ func _ready():
 	title()
 	$AudioStreamPlayer2D.play()
 	$SettingsMenu.hide()
+	$Sprite2D.texture = player_stats.Sprite
+	$"Reset Warning".visible = false
+	
+	if (save_data.GameExists == false):
+		$"TitleOptionsControl/TitleOptionsVBox/Continue Game".disabled = true
+		print("button disabled")
 
 # Conditional statements to make sure animations finish before next steps take place
 func _on_animation_player_animation_finished(animName) -> void:
@@ -19,7 +28,8 @@ func _on_animation_player_animation_finished(animName) -> void:
 
 # Enables menu buttons after "Intro" animation has finished playing
 	if animName == "Intro":
-		$"TitleOptionsControl/TitleOptionsVBox/Continue Game".disabled = false
+		if (save_data.GameExists == true):
+			$"TitleOptionsControl/TitleOptionsVBox/Continue Game".disabled = false
 		$"TitleOptionsControl/TitleOptionsVBox/New Game".disabled = false
 		$TitleOptionsControl/TitleOptionsVBox/Settings.disabled = false
 		$"TitleOptionsControl/TitleOptionsVBox/Quit Game".disabled = false
@@ -44,11 +54,13 @@ func startGame():
 
 # Runs Start Game animation, then signals "Start Game" animFinished
 func _on_new_game_pressed() -> void:
-	#$"Parallax Test".get_node("DustParallax").set_autoscroll(Vector2(0, 400))
-	#$"Parallax Test".get_node("PlanetParallax").set_autoscroll(Vector2(0, 500))
-	#$"Parallax Test".get_node("StarsParallax").set_autoscroll(Vector2(0, 2))
-	#$"Parallax Test".get_node("NebulaParallax").set_autoscroll(Vector2(0, 100))
-	$AnimationPlayer.play("Start Game")
+	if (save_data.GameExists == true):
+		$"Reset Warning".visible = true
+	
+	if (save_data.GameExists == false):
+		set_defaults()
+		$AnimationPlayer.play("Start Game")
+	
 	
 # Quits the game on button press
 func _on_quit_game_pressed() -> void:
@@ -68,3 +80,26 @@ func _on_settings_menu_exit_settings() -> void:
 		$TitleOptionsControl.show()
 		$Title.show()
 		close_settings.emit()
+		
+
+func _on_confirm_button_pressed() -> void:
+	$"Reset Warning".visible = false
+	set_defaults()
+	$AnimationPlayer.play("Start Game")
+
+
+func _on_cancel_button_pressed() -> void:
+	$"Reset Warning".visible = false
+	
+func set_defaults():
+	player_stats.reset()
+	ResourceSaver.save(player_stats, "res://Resources/Player/player.tres")
+	hub_stats.reset()
+	ResourceSaver.save(hub_stats, "res://Resources/Hub/HubStats.tres")
+	save_data.GameExists = true
+	ResourceSaver.save(save_data, "res://Resources/SaveData.tres")
+
+
+func _on_continue_game_pressed() -> void:
+	if (save_data.GameExists == true):
+		$AnimationPlayer.play("Start Game")

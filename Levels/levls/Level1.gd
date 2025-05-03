@@ -81,3 +81,7 @@ func _on_south_spawn_timeout() -> void:
 
 #func _on_spawnboss_timeout() -> void:
 	#spawn_boss()
+
+
+func _on_timer_timeout() -> void:
+	$Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar.value -= 5

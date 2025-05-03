@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq7owrkb3o5r3"]
+[gd_scene load_steps=11 format=3 uid="uid://dq7owrkb3o5r3"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_vtlj2"]
 [ext_resource type="Texture2D" uid="uid://b77jxnkryx2aa" path="res://Free Assets/PNG/Upgrade/Window.png" id="2_5f2pm"]
 [ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="3_un3rm"]
 [ext_resource type="PackedScene" uid="uid://c14ymhav7xwq4" path="res://Scenes/settings_menu.tscn" id="4_q2hrd"]
+[ext_resource type="AudioStream" uid="uid://c0iv4alpbig0r" path="res://Sound Files/ButtonClick.wav" id="5_rjmay"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l4xrc"]
 
@@ -131,7 +132,13 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 202.0
 
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rjmay")
+volume_db = -5.0
+bus = &"SFX"
+
 [connection signal="pressed" from="PauseBG/PauseMargin/PauseVbox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseBG/PauseMargin/PauseVbox/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="PauseBG/PauseMargin/PauseVbox/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="PauseBG/PauseMargin/PauseVbox/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="exit_settings" from="SettingsMenu" to="." method="_on_settings_menu_exit_settings"]

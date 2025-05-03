@@ -18,3 +18,18 @@ extends Resource
 @export var ship1purchased : bool
 @export var ship2purchased : bool
 @export var ship3purchased : bool
+
+func reset():
+	health_level = 0
+	thruster_level = 0
+	attackspeed_level = 0
+	damage_level = 0
+
+	health_cost = 0 
+	thruster_cost = 0
+	attackspeed_cost = 0
+	damage_cost = 0
+
+	ship1purchased = false
+	ship2purchased = true
+	ship3purchased = false

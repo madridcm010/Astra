@@ -1,14 +1,20 @@
 [gd_resource type="Resource" script_class="Playerstats" load_steps=3 format=3 uid="uid://wx21prccd2s6"]
 
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="1_hp31e"]
+[ext_resource type="Texture2D" uid="uid://dto4q45a4hgog" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="1_y2mjq"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="2_ho836"]
 
 [resource]
 script = ExtResource("2_ho836")
-Speed = 500.0
-Sprite = ExtResource("1_hp31e")
+Speed = 300.0
+Sprite = ExtResource("1_y2mjq")
 WeaponCD = 1.0
-FlipCD = 0.2
+FlipCD = 0.25
 WeaponType = 2
 WeaponChoice = 1
-WeaponDamage = 25.0
+WeaponDamage = 10.0
+Credits = 500
+Health = 100
+health_boost = 0
+attackspeed_boost = 0.0
+thruster_boost = 0.0
+damage_boost = 0.0

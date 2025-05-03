@@ -27,6 +27,9 @@ func _ready():
 	damage_image.texture = damage_image.texture.duplicate()
 	thruster_image.texture = thruster_image.texture.duplicate()
 	attackspeed_image.texture = attackspeed_image.texture.duplicate()
+	$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect.visible = false
+	$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer.visible = false
+	$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/ClosedSpacer.visible = true
 	$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/Spacer/VBoxContainer/RichTextLabel.set_text("[center]%s[/center]" % str(player_stats.Credits))
 	$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy".set_text(str(hub_stats.ship1_cost))
 	$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy".set_text(str(hub_stats.ship3_cost))
@@ -35,6 +38,7 @@ func _ready():
 
 func _on_damage_button_pressed() -> void:
 	if(hub_stats.damage_level < 10 and player_stats.Credits >= hub_stats.damage_cost):
+		$ButtonClick.play()
 		player_stats.Credits -= hub_stats.damage_cost
 		hub_stats.damage_level += 1
 		damage_image.texture.region.position.x = advance_frame(hub_stats.damage_level)
@@ -51,6 +55,7 @@ func _on_damage_button_pressed() -> void:
 
 func _on_thruster_button_pressed() -> void:
 	if(hub_stats.thruster_level < 10 and player_stats.Credits >= hub_stats.thruster_cost):
+		$ButtonClick.play()
 		player_stats.Credits -= hub_stats.thruster_cost
 		hub_stats.thruster_level += 1
 		thruster_image.texture.region.position.x = advance_frame(hub_stats.thruster_level)
@@ -67,6 +72,7 @@ func _on_thruster_button_pressed() -> void:
 
 func _on_as_button_pressed() -> void:
 	if(hub_stats.attackspeed_level < 10 and player_stats.Credits >= hub_stats.attackspeed_cost):
+		$ButtonClick.play()
 		player_stats.Credits -= hub_stats.attackspeed_cost
 		hub_stats.attackspeed_level += 1
 		attackspeed_image.texture.region.position.x = advance_frame(hub_stats.attackspeed_level)
@@ -83,6 +89,7 @@ func _on_as_button_pressed() -> void:
 
 func _on_health_button_pressed() -> void:
 	if(hub_stats.health_level < 10 and player_stats.Credits >= hub_stats.health_cost):
+		$ButtonClick.play()
 		player_stats.Credits -= hub_stats.health_cost
 		hub_stats.health_level += 1
 		health_image.texture.region.position.x = advance_frame(hub_stats.health_level)
@@ -148,6 +155,7 @@ func initialize_info() -> void:
 	
 func _on_ship_3_buy_pressed() -> void:
 	if (player_stats.Credits >= hub_stats.ship3_cost):
+		$ButtonClick.play()
 		player_stats.Credits -= hub_stats.ship3_cost
 		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy".set_text("OWNED")
 		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship3 VBox/HBoxContainer/Ship3Buy".disabled = true
@@ -158,6 +166,7 @@ func _on_ship_3_buy_pressed() -> void:
 
 func _on_ship_1_buy_pressed() -> void:
 	if (player_stats.Credits >= hub_stats.ship1_cost):
+		$ButtonClick.play()
 		player_stats.Credits -= hub_stats.ship1_cost
 		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy".set_text("OWNED")
 		$"HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy".disabled = true
@@ -175,28 +184,33 @@ func update_credits():
 
 
 func _on_hangar_button_pressed() -> void:
+	$ButtonClick.play()
 	var hangar = $HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect
 	var hangarspacer = $HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/ClosedSpacer
 	hangar.visible = !hangar.visible
 	hangarspacer.visible = !hangarspacer.visible
 
 func _on_upgrade_button_pressed() -> void:
-	var upgradebutton = $HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer
-	upgradebutton.visible = !upgradebutton.visible
+	$ButtonClick.play()
+	var upgradepanel = $HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer
+	upgradepanel.visible = !upgradepanel.visible
 
 
 func _on_ship_3_button_pressed() -> void:
 	if (hub_stats.ship1purchased == true):
+		$ButtonClick.play()
 		player_stats.Sprite = load("res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Bomber - Base.png")
 		save_stats()
  
 
 func _on_ship_2_button_pressed() -> void:
+	$ButtonClick.play()
 	player_stats.Sprite = load("res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png")
 	save_stats()
 
 func _on_ship_1_button_pressed() -> void:
 	if (hub_stats.ship3purchased == true):
+		$ButtonClick.play()
 		player_stats.Sprite = load("res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Frigate - Base.png")
 		save_stats()
 	

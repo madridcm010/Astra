@@ -70,6 +70,12 @@ func spawn_boss():
 	$Spawnboss.stop()
 	$NorthSpawn.stop()
 	$SouthSpawn.stop()
+	boss.health_value.connect(change_boss_health)
+	$Control/HBoxContainer/ColorRect2/NinePatchRect/LevelProgressBar.visible = false
+	$Control/HBoxContainer/ColorRect2/NinePatchRect/Label2.visible = false
+	$Control/HBoxContainer/ColorRect2/NinePatchRect/BossHealthBar.visible = true
+	$Control/HBoxContainer/ColorRect2/NinePatchRect/BossHealthBar.value = 500
+	$Control/HBoxContainer/ColorRect2/NinePatchRect/Label.visible = true
 		##TODO start boss music
 
 
@@ -88,3 +94,6 @@ func _on_spawnboss_timeout() -> void:
 func _on_health_test_timeout() -> void:
 	$Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar.value -= 5
 	print("player health reduced")
+	
+func change_boss_health(boss_health):
+	$Control/HBoxContainer/ColorRect2/NinePatchRect/BossHealthBar.value = boss_health

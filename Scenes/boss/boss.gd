@@ -13,6 +13,7 @@ var _damage : float = 0.0 #set default
 signal boss_defeated
 var is_dead = false
 
+signal health_value(hp : int)
 
 
 func _set_health(value: float):
@@ -75,6 +76,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet") and !is_dead:
 		$Boss.play("damage")
 		change_hp(_damage)
+		health_value.emit(hp)
 		await get_tree().create_timer(.5).timeout
 		if !is_dead:
 			_Idle()
