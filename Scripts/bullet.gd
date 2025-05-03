@@ -1,17 +1,18 @@
 extends Area2D
 
 
-@export var speed = 200
+@export var speed = 500
 @export var lifetime = 10.00
-@export var rotation_change = 0.0
+@export var rotation_change = 20.0
+var direction : Vector2
 
 func _ready():
 	$Timer.start(lifetime)
 	
 func _process(delta: float) -> void:
-	position += Vector2(cos(rotation), -sin(rotation)) * speed * delta
+	#position += direction * speed * delta
 	rotation_degrees += rotation_change * delta
-
+	position += direction *  speed * delta
 func _on_timer_timeout() -> void:
 	queue_free()
 

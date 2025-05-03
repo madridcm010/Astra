@@ -37,4 +37,14 @@ libraries = {
 }
 autoplay = "new_animation"
 
+[node name="Spawn_bullet_top" type="Marker2D" parent="."]
+position = Vector2(0, -60)
+
+[node name="Spawn_bullet_bot" type="Marker2D" parent="."]
+position = Vector2(0, 60)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="area_entered" from="enemyArea" to="." method="_on_enemy_area_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
