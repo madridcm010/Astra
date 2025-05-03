@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfjlfjs8kgg3a"
-valid=false
+path="res://.godot/imported/Hub Container Hover.aseprite-6dea7c513a023fe47b905b3dd5c00a75.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://UI Assets/Hub UI/Hub Container Hover.aseprite"
+dest_files=["res://.godot/imported/Hub Container Hover.aseprite-6dea7c513a023fe47b905b3dd5c00a75.ctex"]
 
 [params]
 

@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dcdbgtw32hwqh"
-valid=false
+path="res://.godot/imported/Kla'ed - Torpedo Ship - Destruction.aseprite-68076a2efc5bd8ae580b30fbbf9c789a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Destruction/Aseprite/Kla'ed - Torpedo Ship - Destruction.aseprite"
+dest_files=["res://.godot/imported/Kla'ed - Torpedo Ship - Destruction.aseprite-68076a2efc5bd8ae580b30fbbf9c789a.ctex"]
 
 [params]
 

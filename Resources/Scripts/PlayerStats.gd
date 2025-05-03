@@ -9,3 +9,10 @@ enum WeaponTypes {Basic = 1, Shotgun = 2 , laser = 3 , Machinegun = 4 }
 @export var FlipCD: float
 @export var WeaponType : int
 @export var WeaponChoice : WeaponTypes
+@export var Credits : int
+@export var Health : int
+
+@export var health_boost : int
+@export var attackspeed_boost : float
+@export var thruster_boost : float
+@export var damage_boost : float

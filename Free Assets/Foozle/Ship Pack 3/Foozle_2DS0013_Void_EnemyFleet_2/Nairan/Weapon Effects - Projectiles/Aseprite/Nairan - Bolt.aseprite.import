@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chuxqvo2l1j75"
-valid=false
+path="res://.godot/imported/Nairan - Bolt.aseprite-c10ad91beb1191cee505710330f87ac0.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Weapon Effects - Projectiles/Aseprite/Nairan - Bolt.aseprite"
+dest_files=["res://.godot/imported/Nairan - Bolt.aseprite-c10ad91beb1191cee505710330f87ac0.ctex"]
 
 [params]
 

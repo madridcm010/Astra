@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dektc5dy0cu1t"
-valid=false
+path="res://.godot/imported/Nairan - Torpedo Ship - Weapons.aseprite-9b0e7c181bab7f875baa7b3963b9f84e.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Weapons/Aseprite/Nairan - Torpedo Ship - Weapons.aseprite"
+dest_files=["res://.godot/imported/Nairan - Torpedo Ship - Weapons.aseprite-9b0e7c181bab7f875baa7b3963b9f84e.ctex"]
 
 [params]
 

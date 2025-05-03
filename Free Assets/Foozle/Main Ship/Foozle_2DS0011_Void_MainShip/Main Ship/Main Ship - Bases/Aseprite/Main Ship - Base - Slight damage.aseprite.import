@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3flqi05cn2uf"
-valid=false
+path="res://.godot/imported/Main Ship - Base - Slight damage.aseprite-8d1170b99d1a987d749f973c43747c15.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Bases/Aseprite/Main Ship - Base - Slight damage.aseprite"
+dest_files=["res://.godot/imported/Main Ship - Base - Slight damage.aseprite-8d1170b99d1a987d749f973c43747c15.ctex"]
 
 [params]
 

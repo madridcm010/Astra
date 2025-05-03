@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmra6ng3wjdo0"
-valid=false
+path="res://.godot/imported/Nautolan Ship - Dreadnought - Engine Effect.aseprite-5716efb6b9fc7e47837f38d61a6af295.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Dreadnought - Engine Effect.aseprite"
+dest_files=["res://.godot/imported/Nautolan Ship - Dreadnought - Engine Effect.aseprite-5716efb6b9fc7e47837f38d61a6af295.ctex"]
 
 [params]
 

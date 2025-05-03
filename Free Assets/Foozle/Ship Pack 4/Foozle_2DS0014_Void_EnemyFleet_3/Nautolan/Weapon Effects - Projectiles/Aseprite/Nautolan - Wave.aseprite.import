@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4xvj4hcl0s7v"
-valid=false
+path="res://.godot/imported/Nautolan - Wave.aseprite-34a08d29960d4694f97207ebd8866704.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Wave.aseprite"
+dest_files=["res://.godot/imported/Nautolan - Wave.aseprite-34a08d29960d4694f97207ebd8866704.ctex"]
 
 [params]
 

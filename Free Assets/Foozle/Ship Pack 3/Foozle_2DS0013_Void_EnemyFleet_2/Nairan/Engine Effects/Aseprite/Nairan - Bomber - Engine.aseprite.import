@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn3baik7hoxaf"
-valid=false
+path="res://.godot/imported/Nairan - Bomber - Engine.aseprite-1582ea672433fe4961f8800cc669ef8a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Engine Effects/Aseprite/Nairan - Bomber - Engine.aseprite"
+dest_files=["res://.godot/imported/Nairan - Bomber - Engine.aseprite-1582ea672433fe4961f8800cc669ef8a.ctex"]
 
 [params]
 

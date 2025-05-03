@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx6kur8ncorff"
-valid=false
+path="res://.godot/imported/Main Ship - Weapons - Big Space Gun.aseprite-2b1cbd18cb4597b7b11c20ec4a3d517f.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/Aseprite/Main Ship - Weapons - Big Space Gun.aseprite"
+dest_files=["res://.godot/imported/Main Ship - Weapons - Big Space Gun.aseprite-2b1cbd18cb4597b7b11c20ec4a3d517f.ctex"]
 
 [params]
 

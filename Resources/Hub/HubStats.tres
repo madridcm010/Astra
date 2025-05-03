@@ -4,17 +4,17 @@
 
 [resource]
 script = ExtResource("1_werfs")
-health_level = 10
-thruster_level = 10
-attackspeed_level = 10
-damage_level = 10
-health_cost = 5500
-thruster_cost = 5500
-attackspeed_cost = 5500
-damage_cost = 5500
+health_level = 0
+thruster_level = 0
+attackspeed_level = 8
+damage_level = 1
+health_cost = 500
+thruster_cost = 500
+attackspeed_cost = 4500
+damage_cost = 1000
 ship1_cost = 5000
 ship2_cost = 0
 ship3_cost = 5000
-ship1purchased = true
+ship1purchased = false
 ship2purchased = true
 ship3purchased = true

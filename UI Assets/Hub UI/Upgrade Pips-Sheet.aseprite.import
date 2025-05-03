@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o78k7dj3ic4t"
-valid=false
+path="res://.godot/imported/Upgrade Pips-Sheet.aseprite-87860abfff60bb1d39b1a717041745fd.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://UI Assets/Hub UI/Upgrade Pips-Sheet.aseprite"
+dest_files=["res://.godot/imported/Upgrade Pips-Sheet.aseprite-87860abfff60bb1d39b1a717041745fd.ctex"]
 
 [params]
 

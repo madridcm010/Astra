@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wte8irrlj83s"
-valid=false
+path="res://.godot/imported/Main Ship - Shields - Invincibility Shield.aseprite-f3371511c1cfb440e94a8484499f30de.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Shields/Aseprite/Main Ship - Shields - Invincibility Shield.aseprite"
+dest_files=["res://.godot/imported/Main Ship - Shields - Invincibility Shield.aseprite-f3371511c1cfb440e94a8484499f30de.ctex"]
 
 [params]
 

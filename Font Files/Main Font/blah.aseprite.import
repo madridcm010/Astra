@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgo856fqu3e16"
-valid=false
+path="res://.godot/imported/blah.aseprite-13a3c2daa7e46811be14fe6eacd10c99.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Font Files/Main Font/blah.aseprite"
+dest_files=["res://.godot/imported/blah.aseprite-13a3c2daa7e46811be14fe6eacd10c99.ctex"]
 
 [params]
 

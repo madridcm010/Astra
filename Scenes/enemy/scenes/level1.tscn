@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5ihbctteub5s"]
+[gd_scene load_steps=11 format=3 uid="uid://do60etbx637cd"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_eutbs"]
+[ext_resource type="Texture2D" uid="uid://bbu0u8vmfm0em" path="res://UI Assets/Level UI/LevelUIBorder.png" id="2_ouqbh"]
+[ext_resource type="PackedScene" uid="uid://cjpx0vk3f7et" path="res://Scenes/player/scenes/PlayerHealth.tscn" id="3_uy85c"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_1a646"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="5_s232t"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="6_di5i1"]
@@ -19,6 +21,12 @@ WeaponCD = 0.0
 FlipCD = 1.0
 WeaponType = 1
 WeaponChoice = 2
+Credits = 0
+Health = 0
+health_boost = 0
+attackspeed_boost = 0.0
+thruster_boost = 0.0
+damage_boost = 0.0
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_eutbs")
@@ -47,6 +55,31 @@ visibility_layer = 3
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ouqbh")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="PlayerHealthBar" parent="Control/HBoxContainer/ColorRect/NinePatchRect" instance=ExtResource("3_uy85c")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(1060, 0)
@@ -57,6 +90,20 @@ size_flags_horizontal = 3
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ouqbh")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
 
 [node name="Parallax Test" parent="." instance=ExtResource("6_di5i1")]
 

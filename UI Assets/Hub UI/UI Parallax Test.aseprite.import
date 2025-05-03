@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ygyoo08h3max"
-valid=false
+path="res://.godot/imported/UI Parallax Test.aseprite-7c35b8ff7df16f11f6b82466e0b20f54.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://UI Assets/Hub UI/UI Parallax Test.aseprite"
+dest_files=["res://.godot/imported/UI Parallax Test.aseprite-7c35b8ff7df16f11f6b82466e0b20f54.ctex"]
 
 [params]
 

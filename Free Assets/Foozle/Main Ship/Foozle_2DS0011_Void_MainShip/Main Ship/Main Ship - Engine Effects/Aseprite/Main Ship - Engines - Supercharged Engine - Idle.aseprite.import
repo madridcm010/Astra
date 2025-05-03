@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5l3t7emea8s6"
-valid=false
+path="res://.godot/imported/Main Ship - Engines - Supercharged Engine - Idle.aseprite-bffaa2267cf61d342fcac039be5bff90.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engine Effects/Aseprite/Main Ship - Engines - Supercharged Engine - Idle.aseprite"
+dest_files=["res://.godot/imported/Main Ship - Engines - Supercharged Engine - Idle.aseprite-bffaa2267cf61d342fcac039be5bff90.ctex"]
 
 [params]
 

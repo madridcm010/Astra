@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy383p8xcde1x"
-valid=false
+path="res://.godot/imported/Nairan - Torpedo Ship - Shield.aseprite-7aed058bfca28565d05a6698763731f5.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Shields/Aseprite/Nairan - Torpedo Ship - Shield.aseprite"
+dest_files=["res://.godot/imported/Nairan - Torpedo Ship - Shield.aseprite-7aed058bfca28565d05a6698763731f5.ctex"]
 
 [params]
 

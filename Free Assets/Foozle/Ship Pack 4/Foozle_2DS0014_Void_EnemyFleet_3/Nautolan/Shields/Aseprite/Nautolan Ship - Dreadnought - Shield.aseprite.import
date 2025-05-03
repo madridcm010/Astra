@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://06h52s24bij0"
-valid=false
+path="res://.godot/imported/Nautolan Ship - Dreadnought - Shield.aseprite-a597679e8ee8a3925cb524a561b11c4a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Dreadnought - Shield.aseprite"
+dest_files=["res://.godot/imported/Nautolan Ship - Dreadnought - Shield.aseprite-a597679e8ee8a3925cb524a561b11c4a.ctex"]
 
 [params]
 

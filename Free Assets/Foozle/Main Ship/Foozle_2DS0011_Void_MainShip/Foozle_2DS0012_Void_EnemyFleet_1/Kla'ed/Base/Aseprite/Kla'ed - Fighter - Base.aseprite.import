@@ -3,11 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://28ge26mde6k5"
-valid=false
+path="res://.godot/imported/Kla'ed - Fighter - Base.aseprite-f17142e074196cd6b9908c7b40d949c7.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/Aseprite/Kla'ed - Fighter - Base.aseprite"
+dest_files=["res://.godot/imported/Kla'ed - Fighter - Base.aseprite-f17142e074196cd6b9908c7b40d949c7.ctex"]
 
 [params]
 
