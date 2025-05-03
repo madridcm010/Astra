@@ -1,17 +1,18 @@
 extends CharacterBody2D
 #enum collections for phases of boss and for bullet patterns.
-enum patterns { spread = 1 , tracer = 2, box = 3 , circle = 4 }
-enum phases { phase1 = 1, phase2 = 2, phase3 = 3 }
+
 @export var playerdamage : Playerstats
-@export var hp = 500.0 : set = _set_health
-@export var speed = 0.0
-@export var phase: phases
-@export var bullet_patterns: patterns
+@export var boss_stats = load("res://Resources/Boss/Boss.tres").duplicate()
+const SPREAD_WEAPON = preload("res://Scenes/spread_weapon.tscn")
+const BULLET = preload("res://Scenes/bullet.tscn")
+var hp = boss_stats.hp : set = _set_health
+var bullet_patterns = boss_stats.patterns
 var _damage : float = 0.0 #set default 
 @onready var healthbar = $healthbar
 @onready var boss_anim = $Boss
 signal boss_defeated
 var is_dead = false
+@onready var fire_timer = $Timer
 
 signal health_value(hp : int)
 
@@ -40,24 +41,22 @@ func change_hp(_damage: float):
 func _ready():
 	if playerdamage:
 		_damage = playerdamage.WeaponDamage
+	#initialize hp
+	hp = boss_stats.hp
 	healthbar.init_health(hp)
+	
+	#Randomize pattern
+	
+	boss_stats.randomize_pattern()
+	bullet_patterns = boss_stats.patterns
+	fire_timer.start()
+	
+	print("Chosen Pattern", boss_stats.Patterns.keys()[bullet_patterns - 1])
 	_Idle()
 	
-#func  _process(delta: float) -> void:
-	#get_input()
 
-#func get_input():
-	##for i in range(0, hp + 1):
-		##_set_health(hp - _damage)
-		#
-		#play("damage")
-		#change_hp(_damage)
-		#await get_tree().create_timer(.5).timeout
-		#_Idle()
-		#if hp<0:
-			#change_hp(_damage)
-			
-			
+
+
 		
 		
 func _dead():
@@ -65,8 +64,86 @@ func _dead():
 	$Boss.play("Death")
 	
 	
-		
-		
+# firing mechanics
+func _fire():
+	match bullet_patterns:
+		boss_stats.Patterns.Circle:
+			_fire_circle()
+		boss_stats.Patterns.Wave:
+			_fire_wave()
+		boss_stats.Patterns.Spiral:
+			_fire_spiral()
+		boss_stats.Patterns.Melee:
+			_fire_melee()
+	
+func _fire_circle():
+	print("firing circle")
+	$Boss.play("ranged")
+	await $Boss.animation_finished
+	var weapon = SPREAD_WEAPON.instantiate()
+	weapon.global_position = $Marker2D.global_position
+	var bullet = BULLET.instantiate()
+	bullet.direction = Vector2.DOWN
+	weapon.spawn_rate = .5
+	weapon.number_of_bullets = 25
+	weapon.bullet_speed = 500
+	weapon.bullet_lifetime = 3
+	weapon.bullet_rotation_change = 0
+	weapon.is_random = false
+	weapon.min_rotation = 0
+	weapon.max_rotation = 360
+	add_child(weapon)
+	await get_tree().create_timer(1).timeout
+	$Boss.stop()
+	$Boss.play("Idle")
+	
+
+func _fire_wave():
+	print("firing wave")
+	$Boss.play("ranged")
+	await $Boss.animation_finished
+	var weapon = SPREAD_WEAPON.instantiate()
+	weapon.global_position = $Marker2D.global_position
+	weapon.spawn_rate = .5
+	weapon.number_of_bullets = 10
+	weapon.bullet_speed = 500
+	weapon.bullet_lifetime = 4
+	weapon.bullet_rotation_change = 0
+	weapon.is_random = false
+	weapon.min_rotation = -25
+	weapon.max_rotation = -70
+	add_child(weapon)
+	await get_tree().create_timer(1).timeout
+	$Boss.stop()
+	$Boss.play("Idle")
+	
+
+func _fire_spiral():
+	print("firing spiral")
+	$Boss.play("ranged")
+	await $Boss.animation_finished
+	var weapon = SPREAD_WEAPON.instantiate()
+	weapon.global_position = $Marker2D.global_position
+	weapon.spawn_rate = .5
+	weapon.number_of_bullets = 12
+	weapon.bullet_speed = 500
+	weapon.bullet_lifetime = 4
+	weapon.bullet_rotation_change = 90
+	weapon.is_random = false
+	weapon.min_rotation = 30
+	weapon.max_rotation = 180
+	add_child(weapon)
+	await get_tree().create_timer(1).timeout
+	$Boss.stop()
+	$Boss.play("Idle")
+
+func _fire_melee():
+	print("firing melee")
+	
+	pass
+	
+	
+#IDLE ANIMATION
 func _Idle():
 	if hp != 0:
 		$Boss.play("Idle")
@@ -74,9 +151,18 @@ func _Idle():
 # boss damage
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet") and !is_dead:
-		$Boss.play("damage")
 		change_hp(_damage)
 		health_value.emit(hp)
+		await $Boss.animation_finished
+		if !$Boss.is_playing:
+			$Boss.play("damage")
 		await get_tree().create_timer(.5).timeout
 		if !is_dead:
 			_Idle()
+
+
+func _on_timer_timeout() -> void:
+	if !is_dead:
+		boss_stats.randomize_pattern()
+		bullet_patterns = boss_stats.patterns
+		_fire()

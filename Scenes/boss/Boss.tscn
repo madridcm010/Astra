@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://8db3364bfgbo"]
+[gd_scene load_steps=37 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://cuv6wjkbx0o8f" path="res://Scenes/boss/Spider_boss_sprite_sheet.png" id="1_guep4"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
+[ext_resource type="Resource" uid="uid://r27m5mm50rtd" path="res://Resources/Boss/Boss.tres" id="2_irajr"]
 [ext_resource type="PackedScene" uid="uid://11eqod1vjyf8" path="res://Scenes/healthbar.tscn" id="3_bsaji"]
 [ext_resource type="Script" path="res://Scenes/boss/state_machine.gd" id="4_7njfd"]
 
@@ -269,8 +270,10 @@ _data = {
 [node name="bossbody" type="CharacterBody2D"]
 position = Vector2(0, 5)
 script = ExtResource("2_ilpij")
+boss_stats = ExtResource("2_irajr")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3, -59)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(980, 408)
@@ -278,9 +281,11 @@ shape = SubResource("CapsuleShape2D_mkugb")
 
 [node name="Boss" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(978, 462)
+position = Vector2(981, 403)
 sprite_frames = SubResource("SpriteFrames_muwou")
-animation = &"damage"
+animation = &"ranged"
+frame = 6
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
 libraries = {
@@ -292,10 +297,14 @@ autoplay = "RESET"
 script = ExtResource("4_7njfd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(980, 408)
+position = Vector2(983, 349)
 shape = SubResource("CapsuleShape2D_mkugb")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [node name="healthbar" parent="." instance=ExtResource("3_bsaji")]
+visible = false
 layout_direction = 2
 anchors_preset = 7
 anchor_left = 0.5
@@ -314,9 +323,15 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="healthbar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -978.0
+offset_top = -199.954
+offset_right = -849.0
+offset_bottom = -176.954
 text = "The Nightmare"
 uppercase = true
 
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(983, 497)
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

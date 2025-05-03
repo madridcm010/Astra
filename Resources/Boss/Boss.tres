@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BossStats" load_steps=2 format=3 uid="uid://r27m5mm50rtd"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/BossStats.gd" id="1_4bnkm"]
+
+[resource]
+script = ExtResource("1_4bnkm")
+hp = 500.0
+patterns = 1

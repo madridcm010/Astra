@@ -12,7 +12,8 @@ func _ready():
 func _process(delta: float) -> void:
 	#position += direction * speed * delta
 	rotation_degrees += rotation_change * delta
-	position += direction *  speed * delta
+	#position += direction *  speed * delta
+	position += Vector2(cos(rotation), - sin(rotation)) * speed * delta
 func _on_timer_timeout() -> void:
 	queue_free()
 
