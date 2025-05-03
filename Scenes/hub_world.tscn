@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cbjhwtu7by4di" path="res://UI Assets/Hub UI/Hub Container Hover.png" id="9_8nhyl"]
 [ext_resource type="Texture2D" uid="uid://dnlsyt3o7ljgx" path="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Bomber - Base.png" id="10_f87yj"]
 [ext_resource type="Texture2D" uid="uid://p45v1gutvxlg" path="res://UI Assets/Hub UI/Hub Container Disabled.png" id="10_wp13j"]
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="12_1mtue"]
+[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="12_1mtue"]
 [ext_resource type="Texture2D" uid="uid://gab7243nij0q" path="res://UI Assets/Currency/coin2_20x20.png" id="12_5a6nn"]
 [ext_resource type="Texture2D" uid="uid://d2kekgqt2eoft" path="res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Frigate - Base.png" id="13_jdgl2"]
 [ext_resource type="Texture2D" uid="uid://dlqi8qp18aspb" path="res://UI Assets/Hub UI/Upgrade Pips-SheetAtlas.png" id="14_ym4nd"]

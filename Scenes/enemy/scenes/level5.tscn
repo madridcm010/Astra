@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="3_mpyyg"]
 [ext_resource type="PackedScene" uid="uid://cjpx0vk3f7et" path="res://Scenes/player/scenes/PlayerHealth.tscn" id="3_mukb1"]
 [ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="4_71l4u"]
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="4_77n5s"]
+[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="4_77n5s"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_i6y7y"]
 [ext_resource type="PackedScene" uid="uid://qqgvmhh2y1ak" path="res://Scenes/boss/BossHealthBar.tscn" id="5_5ge42"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="5_pfhtv"]
