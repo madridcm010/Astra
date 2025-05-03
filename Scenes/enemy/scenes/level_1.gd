@@ -80,3 +80,8 @@ func handle_enemy_kills():
 
 func _on_spawnboss_timeout() -> void:
 	spawn_boss()
+
+
+func _on_health_test_timeout() -> void:
+	$Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar.value -= 5
+	print("player health reduced")
