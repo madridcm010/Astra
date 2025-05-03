@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5ihbctteub5s"]
+[gd_scene load_steps=10 format=3 uid="uid://cq34fdxorll0c"]
 
-[ext_resource type="Script" path="res://Levels/levls/Level1.gd" id="1_q8w2o"]
-[ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_1a646"]
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="4_o3m34"]
-[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="5_s232t"]
-[ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="6_di5i1"]
-[ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="6_jpip0"]
-[ext_resource type="Resource" uid="uid://cvnl247m7cdep" path="res://Resources/Enemy/enemy.tres" id="7_d08xo"]
-[ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="7_qhuoi"]
+[ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_hew0i"]
+[ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="2_aj6pi"]
+[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Resources/Player/player.tscn" id="3_mpyyg"]
+[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="4_77n5s"]
+[ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_i6y7y"]
+[ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="5_pfhtv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hui1"]
 size = Vector2(58, 1090)
@@ -15,18 +13,18 @@ size = Vector2(58, 1090)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iewet"]
 size = Vector2(1232, 56)
 
-[sub_resource type="Resource" id="Resource_n4iii"]
-script = ExtResource("4_1a646")
+[sub_resource type="Resource" id="Resource_pappl"]
+script = ExtResource("4_i6y7y")
 Speed = 300.0
-Sprite = ExtResource("4_o3m34")
+Sprite = ExtResource("4_77n5s")
 WeaponCD = 1.0
-FlipCD = 0.2
+FlipCD = 0.25
 WeaponType = 0
 WeaponChoice = 1
-WeaponDamage = 0.0
+WeaponDamage = 10.0
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_q8w2o")
+[node name="Level5" type="Node2D"]
+script = ExtResource("1_hew0i")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -63,7 +61,7 @@ z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Parallax Test" parent="." instance=ExtResource("6_di5i1")]
+[node name="Parallax Test" parent="." instance=ExtResource("2_aj6pi")]
 
 [node name="Borders" type="StaticBody2D" parent="." groups=["border"]]
 
@@ -87,29 +85,26 @@ position = Vector2(960, 1098)
 shape = SubResource("RectangleShape2D_iewet")
 one_way_collision_margin = 0.0
 
-[node name="Player" parent="." instance=ExtResource("5_s232t")]
+[node name="Player" parent="." instance=ExtResource("3_mpyyg")]
 position = Vector2(960, 976)
-stats = SubResource("Resource_n4iii")
+stats = SubResource("Resource_pappl")
 
-[node name="Pause Menu" parent="." instance=ExtResource("7_qhuoi")]
+[node name="Pause Menu" parent="." instance=ExtResource("5_pfhtv")]
 
 [node name="NorthSpawn" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.5
 autostart = true
 
 [node name="SouthSpawn" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.5
 autostart = true
 
 [node name="Spawnboss" type="Timer" parent="." groups=["enemy"]]
 wait_time = 2.0
 one_shot = true
 
-[node name="Enemy" parent="." instance=ExtResource("6_jpip0")]
-scale = Vector2(4, 4)
-stats = ExtResource("7_d08xo")
-
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
+[connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawnboss_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawn_boss_timeout"]
