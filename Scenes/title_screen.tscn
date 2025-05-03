@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://rj3j768rk57o"]
+[gd_scene load_steps=24 format=3 uid="uid://rj3j768rk57o"]
 
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_570ua"]
 [ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="2_vkysl"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="2_y5loa"]
-[ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="4_jjdww"]
 [ext_resource type="PackedScene" uid="uid://c14ymhav7xwq4" path="res://Scenes/settings_menu.tscn" id="5_1ifiy"]
 [ext_resource type="AudioStream" uid="uid://cm83nrjgws864" path="res://Sound Files/background/ObservingTheStar.ogg" id="6_1a1ky"]
+[ext_resource type="Texture2D" uid="uid://csotygcfhby38" path="res://Free Assets/PNG/Level_Menu/Window.png" id="6_uxomd"]
+[ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="7_eut4k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_htjbv"]
 
@@ -85,18 +86,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Player:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.8, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(960, 1220), Vector2(960, 890)]
-}
 
 [sub_resource type="Animation" id="Animation_p3fxy"]
 length = 0.001
@@ -115,26 +104,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Player:position")
+tracks/1/path = NodePath("../SettingsMenu:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(960, 1220)]
+"values": [Vector2(0, 1090)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../SettingsMenu:position")
+tracks/2/path = NodePath("../Sprite2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 1090)]
+"values": [Vector2(960, 950)]
 }
 
 [sub_resource type="Animation" id="Animation_ab4ht"]
@@ -235,14 +224,14 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../Player:position")
+tracks/5/path = NodePath("../Sprite2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.2, 0.5),
-"transitions": PackedFloat32Array(3.86374, 1),
+"times": PackedFloat32Array(0, 0.366667),
+"transitions": PackedFloat32Array(2.82843, 1),
 "update": 0,
-"values": [Vector2(960, 890), Vector2(960, -180)]
+"values": [Vector2(960, 950), Vector2(960, -100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6uh3i"]
@@ -253,6 +242,14 @@ _data = {
 "SettingsOut": SubResource("Animation_yt584"),
 "Start Game": SubResource("Animation_064a5")
 }
+
+[sub_resource type="FontVariation" id="FontVariation_t3pe0"]
+base_font = ExtResource("7_eut4k")
+baseline_offset = 0.1
+
+[sub_resource type="FontVariation" id="FontVariation_4tut7"]
+base_font = ExtResource("7_eut4k")
+baseline_offset = 0.1
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_570ua")
@@ -294,9 +291,9 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 
 [node name="Continue Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.287784, 0.287784, 0.287784, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
 theme_override_colors/font_hover_color = Color(0.235294, 0.47451, 0.678431, 1)
 theme_override_colors/font_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
@@ -310,7 +307,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
 text = "Continue"
 
 [node name="New Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
@@ -326,7 +322,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
 text = "New Game"
 
 [node name="Settings" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
@@ -342,7 +337,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
 text = "Settings"
 
 [node name="Quit Game" type="Button" parent="TitleOptionsControl/TitleOptionsVBox"]
-self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_colors/font_hover_pressed_color = Color(0.235294, 0.47451, 0.678431, 1)
@@ -356,10 +350,6 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_3tbgn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ebblt")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_krpna")
 text = "Quit Game"
-
-[node name="Player" parent="." instance=ExtResource("4_jjdww")]
-position = Vector2(960, 1220)
-script = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath(".")
@@ -375,9 +365,95 @@ offset_bottom = 1090.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_1a1ky")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 950)
+scale = Vector2(3, 3)
+
+[node name="Reset Warning" type="NinePatchRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(300, 600)
+offset_left = 810.0
+offset_top = 290.0
+offset_right = 1110.0
+offset_bottom = 890.0
+texture = ExtResource("6_uxomd")
+patch_margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Reset Warning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="Reset Warning/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Reset Warning/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 0.976471)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_t3pe0")
+theme_override_font_sizes/font_size = 30
+text = "Warning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="Reset Warning/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Reset Warning/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_t3pe0")
+theme_override_font_sizes/font_size = 40
+text = "Reset Save Data?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Reset Warning/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Reset Warning/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfirmButton" type="Button" parent="Reset Warning/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = SubResource("FontVariation_4tut7")
+text = "Confirm"
+
+[node name="Control" type="Control" parent="Reset Warning/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="Reset Warning/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = SubResource("FontVariation_4tut7")
+text = "Cancel"
+
 [connection signal="close_settings" from="." to="SettingsMenu" method="_on_title_screen_close_settings"]
+[connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/Continue Game" to="." method="_on_continue_game_pressed"]
 [connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/New Game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="TitleOptionsControl/TitleOptionsVBox/Quit Game" to="." method="_on_quit_game_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="exit_settings" from="SettingsMenu" to="." method="_on_settings_menu_exit_settings"]
+[connection signal="pressed" from="Reset Warning/VBoxContainer/MarginContainer/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Reset Warning/VBoxContainer/MarginContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

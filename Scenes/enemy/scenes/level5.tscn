@@ -1,11 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://dk22k4gre36w3"]
+[gd_scene load_steps=17 format=3 uid="uid://cimyhmsl82tdi"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_hew0i"]
+[ext_resource type="Texture2D" uid="uid://bbu0u8vmfm0em" path="res://UI Assets/Level UI/LevelUIBorder.png" id="2_1ty5l"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="2_aj6pi"]
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="3_mpyyg"]
+[ext_resource type="PackedScene" uid="uid://cjpx0vk3f7et" path="res://Scenes/player/scenes/PlayerHealth.tscn" id="3_mukb1"]
+[ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="4_71l4u"]
 [ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="4_77n5s"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_i6y7y"]
+[ext_resource type="PackedScene" uid="uid://qqgvmhh2y1ak" path="res://Scenes/boss/BossHealthBar.tscn" id="5_5ge42"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="5_pfhtv"]
+[ext_resource type="PackedScene" uid="uid://ck06iw04p5g65" path="res://Scenes/player/scenes/level_progress_bar.tscn" id="6_2cjxq"]
+
+[sub_resource type="FontVariation" id="FontVariation_vppw3"]
+base_font = ExtResource("4_71l4u")
+baseline_offset = 0.1
+
+[sub_resource type="FontVariation" id="FontVariation_w8lyu"]
+base_font = ExtResource("4_71l4u")
+baseline_offset = 0.1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4hui1"]
 size = Vector2(58, 1090)
@@ -22,6 +35,12 @@ FlipCD = 0.25
 WeaponType = 0
 WeaponChoice = 1
 WeaponDamage = 25.0
+Credits = 0
+Health = 0
+health_boost = 0
+attackspeed_boost = 0.0
+thruster_boost = 0.0
+damage_boost = 0.0
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_hew0i")
@@ -50,6 +69,50 @@ visibility_layer = 3
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ty5l")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="PlayerHealthBar" parent="Control/HBoxContainer/ColorRect/NinePatchRect" instance=ExtResource("3_mukb1")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = 480.0
+offset_right = 40.5
+offset_bottom = 500.0
+grow_vertical = 2
+rotation = -1.5708
+scale = Vector2(9, 6)
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/ColorRect/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_vppw3")
+theme_override_font_sizes/font_size = 60
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Control" type="Control" parent="Control/HBoxContainer"]
 custom_minimum_size = Vector2(1060, 0)
@@ -60,6 +123,81 @@ size_flags_horizontal = 3
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ty5l")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="BossHealthBar" parent="Control/HBoxContainer/ColorRect2/NinePatchRect" instance=ExtResource("5_5ge42")]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -60.0
+offset_right = 50.5
+offset_bottom = -40.0
+grow_vertical = 0
+rotation = -1.5708
+scale = Vector2(9, 6)
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/ColorRect2/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_vppw3")
+theme_override_font_sizes/font_size = 60
+text = "Boss"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelProgressBar" parent="Control/HBoxContainer/ColorRect2/NinePatchRect" instance=ExtResource("6_2cjxq")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.5
+offset_top = -60.0
+offset_right = 40.5
+offset_bottom = -40.0
+grow_vertical = 0
+rotation = -1.5708
+scale = Vector2(9, 6)
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/ColorRect2/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_w8lyu")
+theme_override_font_sizes/font_size = 45
+text = "Progress"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Parallax Test" parent="." instance=ExtResource("2_aj6pi")]
 
@@ -106,5 +244,5 @@ one_shot = true
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]
-[connection signal="timeout" from="Spawnboss" to="." method="_on_spawn_boss_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawnboss_timeout"]
+[connection signal="timeout" from="Spawnboss" to="." method="_on_spawn_boss_timeout"]

@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 			exit_settings.emit()
 
 func _on_audio_button_pressed() -> void:
-	
+	$ButtonClick.play()
 	option_open = true
 	
 	$SettingsBG/OptionsMargin.hide()
@@ -71,7 +71,7 @@ func _on_audio_button_pressed() -> void:
 
 
 func _on_display_button_pressed() -> void:
-	
+	$ButtonClick.play()
 	option_open = true
 	
 	$SettingsBG/OptionsMargin.hide()
@@ -81,7 +81,7 @@ func _on_display_button_pressed() -> void:
 
 
 func _on_controls_button_pressed() -> void:
-	
+	$ButtonClick.play()
 	option_open = true
 	
 	$SettingsBG/OptionsMargin.hide()

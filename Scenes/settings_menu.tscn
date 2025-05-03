@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c14ymhav7xwq4"]
+[gd_scene load_steps=12 format=3 uid="uid://c14ymhav7xwq4"]
 
 [ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_bxvxy"]
 [ext_resource type="FontFile" uid="uid://b3qf8xclgupjj" path="res://Font Files/Main Font/TitilliumWeb-Light.ttf" id="1_dxlh1"]
 [ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="2_ahnoh"]
 [ext_resource type="Texture2D" uid="uid://b77jxnkryx2aa" path="res://Free Assets/PNG/Upgrade/Window.png" id="2_rtonk"]
 [ext_resource type="Script" path="res://Scripts/volume_control.gd" id="4_ypq6e"]
+[ext_resource type="AudioStream" uid="uid://c0iv4alpbig0r" path="res://Sound Files/ButtonClick.wav" id="6_laxim"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wppnu"]
 
@@ -361,6 +362,11 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_bkakb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_41aru")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_xnprw")
 text = "Controls"
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_laxim")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="pressed" from="SettingsBG/OptionsMargin/OptionsVbox/AudioButton" to="." method="_on_audio_button_pressed"]
 [connection signal="pressed" from="SettingsBG/OptionsMargin/OptionsVbox/DisplayButton" to="." method="_on_display_button_pressed"]

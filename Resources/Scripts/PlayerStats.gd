@@ -11,3 +11,24 @@ enum WeaponTypes {Basic = 1, Shotgun = 2 , laser = 3 , Machinegun = 4 }
 @export var WeaponType : int
 @export var WeaponChoice : WeaponTypes
 @export var WeaponDamage : float
+@export var Credits : int
+@export var Health : int
+
+@export var health_boost : int
+@export var attackspeed_boost : float
+@export var thruster_boost : float
+@export var damage_boost : float
+
+func reset():
+	Speed = 300
+	Sprite = load("res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png")
+	WeaponCD = 1
+	FlipCD = .25
+	WeaponChoice = 1
+	WeaponDamage = 10
+	Credits = 500
+	Health = 100
+	health_boost = 0
+	attackspeed_boost = 0
+	thruster_boost = 0
+	damage_boost = 0
