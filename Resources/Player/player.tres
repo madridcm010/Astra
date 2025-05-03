@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Playerstats" load_steps=3 format=3 uid="uid://wx21prccd2s6"]
 
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="1_hp31e"]
+[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="1_hp31e"]
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="2_ho836"]
 
 [resource]
