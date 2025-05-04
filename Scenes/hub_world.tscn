@@ -1,8 +1,8 @@
 [gd_scene load_steps=35 format=3 uid="uid://h6kvaui48s50"]
 
 [ext_resource type="Script" path="res://Scenes/hub_world.gd" id="1_2rsmc"]
-[ext_resource type="Resource" uid="uid://dlvl2jghi2637" path="res://Resources/Hub/HubStats.tres" id="2_0exh7"]
 [ext_resource type="Texture2D" uid="uid://ihs703nqjg6r" path="res://Backgrounds/Hub Placeholders/Hub BG2 Sized2.png" id="2_1nacm"]
+[ext_resource type="Resource" uid="uid://buulfc24feds6" path="res://Resources/Hub/HubStats.tres" id="2_4vcvf"]
 [ext_resource type="Texture2D" uid="uid://b2x7yfjuchn33" path="res://Free Assets/PNG/Pause/Table.png" id="2_nmkl7"]
 [ext_resource type="FontFile" uid="uid://cx5us2v12cc34" path="res://Font Files/Title Font.ttf" id="2_srj18"]
 [ext_resource type="FontFile" uid="uid://dxm5et1tncrqi" path="res://Font Files/Main Font/TitilliumWeb-SemiBold.ttf" id="3_mwbk8"]
@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cbjhwtu7by4di" path="res://UI Assets/Hub UI/Hub Container Hover.png" id="9_8nhyl"]
 [ext_resource type="Texture2D" uid="uid://dnlsyt3o7ljgx" path="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Bomber - Base.png" id="10_f87yj"]
 [ext_resource type="Texture2D" uid="uid://p45v1gutvxlg" path="res://UI Assets/Hub UI/Hub Container Disabled.png" id="10_wp13j"]
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Resources/Player/Main Ship - Engines - Big Pulse Engine.png" id="12_1mtue"]
 [ext_resource type="Texture2D" uid="uid://gab7243nij0q" path="res://UI Assets/Currency/coin2_20x20.png" id="12_5a6nn"]
 [ext_resource type="Texture2D" uid="uid://d2kekgqt2eoft" path="res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Frigate - Base.png" id="13_jdgl2"]
+[ext_resource type="Texture2D" uid="uid://0shet6fcvklr" path="res://Free Assets/Foozle/Main Ship/Main_Ship_-_Engines_-_Big_Pulse_Engine.png" id="14_rallc"]
 [ext_resource type="Texture2D" uid="uid://dlqi8qp18aspb" path="res://UI Assets/Hub UI/Upgrade Pips-SheetAtlas.png" id="14_ym4nd"]
 [ext_resource type="FontFile" uid="uid://dnda0ofpeht32" path="res://Font Files/RealMadrid2022.ttf" id="15_vvdou"]
 [ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="16_rd15d"]
@@ -69,7 +69,7 @@ baseline_offset = 0.115
 
 [node name="Hub World" type="Node2D"]
 script = ExtResource("1_2rsmc")
-hub_stats = ExtResource("2_0exh7")
+hubstats = ExtResource("2_4vcvf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -302,7 +302,7 @@ offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("12_1mtue")
+texture = ExtResource("14_rallc")
 expand_mode = 3
 stretch_mode = 5
 
@@ -707,3 +707,4 @@ bus = &"SFX"
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/DamageVBox/HBoxContainer/DamageButton" to="." method="_on_damage_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/HangarButton" to="." method="_on_hangar_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/SendButton" to="." method="_on_send_button_pressed"]

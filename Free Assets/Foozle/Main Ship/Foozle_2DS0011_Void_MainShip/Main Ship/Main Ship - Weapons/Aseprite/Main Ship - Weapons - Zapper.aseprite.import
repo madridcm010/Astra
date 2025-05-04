@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi8w4c8ce01o1"
-path="res://.godot/imported/Main Ship - Weapons - Zapper.aseprite-6369074e4513a88f7f8ef90b20d635f4.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Weapons/Aseprite/Main Ship - Weapons - Zapper.aseprite"
-dest_files=["res://.godot/imported/Main Ship - Weapons - Zapper.aseprite-6369074e4513a88f7f8ef90b20d635f4.ctex"]
 
 [params]
 

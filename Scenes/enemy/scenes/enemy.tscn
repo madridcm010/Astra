@@ -25,6 +25,7 @@ script = ExtResource("1_5advp")
 
 [node name="enemyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yq3ys")
+disabled = true
 
 [node name="enemyArea" type="Area2D" parent="."]
 

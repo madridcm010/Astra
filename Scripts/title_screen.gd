@@ -1,6 +1,8 @@
 extends Node2D
 
-@onready var mainGame = load("res://Scenes/enemy/scenes/level1.tscn")
+@export var ship_stats : shipstats
+
+@onready var Level1 = load("res://Scenes/enemy/scenes/level1.tscn")
 @onready var player_stats = load("res://Resources/Player/player.tres").duplicate()
 @onready var hub_stats = load("res://Resources/Hub/HubStats.tres").duplicate()
 @onready var save_data = load("res://Resources/SaveData.tres").duplicate()
@@ -8,11 +10,17 @@ extends Node2D
 signal close_settings
 # Called as soon as scene is ready
 func _ready():
+	
+	if Autoload.current_ship == null:
+		ship_stats = load("res://Resources/Player/WhiteShip.tres")
+	else:
+		ship_stats = Autoload.current_ship
+		
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	title()
 	$AudioStreamPlayer2D.play()
 	$SettingsMenu.hide()
-	$Sprite2D.texture = player_stats.Sprite
+	$Sprite2D.texture = ship_stats.Sprite
 	$"Reset Warning".visible = false
 	
 	if (save_data.GameExists == false):
@@ -50,7 +58,7 @@ func title():
 
 # Changes scene to Main Game on function call
 func startGame():
-	get_tree().change_scene_to_packed(mainGame)
+	get_tree().change_scene_to_packed(Level1)
 
 # Runs Start Game animation, then signals "Start Game" animFinished
 func _on_new_game_pressed() -> void:
@@ -92,8 +100,8 @@ func _on_cancel_button_pressed() -> void:
 	$"Reset Warning".visible = false
 	
 func set_defaults():
-	player_stats.reset()
-	ResourceSaver.save(player_stats, "res://Resources/Player/player.tres")
+	#player_stats.reset()
+	#ResourceSaver.save(player_stats, "res://Resources/Player/player.tres")
 	hub_stats.reset()
 	ResourceSaver.save(hub_stats, "res://Resources/Hub/HubStats.tres")
 	save_data.GameExists = true

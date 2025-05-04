@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csb057hjla2di"
-path="res://.godot/imported/Kla'ed - Scout - Weapons.aseprite-9b7c359091a1bae09feb1420479f5b49.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Weapons/Aseprite/Kla'ed - Scout - Weapons.aseprite"
-dest_files=["res://.godot/imported/Kla'ed - Scout - Weapons.aseprite-9b7c359091a1bae09feb1420479f5b49.ctex"]
 
 [params]
 

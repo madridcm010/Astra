@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw7ftik4ylldq"
-path="res://.godot/imported/Hub Container Test.aseprite-6a0639bed50df30b2fbb2d1a61139441.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://UI Assets/Hub UI/Hub Container Test.aseprite"
-dest_files=["res://.godot/imported/Hub Container Test.aseprite-6a0639bed50df30b2fbb2d1a61139441.ctex"]
 
 [params]
 

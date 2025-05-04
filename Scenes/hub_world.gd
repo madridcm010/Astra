@@ -1,7 +1,12 @@
 extends Node2D
 
-@export var hub_stats = load("res://Resources/Hub/HubStats.tres").duplicate()
-@export var player_stats = load("res://Resources/Player/player.tres").duplicate()
+@export var hubstats : HubStats
+@export var playerstats : Playerstats
+
+@onready var hub_stats = load("res://Resources/Hub/HubStats.tres")
+@onready var player_stats = load("res://Resources/Player/player.tres")
+
+@onready var Level1 = load("res://Scenes/enemy/scenes/level1.tscn")
 
 @onready var health_image = $HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/HealthVBox/HealthTexture
 @onready var attackspeed_image = $HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/ASVBox/ASTexture
@@ -43,7 +48,7 @@ func _on_damage_button_pressed() -> void:
 		hub_stats.damage_level += 1
 		damage_image.texture.region.position.x = advance_frame(hub_stats.damage_level)
 		hub_stats.damage_cost = (500 * (hub_stats.damage_level + 1))
-		player_stats.damage_boost = (.05 * (hub_stats.damage_level))
+		player_stats.damage_boost += 1 
 		save_stats()
 		update_credits()
 		$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/DamageVBox/HBoxContainer/DamageButton.set_text(str(hub_stats.damage_cost))
@@ -60,7 +65,7 @@ func _on_thruster_button_pressed() -> void:
 		hub_stats.thruster_level += 1
 		thruster_image.texture.region.position.x = advance_frame(hub_stats.thruster_level)
 		hub_stats.thruster_cost = (500 * (hub_stats.thruster_level + 1))
-		player_stats.thruster_boost = (.10 * (hub_stats.thruster_level))
+		player_stats.thruster_boost += 1
 		save_stats()
 		update_credits()
 		$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/ThrusterVBox/HBoxContainer/ThrusterButton.set_text(str(hub_stats.thruster_cost))
@@ -77,7 +82,7 @@ func _on_as_button_pressed() -> void:
 		hub_stats.attackspeed_level += 1
 		attackspeed_image.texture.region.position.x = advance_frame(hub_stats.attackspeed_level)
 		hub_stats.attackspeed_cost = (500 * (hub_stats.attackspeed_level + 1))
-		player_stats.attackspeed_boost = (.10 * (hub_stats.attackspeed_level))
+		player_stats.attackspeed_boost += 1
 		save_stats()
 		update_credits()
 		$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/ASVBox/HBoxContainer/ASButton.set_text(str(hub_stats.attackspeed_cost))
@@ -94,7 +99,7 @@ func _on_health_button_pressed() -> void:
 		hub_stats.health_level += 1
 		health_image.texture.region.position.x = advance_frame(hub_stats.health_level)
 		hub_stats.health_cost = (500 * (hub_stats.health_level + 1))
-		player_stats.health_boost = (10 * (hub_stats.health_level))
+		player_stats.health_boost += 1
 		save_stats()
 		update_credits()
 		$HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/GridContainer/HealthVBox/HBoxContainer/HealthButton.set_text(str(hub_stats.health_cost))
@@ -199,18 +204,21 @@ func _on_upgrade_button_pressed() -> void:
 func _on_ship_3_button_pressed() -> void:
 	if (hub_stats.ship1purchased == true):
 		$ButtonClick.play()
-		player_stats.Sprite = load("res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Bomber - Base.png")
+		Autoload.current_ship = load("res://Resources/Player/RedShip.tres")
 		save_stats()
- 
 
 func _on_ship_2_button_pressed() -> void:
 	$ButtonClick.play()
-	player_stats.Sprite = load("res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png")
+	Autoload.current_ship = load("res://Resources/Player/WhiteShip.tres")
 	save_stats()
 
 func _on_ship_1_button_pressed() -> void:
 	if (hub_stats.ship3purchased == true):
 		$ButtonClick.play()
-		player_stats.Sprite = load("res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Frigate - Base.png")
+		Autoload.current_ship = load("res://Resources/Player/GreenShip.tres")
 		save_stats()
 	
+
+
+func _on_send_button_pressed() -> void:
+	get_tree().change_scene_to_packed(Level1)

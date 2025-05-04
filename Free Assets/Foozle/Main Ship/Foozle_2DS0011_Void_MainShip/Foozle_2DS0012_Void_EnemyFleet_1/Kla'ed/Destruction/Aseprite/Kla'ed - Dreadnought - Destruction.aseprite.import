@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccegpxja2jol2"
-path="res://.godot/imported/Kla'ed - Dreadnought - Destruction.aseprite-82346dcb7a151a77aef84d2c380ff104.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Destruction/Aseprite/Kla'ed - Dreadnought - Destruction.aseprite"
-dest_files=["res://.godot/imported/Kla'ed - Dreadnought - Destruction.aseprite-82346dcb7a151a77aef84d2c380ff104.ctex"]
 
 [params]
 

@@ -1,9 +1,21 @@
 extends CharacterBody2D
 
-@export var stats : Playerstats
+@export var ship_stats : shipstats
+@export var player_stats : Playerstats
+
+#@onready var stats = load("res://Resources/Player/player.tres").duplicate()
+@onready var hub = load("res://Scenes/hub_world.tscn")
+
+var Speed
+var Sprite
+var WeaponCD
+var WeaponChoice
+var WeaponDamage
+var Health
+var isDead
 
 #var speed = stats.Speed
-var current_rotation :float =  0.0
+var current_rotation : float =  0.0
 const rotation_speed = 180
 const PLAYER_BULLET = preload("res://Scenes/player/scenes/player_bullet.tscn")
 var can_shoot = true
@@ -12,6 +24,8 @@ var is_playing = false
 #var fire_type := stats.WeaponChoice == 1
 # signal to be sent level for laser spawns
 signal weapon(pos, rot)
+signal send_health(int)
+signal change_hp()
 #signal spread_weapon(pos,rot)
 
 #function for adjusting player image & collision shape between 0 & 180 degrees 
@@ -37,7 +51,7 @@ var flipReady : bool = true
 # function for getting directional and flip input of player
 func get_input():
 	var input_direction = Input.get_vector("left","right","up", "down")
-	velocity = input_direction * stats.Speed
+	velocity = input_direction * Speed
 	if Input.is_action_just_pressed("flip") and flipReady:
 		playerFlip($PlayerImage.rotation_degrees)
 		flipReady = false 
@@ -46,7 +60,26 @@ func get_input():
 # constantly running function
 
 func _ready() -> void:
-	$PlayerImage.texture = stats.Sprite
+	print("ready reached")
+	if Autoload.current_ship == null:
+		ship_stats = load("res://Resources/Player/WhiteShip.tres")
+	else:
+		ship_stats = Autoload.current_ship
+	
+	Speed = ship_stats.Speed + (ship_stats.Speed * (.1 * player_stats.thruster_boost))
+	Sprite = ship_stats.Sprite
+	WeaponCD = ship_stats.WeaponCD - ((.05 * player_stats.attackspeed_boost) * ship_stats.WeaponCD)
+	WeaponChoice = ship_stats.WeaponChoice
+	WeaponDamage = ship_stats.WeaponDamage + (ship_stats.WeaponDamage *(.1 * player_stats.damage_boost))
+	Health = ship_stats.Health + (ship_stats.Health * (.1 * player_stats.health_boost))
+	isDead = false
+	
+	send_health.emit(Health)
+	
+	
+	
+	$PlayerImage.texture = Sprite
+	
 func _process(_delta):
 	#speed = stats.Speed
 	#var speed = stats.Speed
@@ -71,22 +104,20 @@ func _process(_delta):
 		$WeaponCD.start()
 
 #Timers for player using resource
-	$WeaponCD.wait_time = stats.WeaponCD
-	$FlipCD.wait_time = stats.FlipCD
+	$WeaponCD.wait_time = WeaponCD
+	$FlipCD.wait_time = .25
 	
 # gun functionality
 func fire():
 	
 	if $PlayerImage.rotation_degrees == 0:
-		if stats.WeaponChoice == 1 :
-			stats.WeaponDamage = 10
+		if WeaponChoice == 1 :
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
 			add_sibling(new_bullet)
 			
 			
-		elif stats.WeaponChoice == 2:
-			stats.WeaponDamage = 2
+		elif WeaponChoice == 2:
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
 			add_sibling(new_bullet)
@@ -98,23 +129,20 @@ func fire():
 			add_sibling(new_bullet3)
 			
 			
-		elif stats.WeaponChoice == 4:
-			stats.WeaponDamage = 5
+		elif WeaponChoice == 4:
 			#change the weaponcd time to .15 inside of .tres file
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.position = $WeaponSpawnTop1.get_global_position()
 			add_sibling(new_bullet)
 			
 	if $PlayerImage.rotation_degrees == 180:
-		if stats.WeaponChoice == 1:
-			stats.WeaponDamage = 10
+		if WeaponChoice == 1:
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.speed *= -1
 			new_bullet.flip_sprite == true
 			new_bullet.position = $WeaponSpawnBot1.get_global_position()
 			add_sibling(new_bullet)
-		elif stats.WeaponChoice == 2:
-			stats.WeaponDamage = 2
+		elif WeaponChoice == 2:
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.speed *= -1
 			new_bullet.position = $WeaponSpawnBot1.get_global_position()
@@ -130,8 +158,7 @@ func fire():
 			
 			
 		# TODO laser mechanics added here
-		elif stats.WeaponChoice == 4:
-			stats.WeaponDamage = 5
+		elif WeaponChoice == 4:
 			#change the weaponcd time to .15 inside of .tres file
 			var new_bullet = PLAYER_BULLET.instantiate()
 			new_bullet.speed *= -1
@@ -148,7 +175,8 @@ func randomize_pitch_and_play():
 
 
 # signal receiver for ship weapon cooldown timer
-
+func die():
+	get_tree().change_scene_to_packed(hub)
 
 func _on_Weapon_CD_timeout() -> void:
 	weaponReady = true
@@ -157,3 +185,15 @@ func _on_Weapon_CD_timeout() -> void:
 # signal receiver for ship flip cooldown timer
 func _on_flip_cd_timeout() -> void:
 	flipReady = true
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_bullet") and !isDead:
+		Health -= 20
+		change_hp.emit()
+	if (Health <= 0):
+		isDead = true
+		die()
+		
+	
+	

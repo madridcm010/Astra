@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e6jw7jdavraw"
-path="res://.godot/imported/Main Ship - Engines - Supercharged Engine.aseprite-3f4cf78229d0ed56a27a50e95a0900ca.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Engines/Aseprite/Main Ship - Engines - Supercharged Engine.aseprite"
-dest_files=["res://.godot/imported/Main Ship - Engines - Supercharged Engine.aseprite-3f4cf78229d0ed56a27a50e95a0900ca.ctex"]
 
 [params]
 

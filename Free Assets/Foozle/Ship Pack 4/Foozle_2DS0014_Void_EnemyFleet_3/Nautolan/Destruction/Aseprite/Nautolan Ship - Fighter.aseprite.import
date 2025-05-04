@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co2160n2p3irj"
-path="res://.godot/imported/Nautolan Ship - Fighter.aseprite-69ce6007675f181cc75d4f1d2c057dc4.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Destruction/Aseprite/Nautolan Ship - Fighter.aseprite"
-dest_files=["res://.godot/imported/Nautolan Ship - Fighter.aseprite-69ce6007675f181cc75d4f1d2c057dc4.ctex"]
 
 [params]
 

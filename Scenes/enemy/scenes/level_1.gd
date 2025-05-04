@@ -5,13 +5,20 @@ var paused = false
 const ENEMY = preload("res://Scenes/enemy/scenes/enemy.tscn")
 const BOSS = preload("res://Scenes/boss/Boss.tscn")
 @export var enemystats = load("res://Resources/Enemy/enemy.tres").duplicate()
-@export var playerstats = load("res://Resources/Player/player.tres").duplicate()
+@export var playerstats = load("res://Resources/Player/player.tres")
 
 var rng = RandomNumberGenerator.new()
 @onready var kill_count = 0
+@onready var kills_needed = 40
+@onready var credits_earned = 100
+@onready var credits_total : int
+
+signal send_kills(int)
+signal kill_up
 # start of pause menu functionality.
 func _ready():
 	$"Pause Menu".hide()
+	send_kills.emit(kills_needed)
 	
 	
 func _process(_delta: float) -> void:
@@ -79,21 +86,22 @@ func spawn_boss():
 		##TODO start boss music
 
 
-#END
+#REMINDER RETURN TO HUB AFTER BOSS KILL
+#get_tree().change_scene_to_packed(Level5)
+			
 
 func handle_enemy_kills():
 	kill_count += 1
-	if (kill_count >= 1 and $Spawnboss.is_stopped()):
+	kill_up.emit()
+	playerstats.Credits += 100
+	ResourceSaver.save(playerstats, "res://Resources/Player/player.tres")
+	if (kill_count >= kills_needed and $Spawnboss.is_stopped()):
 			$Spawnboss.start()
 		
 
 func _on_spawnboss_timeout() -> void:
 	spawn_boss()
 
-
-func _on_health_test_timeout() -> void:
-	$Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar.value -= 5
-	print("player health reduced")
 	
 func change_boss_health(boss_health):
 	$Control/HBoxContainer/ColorRect2/NinePatchRect/BossHealthBar.value = boss_health

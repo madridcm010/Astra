@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckhfryj26l8j"
-path="res://.godot/imported/Nairan - Rocket.aseprite-20322efc0fa066f03a5ddf3cc03d95f7.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Weapon Effects - Projectiles/Aseprite/Nairan - Rocket.aseprite"
-dest_files=["res://.godot/imported/Nairan - Rocket.aseprite-20322efc0fa066f03a5ddf3cc03d95f7.ctex"]
 
 [params]
 
