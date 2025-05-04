@@ -1,6 +1,6 @@
 # Astra Download Instructions
 ## Installation
-Exstract the folder with the .exe file inside and choose whether to launcht the game based on your desktop or console.
+Exstract the folder with the .exe file inside and choose whether to launch the game based on your desktop or console.
 # Godot 4 Aseprite Importers
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
