@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cimyhmsl82tdi"]
+[gd_scene load_steps=14 format=3 uid="uid://cimyhmsl82tdi"]
 
 [ext_resource type="Script" path="res://Scenes/enemy/scenes/level_1.gd" id="1_hew0i"]
 [ext_resource type="Texture2D" uid="uid://bbu0u8vmfm0em" path="res://UI Assets/Level UI/LevelUIBorder.png" id="2_1ty5l"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="3_mpyyg"]
 [ext_resource type="PackedScene" uid="uid://cjpx0vk3f7et" path="res://Scenes/player/scenes/PlayerHealth.tscn" id="3_mukb1"]
 [ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="4_71l4u"]
-[ext_resource type="Texture2D" uid="uid://qg6e2iku3vph" path="res://Free Assets/Foozle/Main Ship/Main Ship - Engines - Big Pulse Engine.png" id="4_77n5s"]
-[ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_i6y7y"]
 [ext_resource type="PackedScene" uid="uid://qqgvmhh2y1ak" path="res://Scenes/boss/BossHealthBar.tscn" id="5_5ge42"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="5_pfhtv"]
 [ext_resource type="PackedScene" uid="uid://ck06iw04p5g65" path="res://Scenes/player/scenes/level_progress_bar.tscn" id="6_2cjxq"]
@@ -25,22 +23,6 @@ size = Vector2(58, 1090)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iewet"]
 size = Vector2(1232, 56)
-
-[sub_resource type="Resource" id="Resource_owmyl"]
-script = ExtResource("4_i6y7y")
-Speed = 300.0
-Sprite = ExtResource("4_77n5s")
-WeaponCD = 1.0
-FlipCD = 0.25
-WeaponType = 0
-WeaponChoice = 1
-WeaponDamage = 25.0
-Credits = 0
-Health = 0
-health_boost = 0
-attackspeed_boost = 0.0
-thruster_boost = 0.0
-damage_boost = 0.0
 
 [node name="Level5" type="Node2D"]
 script = ExtResource("1_hew0i")
@@ -225,7 +207,6 @@ one_way_collision_margin = 0.0
 
 [node name="Player" parent="." instance=ExtResource("3_mpyyg")]
 position = Vector2(960, 976)
-stats = SubResource("Resource_owmyl")
 
 [node name="Pause Menu" parent="." instance=ExtResource("5_pfhtv")]
 
@@ -241,6 +222,10 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
+[connection signal="kill_up" from="." to="Control/HBoxContainer/ColorRect2/NinePatchRect/LevelProgressBar" method="_on_level_5_kill_up"]
+[connection signal="send_kills" from="." to="Control/HBoxContainer/ColorRect2/NinePatchRect/LevelProgressBar" method="_on_level_5_send_kills"]
+[connection signal="change_hp" from="Player" to="Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar" method="_on_player_change_hp"]
+[connection signal="send_health" from="Player" to="Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar" method="_on_player_send_health"]
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]

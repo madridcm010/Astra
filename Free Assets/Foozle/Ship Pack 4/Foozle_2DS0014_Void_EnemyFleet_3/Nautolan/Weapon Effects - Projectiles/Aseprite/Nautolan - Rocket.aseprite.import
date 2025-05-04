@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhvndtg0hqiqo"
-path="res://.godot/imported/Nautolan - Rocket.aseprite-b42fb99c74e2bb63d371203337d1d1c8.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Weapon Effects - Projectiles/Aseprite/Nautolan - Rocket.aseprite"
-dest_files=["res://.godot/imported/Nautolan - Rocket.aseprite-b42fb99c74e2bb63d371203337d1d1c8.ctex"]
 
 [params]
 

@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pktmmk3j2pfw"
-path="res://.godot/imported/Nairan - Fighter -  Destruction.aseprite-a3001bafb00c25a8c86869b898f3aa65.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Destruction/Aseprite/Nairan - Fighter -  Destruction.aseprite"
-dest_files=["res://.godot/imported/Nairan - Fighter -  Destruction.aseprite-a3001bafb00c25a8c86869b898f3aa65.ctex"]
 
 [params]
 

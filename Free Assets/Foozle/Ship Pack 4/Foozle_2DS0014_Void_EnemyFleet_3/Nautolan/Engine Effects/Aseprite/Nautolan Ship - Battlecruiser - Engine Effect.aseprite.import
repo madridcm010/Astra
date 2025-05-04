@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cimdjjdybbltc"
-path="res://.godot/imported/Nautolan Ship - Battlecruiser - Engine Effect.aseprite-90785e8b94e68eee5c2f0b193b20eeb7.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Engine Effects/Aseprite/Nautolan Ship - Battlecruiser - Engine Effect.aseprite"
-dest_files=["res://.godot/imported/Nautolan Ship - Battlecruiser - Engine Effect.aseprite-90785e8b94e68eee5c2f0b193b20eeb7.ctex"]
 
 [params]
 

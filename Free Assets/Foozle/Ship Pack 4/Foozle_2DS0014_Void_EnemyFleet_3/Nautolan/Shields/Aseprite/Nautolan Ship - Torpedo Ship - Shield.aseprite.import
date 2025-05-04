@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmncy00toklbo"
-path="res://.godot/imported/Nautolan Ship - Torpedo Ship - Shield.aseprite-f58b808dd1c38f992a1b64f1b66cddef.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Shields/Aseprite/Nautolan Ship - Torpedo Ship - Shield.aseprite"
-dest_files=["res://.godot/imported/Nautolan Ship - Torpedo Ship - Shield.aseprite-f58b808dd1c38f992a1b64f1b66cddef.ctex"]
 
 [params]
 

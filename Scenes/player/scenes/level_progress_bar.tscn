@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://djl5sxg48fhsn" path="res://UI Assets/Level UI/HealthBarBG.png" id="1_eb3ev"]
 [ext_resource type="Texture2D" uid="uid://bm3ylxa3hdd0k" path="res://UI Assets/Level UI/HealthBarOver.png" id="2_e45vh"]
 [ext_resource type="Texture2D" uid="uid://klym76dg15qd" path="res://UI Assets/Level UI/LevelProgressFill.png" id="3_f68qq"]
-[ext_resource type="Script" path="res://Scenes/player/scenes/player_health_bar.gd" id="4_7ht3f"]
+[ext_resource type="Script" path="res://Scripts/level_progress_bar.gd" id="4_0twvv"]
 
 [node name="LevelProgressBar" type="TextureProgressBar"]
 anchors_preset = 10
@@ -14,4 +14,4 @@ allow_greater = true
 texture_under = ExtResource("1_eb3ev")
 texture_over = ExtResource("2_e45vh")
 texture_progress = ExtResource("3_f68qq")
-script = ExtResource("4_7ht3f")
+script = ExtResource("4_0twvv")

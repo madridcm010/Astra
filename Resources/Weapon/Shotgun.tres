@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://bvu6onosc7kqu"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/WeaponStats.gd" id="1_4vd00"]
+
+[resource]
+script = ExtResource("1_4vd00")
+Weapon_CD = 0.6
+Weapon_type = 2
+Weapon_Speed = 0.0
+Weapon_Damage = 5.0

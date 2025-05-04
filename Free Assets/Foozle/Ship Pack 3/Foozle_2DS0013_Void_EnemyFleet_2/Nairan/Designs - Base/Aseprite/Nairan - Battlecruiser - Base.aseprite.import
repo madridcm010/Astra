@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmsxwcdhp38nk"
-path="res://.godot/imported/Nairan - Battlecruiser - Base.aseprite-bec180a40853ce253a89c0201535d775.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/Aseprite/Nairan - Battlecruiser - Base.aseprite"
-dest_files=["res://.godot/imported/Nairan - Battlecruiser - Base.aseprite-bec180a40853ce253a89c0201535d775.ctex"]
 
 [params]
 

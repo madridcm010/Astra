@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtc55g2duy4n1"
-path="res://.godot/imported/Main Ship - Shields - Round Shield.aseprite-3dfc35087cc30aed0060ce5f124f0c39.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Main Ship/Foozle_2DS0011_Void_MainShip/Main Ship/Main Ship - Shields/Aseprite/Main Ship - Shields - Round Shield.aseprite"
-dest_files=["res://.godot/imported/Main Ship - Shields - Round Shield.aseprite-3dfc35087cc30aed0060ce5f124f0c39.ctex"]
 
 [params]
 

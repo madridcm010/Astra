@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="shipstats" load_steps=3 format=3 uid="uid://cll1n2s6qrj8w"]
+
+[ext_resource type="Script" path="res://Resources/Scripts/ShipStats.gd" id="1_i0xaj"]
+[ext_resource type="Texture2D" uid="uid://0shet6fcvklr" path="res://Free Assets/Foozle/Main Ship/Main_Ship_-_Engines_-_Big_Pulse_Engine.png" id="1_sr4xb"]
+
+[resource]
+script = ExtResource("1_i0xaj")
+Speed = 300.0
+Sprite = ExtResource("1_sr4xb")
+WeaponCD = 1.0
+WeaponChoice = 1
+WeaponDamage = 10.0
+Health = 100

@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dahhm7i1flbxt"]
+[gd_scene load_steps=5 format=3 uid="uid://dahhm7i1flbxt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_13ywc"]
 [ext_resource type="AudioStream" uid="uid://bok314qqpaw0d" path="res://Sound Files/gun sounds/151016__bubaproducer__laser-shot-big-1.wav" id="2_nkp1c"]
+[ext_resource type="Resource" uid="uid://wx21prccd2s6" path="res://Resources/Player/player.tres" id="2_qttxy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gfdp"]
+radius = 23.3333
+height = 85.3333
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 motion_mode = 1
 script = ExtResource("2_13ywc")
+player_stats = ExtResource("2_qttxy")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -47,5 +53,11 @@ volume_db = -30.0
 pitch_scale = 2.0
 bus = &"SFX"
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="DamageCollision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_3gfdp")
+
 [connection signal="timeout" from="WeaponCD" to="." method="_on_Weapon_CD_timeout"]
 [connection signal="timeout" from="FlipCD" to="." method="_on_flip_cd_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

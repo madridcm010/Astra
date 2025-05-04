@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="shipstats" load_steps=3 format=3 uid="uid://ce6dpw87xgno6"]
+
+[ext_resource type="Texture2D" uid="uid://d2kekgqt2eoft" path="res://Free Assets/Foozle/Ship Pack 2/Foozle_2DS0012_Void_EnemyFleet_1/Kla'ed/Base/PNGs/Kla'ed - Frigate - Base.png" id="1_ejv0m"]
+[ext_resource type="Script" path="res://Resources/Scripts/ShipStats.gd" id="1_g2vq6"]
+
+[resource]
+script = ExtResource("1_g2vq6")
+Speed = 300.0
+Sprite = ExtResource("1_ejv0m")
+WeaponCD = 0.25
+WeaponChoice = 4
+WeaponDamage = 2.0
+Health = 80

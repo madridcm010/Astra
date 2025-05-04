@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="shipstats" load_steps=3 format=3 uid="uid://lyqta3mrgvkq"]
+
+[ext_resource type="Texture2D" uid="uid://dnlsyt3o7ljgx" path="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Bomber - Base.png" id="1_hegud"]
+[ext_resource type="Script" path="res://Resources/Scripts/ShipStats.gd" id="1_pebpm"]
+
+[resource]
+script = ExtResource("1_pebpm")
+Speed = 300.0
+Sprite = ExtResource("1_hegud")
+WeaponCD = 0.6
+WeaponChoice = 2
+WeaponDamage = 5.0
+Health = 120

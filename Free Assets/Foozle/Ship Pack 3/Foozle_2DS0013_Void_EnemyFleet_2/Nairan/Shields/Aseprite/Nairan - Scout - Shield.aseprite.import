@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dum5or31145id"
-path="res://.godot/imported/Nairan - Scout - Shield.aseprite-c10e5e822ca638279afc317c21b574ac.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Shields/Aseprite/Nairan - Scout - Shield.aseprite"
-dest_files=["res://.godot/imported/Nairan - Scout - Shield.aseprite-c10e5e822ca638279afc317c21b574ac.ctex"]
 
 [params]
 
