@@ -21,7 +21,6 @@ func _ready():
 	$AnimationPlayer.play("Fade_In")
 	await $AnimationPlayer.animation_finished
 	send_kills.emit(kills_needed)
-	print("hub scene is: ", hub)
 	
 	
 	
@@ -84,6 +83,7 @@ func handle_enemy_kills():
 		get_tree().call_group("player_bullet", "queue_free")
 		$AnimationPlayer.play("Fade_Out")
 		await $AnimationPlayer.animation_finished
+		await get_tree().create_timer(.5).timeout
 		get_tree().change_scene_to_packed(Level5)
 
 func _on_player_death() -> void:

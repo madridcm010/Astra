@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="4_71l4u"]
 [ext_resource type="PackedScene" uid="uid://qqgvmhh2y1ak" path="res://Scenes/boss/BossHealthBar.tscn" id="5_5ge42"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="5_pfhtv"]
-[ext_resource type="PackedScene" uid="uid://ck06iw04p5g65" path="res://Scenes/player/scenes/level_progress_bar.tscn" id="6_2cjxq"]
+[ext_resource type="PackedScene" path="res://Scenes/player/scenes/level_progress_bar.tscn" id="6_2cjxq"]
 [ext_resource type="AudioStream" uid="uid://bx8hftbgdbyv0" path="res://Sound Files/gun sounds/749394__xcreenplay__loopy-burger-funk.wav" id="10_pmcxi"]
 
 [sub_resource type="FontVariation" id="FontVariation_vppw3"]
@@ -306,8 +306,8 @@ bus = &"Music"
 [connection signal="change_hp" from="Player" to="Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar" method="_on_player_change_hp"]
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="send_health" from="Player" to="Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar" method="_on_player_send_health"]
-[connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
+[connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawnboss_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawn_boss_timeout"]

@@ -81,6 +81,7 @@ func handle_enemy_kills():
 		get_tree().call_group("player_bullet", "queue_free")
 		$AnimationPlayer.play("Fade_Out")
 		await $AnimationPlayer.animation_finished
+		await get_tree().create_timer(.5).timeout
 		get_tree().change_scene_to_packed(Level4)
 
 func _on_player_death() -> void:

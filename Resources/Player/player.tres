@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Playerstats" load_steps=2 format=3 uid="uid://wx21prccd2s6"]
+[gd_resource type="Resource" script_class="Playerstats" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="2_ho836"]
 
 [resource]
 script = ExtResource("2_ho836")
-Credits = 37700
+Credits = 3400
 health_boost = 0
-attackspeed_boost = 10.0
-thruster_boost = 10.0
-damage_boost = 10.0
+attackspeed_boost = 0.0
+thruster_boost = 0.0
+damage_boost = 0.0
