@@ -6,6 +6,7 @@ const ENEMY = preload("res://Scenes/enemy/scenes/enemy.tscn")
 @onready var Level3 = load("res://Scenes/enemy/scenes/level3.tscn")
 @onready var enemystats = load("res://Resources/Enemy/enemy.tres").duplicate()
 @onready var player_stats = load("res://Resources/Player/player.tres")
+const HUB_WORLD = preload("res://Scenes/hub_world.tscn")
 
 var rng = RandomNumberGenerator.new()
 @onready var kill_count = 0
@@ -16,6 +17,8 @@ signal kill_up
 # start of pause menu functionality.
 func _ready():
 	$"Pause Menu".hide()
+	$AnimationPlayer.play("Fade_In")
+	await $AnimationPlayer.animation_finished
 	send_kills.emit(kills_needed)
 	
 	
@@ -69,5 +72,22 @@ func handle_enemy_kills():
 	player_stats.Credits += 100
 	ResourceSaver.save(player_stats, "res://Resources/Player/player.tres")
 	if (kill_count >= kills_needed):
-			get_tree().change_scene_to_packed(Level3)
-			
+		$NorthSpawn.stop()
+		$SouthSpawn.stop()
+		$Player/PlayerCollision.set_deferred("disabled", true)
+		get_tree().call_group("enemy", "queue_free")
+		get_tree().call_group("enemy_bullet", "queue_free")
+		get_tree().call_group("player_bullet", "queue_free")
+		$AnimationPlayer.play("Fade_Out")
+		await $AnimationPlayer.animation_finished
+		get_tree().change_scene_to_packed(Level3)
+
+func _on_player_death() -> void:
+	$NorthSpawn.stop()
+	$SouthSpawn.stop()
+	get_tree().call_group("enemy", "queue_free")
+	get_tree().call_group("enemy_bullet", "queue_free")
+	get_tree().call_group("player_bullet", "queue_free")
+	$AnimationPlayer.play("Fade_Out")
+	await $AnimationPlayer.animation_finished
+	get_tree().change_scene_to_packed(HUB_WORLD)

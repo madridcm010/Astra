@@ -50,7 +50,6 @@ func fire():
 
 
 func _on_timer_timeout() -> void:
-	print("firing!")
 	var enemy_bullet = BULLET.instantiate()
 	#get_tree().current_scene.add_child(enemy_bullet)
 	# Find the actual player node in the scene tree
@@ -73,14 +72,11 @@ func _on_timer_timeout() -> void:
 			enemy_bullet.global_position = position
 			enemy_bullet.rotation = direction.angle()
 			get_parent().add_child(enemy_bullet)
-			print("spawned bullets")
 	if stats.enemy_spawn_location == 2:
 		enemy_bullet.direction = Vector2.UP
 		enemy_bullet.rotation_change = 95
 		#enemy_bullet.min_rotation = 90
-		#enemy_bullet.max_rotation = 180
-		
-	enemy_bullet.global_position = position
-	#enemy_bullet.rotation = direction.angle()
-	get_parent().add_child(enemy_bullet)
-	print("spawned bullets")
+		#enemy_bullet.max_rotation = 180	
+		enemy_bullet.global_position = position
+		#enemy_bullet.rotation = direction.angle()
+		get_parent().add_child(enemy_bullet)

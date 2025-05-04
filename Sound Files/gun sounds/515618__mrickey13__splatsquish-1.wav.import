@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://71k6ejgmmc66"
+path="res://.godot/imported/515618__mrickey13__splatsquish-1.wav-9e4f069014e380ddd7c414a8eebccc4a.sample"
+
+[deps]
+
+source_file="res://Sound Files/gun sounds/515618__mrickey13__splatsquish-1.wav"
+dest_files=["res://.godot/imported/515618__mrickey13__splatsquish-1.wav-9e4f069014e380ddd7c414a8eebccc4a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

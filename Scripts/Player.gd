@@ -3,8 +3,9 @@ extends CharacterBody2D
 @export var ship_stats : shipstats
 @export var player_stats : Playerstats
 
+const EXPLOSION = preload("res://Scenes/enemy/scenes/explosion.tscn")
 #@onready var stats = load("res://Resources/Player/player.tres").duplicate()
-@onready var hub = load("res://Scenes/hub_world.tscn")
+#@onready var hub = load("res://Scenes/hub_world.tscn")
 
 var Speed
 var Sprite
@@ -26,6 +27,7 @@ var is_playing = false
 signal weapon(pos, rot)
 signal send_health(int)
 signal change_hp()
+signal death
 #signal spread_weapon(pos,rot)
 
 #function for adjusting player image & collision shape between 0 & 180 degrees 
@@ -60,7 +62,6 @@ func get_input():
 # constantly running function
 
 func _ready() -> void:
-	print("ready reached")
 	if Autoload.current_ship == null:
 		ship_stats = load("res://Resources/Player/WhiteShip.tres")
 	else:
@@ -70,7 +71,7 @@ func _ready() -> void:
 	Sprite = ship_stats.Sprite
 	WeaponCD = ship_stats.WeaponCD - ((.05 * player_stats.attackspeed_boost) * ship_stats.WeaponCD)
 	WeaponChoice = ship_stats.WeaponChoice
-	WeaponDamage = ship_stats.WeaponDamage + (ship_stats.WeaponDamage *(.1 * player_stats.damage_boost))
+	WeaponDamage = ship_stats.WeaponDamage + (ship_stats.WeaponDamage * (.1 * player_stats.damage_boost))
 	Health = ship_stats.Health + (ship_stats.Health * (.1 * player_stats.health_boost))
 	isDead = false
 	
@@ -176,7 +177,13 @@ func randomize_pitch_and_play():
 
 # signal receiver for ship weapon cooldown timer
 func die():
-	get_tree().change_scene_to_packed(hub)
+	$Area2D/DamageCollision.set_deferred("disabled", true)
+	death.emit()
+	var explosion = EXPLOSION.instantiate()
+	explosion.global_position = global_position
+	add_sibling(explosion)
+	queue_free()
+
 
 func _on_Weapon_CD_timeout() -> void:
 	weaponReady = true

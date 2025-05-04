@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cuv6wjkbx0o8f" path="res://Scenes/boss/Spider_boss_sprite_sheet.png" id="1_guep4"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
 [ext_resource type="Resource" uid="uid://r27m5mm50rtd" path="res://Resources/Boss/Boss.tres" id="2_irajr"]
-[ext_resource type="PackedScene" uid="uid://11eqod1vjyf8" path="res://Scenes/healthbar.tscn" id="3_bsaji"]
 [ext_resource type="Script" path="res://Scenes/boss/state_machine.gd" id="4_7njfd"]
+[ext_resource type="AudioStream" uid="uid://71k6ejgmmc66" path="res://Sound Files/gun sounds/515618__mrickey13__splatsquish-1.wav" id="5_2ngyv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkugb"]
 radius = 157.0
@@ -267,7 +267,7 @@ _data = {
 "ranged attack": SubResource("Animation_iv8qr")
 }
 
-[node name="bossbody" type="CharacterBody2D"]
+[node name="bossbody" type="CharacterBody2D" groups=["boss"]]
 position = Vector2(0, 5)
 script = ExtResource("2_ilpij")
 boss_stats = ExtResource("2_irajr")
@@ -283,9 +283,7 @@ shape = SubResource("CapsuleShape2D_mkugb")
 texture_filter = 1
 position = Vector2(981, 403)
 sprite_frames = SubResource("SpriteFrames_muwou")
-animation = &"ranged"
-frame = 6
-frame_progress = 1.0
+animation = &"Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
 libraries = {
@@ -301,37 +299,14 @@ position = Vector2(983, 349)
 shape = SubResource("CapsuleShape2D_mkugb")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="healthbar" parent="." instance=ExtResource("3_bsaji")]
-visible = false
-layout_direction = 2
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 499.0
-offset_top = 159.0
-offset_right = 1478.0
-offset_bottom = 183.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1, 2.31053)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="healthbar"]
-layout_mode = 0
-offset_left = -978.0
-offset_top = -199.954
-offset_right = -849.0
-offset_bottom = -176.954
-text = "The Nightmare"
-uppercase = true
+wait_time = 1.5
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(983, 497)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2ngyv")
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

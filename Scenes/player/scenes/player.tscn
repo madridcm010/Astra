@@ -8,7 +8,7 @@
 radius = 23.3333
 height = 85.3333
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(1.5, 1.5)
 motion_mode = 1
 script = ExtResource("2_13ywc")

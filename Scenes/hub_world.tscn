@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://h6kvaui48s50"]
+[gd_scene load_steps=40 format=3 uid="uid://h6kvaui48s50"]
 
 [ext_resource type="Script" path="res://Scenes/hub_world.gd" id="1_2rsmc"]
 [ext_resource type="Texture2D" uid="uid://ihs703nqjg6r" path="res://Backgrounds/Hub Placeholders/Hub BG2 Sized2.png" id="2_1nacm"]
@@ -20,6 +20,7 @@
 [ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="16_rd15d"]
 [ext_resource type="AudioStream" uid="uid://w8f1wa6cm8re" path="res://Sound Files/670088__sergequadrado__ad-astra.wav" id="18_6vcrp"]
 [ext_resource type="AudioStream" uid="uid://c0iv4alpbig0r" path="res://Sound Files/ButtonClick.wav" id="20_cy5b3"]
+[ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="21_3q8uu"]
 
 [sub_resource type="FontVariation" id="FontVariation_xgadt"]
 base_font = ExtResource("16_rd15d")
@@ -66,6 +67,60 @@ thickness = 5
 [sub_resource type="FontVariation" id="FontVariation_lk1b6"]
 base_font = ExtResource("2_srj18")
 baseline_offset = 0.115
+
+[sub_resource type="Animation" id="Animation_gho6k"]
+resource_name = "Fade_In"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cjwve"]
+resource_name = "Fade_Out"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_76quj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51n2t"]
+_data = {
+"Fade_In": SubResource("Animation_gho6k"),
+"Fade_Out": SubResource("Animation_cjwve"),
+"RESET": SubResource("Animation_76quj")
+}
 
 [node name="Hub World" type="Node2D"]
 script = ExtResource("1_2rsmc")
@@ -696,6 +751,24 @@ stream = ExtResource("20_cy5b3")
 volume_db = -5.0
 bus = &"SFX"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_51n2t")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Pause Menu" parent="." instance=ExtResource("21_3q8uu")]
+
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/Ship1Button" to="." method="_on_ship_1_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship1 VBox/HBoxContainer/Ship1Buy" to="." method="_on_ship_1_buy_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/SelectionBG/HangarMargin/VBoxContainer/NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer/Ship2 VBox/Ship2Button" to="." method="_on_ship_2_button_pressed"]
@@ -708,3 +781,4 @@ bus = &"SFX"
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/HangarButton" to="." method="_on_hangar_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="HolopadControl/HolopadMargin/HolopagBG/HolopadMargin/HolopadSplit/OptionsMargin/OptionsVBox/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="resume_game" from="Pause Menu" to="." method="_on_pause_menu_resume_game"]

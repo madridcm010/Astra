@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("2_ho836")
-Credits = 5900
-health_boost = 28
-attackspeed_boost = 1.9
+Credits = 37700
+health_boost = 0
+attackspeed_boost = 10.0
 thruster_boost = 10.0
-damage_boost = 9.05
+damage_boost = 10.0

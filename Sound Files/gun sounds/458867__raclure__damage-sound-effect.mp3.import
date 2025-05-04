@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blemog6m8b8hh"
+path="res://.godot/imported/458867__raclure__damage-sound-effect.mp3-9ea1d7b509851b932e7bb78efcd95f79.mp3str"
+
+[deps]
+
+source_file="res://Sound Files/gun sounds/458867__raclure__damage-sound-effect.mp3"
+dest_files=["res://.godot/imported/458867__raclure__damage-sound-effect.mp3-9ea1d7b509851b932e7bb78efcd95f79.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

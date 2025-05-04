@@ -12,11 +12,9 @@ extends Resource
 @export var damage_cost : int
 
 @export var ship1_cost : int
-@export var ship2_cost : int
 @export var ship3_cost : int
 
 @export var ship1purchased : bool
-@export var ship2purchased : bool
 @export var ship3purchased : bool
 
 func reset():
@@ -31,5 +29,4 @@ func reset():
 	damage_cost = 0
 
 	ship1purchased = false
-	ship2purchased = true
 	ship3purchased = false

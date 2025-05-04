@@ -1,14 +1,14 @@
 extends CharacterBody2D
 #enum collections for phases of boss and for bullet patterns.
 
-@export var playerdamage : Playerstats
-@export var boss_stats = load("res://Resources/Boss/Boss.tres").duplicate()
+@export var ship_stats : shipstats
+@export var boss_stats : BossStats
+@onready var player_stats = load("res://Resources/Player/player.tres")
 const SPREAD_WEAPON = preload("res://Scenes/spread_weapon.tscn")
 const BULLET = preload("res://Scenes/bullet.tscn")
-var hp = boss_stats.hp : set = _set_health
-var bullet_patterns = boss_stats.patterns
+var hp
+var bullet_patterns
 var _damage : float = 0.0 #set default 
-@onready var healthbar = $healthbar
 @onready var boss_anim = $Boss
 signal boss_defeated
 var is_dead = false
@@ -21,15 +21,12 @@ func _set_health(value: float):
 	if hp<=0:
 		is_dead = true
 		$Area2D.disconnect("area_entered" , _on_area_2d_area_entered)
-		boss_defeated.emit()
 		await get_tree().create_timer(1).timeout
 		_dead()
-		await get_tree().create_timer(10).timeout
-		queue_free()
+		boss_defeated.emit()
 	if is_dead:
 		return
-	hp = value 
-	healthbar.hp =  hp
+	hp = value
 		
 
 func change_hp(_damage: float):
@@ -39,29 +36,26 @@ func change_hp(_damage: float):
 	
 
 func _ready():
-	if playerdamage:
-		_damage = playerdamage.WeaponDamage
-	#initialize hp
+	if Autoload.current_ship == null:
+		ship_stats = load("res://Resources/Player/WhiteShip.tres")
+	else:
+		ship_stats = Autoload.current_ship
+	_damage = ship_stats.WeaponDamage + (ship_stats.WeaponDamage *(.1 * player_stats.damage_boost))
 	hp = boss_stats.hp
-	healthbar.init_health(hp)
-	
+	bullet_patterns = boss_stats.patterns
+	_set_health(hp)
 	#Randomize pattern
-	
 	boss_stats.randomize_pattern()
 	bullet_patterns = boss_stats.patterns
 	fire_timer.start()
-	
-	print("Chosen Pattern", boss_stats.Patterns.keys()[bullet_patterns - 1])
 	_Idle()
 	
-
-
-
-		
 		
 func _dead():
 	$Boss.stop()
 	$Boss.play("Death")
+	await $Boss/AnimationPlayer.animation_finished
+	
 	
 	
 # firing mechanics
@@ -73,8 +67,6 @@ func _fire():
 			_fire_wave()
 		boss_stats.Patterns.Spiral:
 			_fire_spiral()
-		boss_stats.Patterns.Melee:
-			_fire_melee()
 	
 func _fire_circle():
 	print("firing circle")
@@ -93,7 +85,8 @@ func _fire_circle():
 	weapon.min_rotation = 0
 	weapon.max_rotation = 360
 	add_child(weapon)
-	await get_tree().create_timer(1).timeout
+	#await get_tree().create_timer(1).timeout
+	$AudioStreamPlayer2D.play()
 	$Boss.stop()
 	$Boss.play("Idle")
 	
@@ -113,7 +106,8 @@ func _fire_wave():
 	weapon.min_rotation = -25
 	weapon.max_rotation = -70
 	add_child(weapon)
-	await get_tree().create_timer(1).timeout
+	#await get_tree().create_timer(1).timeout
+	$AudioStreamPlayer2D.play()
 	$Boss.stop()
 	$Boss.play("Idle")
 	
@@ -133,14 +127,10 @@ func _fire_spiral():
 	weapon.min_rotation = 30
 	weapon.max_rotation = 180
 	add_child(weapon)
-	await get_tree().create_timer(1).timeout
+	#await get_tree().create_timer(1).timeout
+	$AudioStreamPlayer2D.play()
 	$Boss.stop()
 	$Boss.play("Idle")
-
-func _fire_melee():
-	print("firing melee")
-	
-	pass
 	
 	
 #IDLE ANIMATION
@@ -151,12 +141,13 @@ func _Idle():
 # boss damage
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet") and !is_dead:
+		print(_damage)
 		change_hp(_damage)
 		health_value.emit(hp)
 		await $Boss.animation_finished
-		if !$Boss.is_playing:
-			$Boss.play("damage")
-		await get_tree().create_timer(.5).timeout
+		#if !$Boss.is_playing:
+			#$Boss.play("damage")
+		#await get_tree().create_timer(.5).timeout
 		if !is_dead:
 			_Idle()
 

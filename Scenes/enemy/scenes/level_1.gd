@@ -6,6 +6,7 @@ const ENEMY = preload("res://Scenes/enemy/scenes/enemy.tscn")
 const BOSS = preload("res://Scenes/boss/Boss.tscn")
 @export var enemystats = load("res://Resources/Enemy/enemy.tres").duplicate()
 @export var playerstats = load("res://Resources/Player/player.tres")
+const HUB_WORLD = preload("res://Scenes/hub_world.tscn")
 
 var rng = RandomNumberGenerator.new()
 @onready var kill_count = 0
@@ -18,6 +19,8 @@ signal kill_up
 # start of pause menu functionality.
 func _ready():
 	$"Pause Menu".hide()
+	$AnimationPlayer.play("Fade_In")
+	await $AnimationPlayer.animation_finished
 	send_kills.emit(kills_needed)
 	
 	
@@ -51,7 +54,7 @@ func _on_north_spawn_timeout() -> void:
 	enemy.position = Vector2(rand_x,rand_y)
 	enemy.connect("enemy_defeated", handle_enemy_kills)
 	#translate(Vector2.DOWN * Enemystats.enemy_speed * delta)
-	add_child(enemy)
+	add_child(enemy, false)
 
 
 func _on_south_spawn_timeout() -> void:
@@ -64,20 +67,22 @@ func _on_south_spawn_timeout() -> void:
 	enemy.rotation_degrees = 0
 	enemy.position = Vector2(rand_x,rand_y)
 	enemy.connect("enemy_defeated", handle_enemy_kills)
-	add_child(enemy)
+	add_child(enemy, false)
 # END 
 
 #Start of spawnboss
 func spawn_boss():
 	get_tree().call_group("enemy", "queue_free")
+	get_tree().call_group("enemy_bullet", "queue_free")
 	var boss = BOSS.instantiate()
-	boss.playerdamage = playerstats
+	boss._damage = boss._damage
 	boss.position = Vector2(-9,-144)
 	add_child(boss)
 	$Spawnboss.stop()
 	$NorthSpawn.stop()
 	$SouthSpawn.stop()
 	boss.health_value.connect(change_boss_health)
+	boss.boss_defeated.connect(boss_dead)
 	$Control/HBoxContainer/ColorRect2/NinePatchRect/LevelProgressBar.visible = false
 	$Control/HBoxContainer/ColorRect2/NinePatchRect/Label2.visible = false
 	$Control/HBoxContainer/ColorRect2/NinePatchRect/BossHealthBar.visible = true
@@ -86,8 +91,12 @@ func spawn_boss():
 		##TODO start boss music
 
 
-#REMINDER RETURN TO HUB AFTER BOSS KILL
-#get_tree().change_scene_to_packed(Level5)
+func boss_dead():
+	$Player/PlayerCollision.set_deferred("disabled", true)
+	get_tree().call_group("bullet", "queue_free")
+	$AnimationPlayer.play("Fade_Out")
+	await $AnimationPlayer.animation_finished
+	get_tree().change_scene_to_packed(HUB_WORLD)
 			
 
 func handle_enemy_kills():
@@ -105,3 +114,14 @@ func _on_spawnboss_timeout() -> void:
 	
 func change_boss_health(boss_health):
 	$Control/HBoxContainer/ColorRect2/NinePatchRect/BossHealthBar.value = boss_health
+
+func _on_player_death() -> void:
+	$NorthSpawn.stop()
+	$SouthSpawn.stop()
+	get_tree().call_group("enemy", "queue_free")
+	get_tree().call_group("enemy_bullet", "queue_free")
+	get_tree().call_group("bullet", "queue_free")
+	get_tree().call_group("player_bullet", "queue_free")
+	$AnimationPlayer.play("Fade_Out")
+	await $AnimationPlayer.animation_finished
+	get_tree().change_scene_to_packed(HUB_WORLD)

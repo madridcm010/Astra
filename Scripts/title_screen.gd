@@ -3,9 +3,10 @@ extends Node2D
 @export var ship_stats : shipstats
 
 @onready var Level1 = load("res://Scenes/enemy/scenes/level1.tscn")
-@onready var player_stats = load("res://Resources/Player/player.tres").duplicate()
-@onready var hub_stats = load("res://Resources/Hub/HubStats.tres").duplicate()
-@onready var save_data = load("res://Resources/SaveData.tres").duplicate()
+@onready var player_stats = load("res://Resources/Player/player.tres")
+@onready var hub_stats = load("res://Resources/Hub/HubStats.tres")
+@onready var save_data = load("res://Resources/SaveData.tres")
+@onready var hub = load("res://Scenes/hub_world.tscn")
 
 signal close_settings
 # Called as soon as scene is ready
@@ -29,10 +30,6 @@ func _ready():
 
 # Conditional statements to make sure animations finish before next steps take place
 func _on_animation_player_animation_finished(animName) -> void:
-	
-	# Calls startGame function to start the game after "Start Game" animation has finished
-	if animName == "Start Game":
-		startGame()
 
 # Enables menu buttons after "Intro" animation has finished playing
 	if animName == "Intro":
@@ -94,14 +91,17 @@ func _on_confirm_button_pressed() -> void:
 	$"Reset Warning".visible = false
 	set_defaults()
 	$AnimationPlayer.play("Start Game")
+	await $AnimationPlayer.animation_finished
+	startGame()
+	
 
 
 func _on_cancel_button_pressed() -> void:
 	$"Reset Warning".visible = false
 	
 func set_defaults():
-	#player_stats.reset()
-	#ResourceSaver.save(player_stats, "res://Resources/Player/player.tres")
+	player_stats.reset()
+	ResourceSaver.save(player_stats, "res://Resources/Player/player.tres")
 	hub_stats.reset()
 	ResourceSaver.save(hub_stats, "res://Resources/Hub/HubStats.tres")
 	save_data.GameExists = true
@@ -111,3 +111,5 @@ func set_defaults():
 func _on_continue_game_pressed() -> void:
 	if (save_data.GameExists == true):
 		$AnimationPlayer.play("Start Game")
+		await $AnimationPlayer.animation_finished
+		get_tree().change_scene_to_packed(hub)

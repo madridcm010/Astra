@@ -1,7 +1,7 @@
 extends Resource
 class_name BossStats
 
-enum Patterns {Circle =1 , Wave = 2, Spiral = 3, Melee = 4 }
+enum Patterns {Circle =1 , Wave = 2, Spiral = 3}
 @export_group("Stats")
 @export var hp : float
 @export var patterns : Patterns = Patterns.Circle

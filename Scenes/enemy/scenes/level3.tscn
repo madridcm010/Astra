@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccvn5o7gkesep"]
+[gd_scene load_steps=18 format=3 uid="uid://ccvn5o7gkesep"]
 
 [ext_resource type="Script" path="res://Levels/levls/Level3.gd" id="1_65rkh"]
 [ext_resource type="PackedScene" uid="uid://m4lrr2hix0il" path="res://Scenes/parallax_test.tscn" id="2_ip1bn"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://crci25pyrnsv4" path="res://Font Files/BoldPixels.ttf" id="4_q7jcn"]
 [ext_resource type="PackedScene" uid="uid://ck06iw04p5g65" path="res://Scenes/player/scenes/level_progress_bar.tscn" id="5_bwitf"]
 [ext_resource type="PackedScene" uid="uid://dq7owrkb3o5r3" path="res://Scenes/pause_menu.tscn" id="5_y7rlp"]
+[ext_resource type="AudioStream" uid="uid://bx8hftbgdbyv0" path="res://Sound Files/gun sounds/749394__xcreenplay__loopy-burger-funk.wav" id="9_fauyq"]
 
 [sub_resource type="FontVariation" id="FontVariation_qgujw"]
 base_font = ExtResource("4_q7jcn")
@@ -22,6 +23,60 @@ size = Vector2(58, 1090)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iewet"]
 size = Vector2(1232, 56)
+
+[sub_resource type="Animation" id="Animation_gho6k"]
+resource_name = "Fade_In"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cjwve"]
+resource_name = "Fade_Out"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_76quj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51n2t"]
+_data = {
+"Fade_In": SubResource("Animation_gho6k"),
+"Fade_Out": SubResource("Animation_cjwve"),
+"RESET": SubResource("Animation_76quj")
+}
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_65rkh")
@@ -189,12 +244,38 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_51n2t")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_fauyq")
+volume_db = -10.0
+pitch_scale = 0.85
+autoplay = true
+bus = &"Music"
+
 [connection signal="kill_up" from="." to="Control/HBoxContainer/ColorRect2/NinePatchRect/LevelProgressBar" method="_on_level_3_kill_up"]
 [connection signal="send_kills" from="." to="Control/HBoxContainer/ColorRect2/NinePatchRect/LevelProgressBar" method="_on_level_3_send_kills"]
 [connection signal="change_hp" from="Player" to="Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar" method="_on_player_change_hp"]
+[connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="send_health" from="Player" to="Control/HBoxContainer/ColorRect/NinePatchRect/PlayerHealthBar" method="_on_player_send_health"]
-[connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
+[connection signal="resume_game" from="Pause Menu" to="." method="_on_pause_menu_resume_game"]
 [connection signal="timeout" from="NorthSpawn" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="NorthSpawn" to="." method="_on_north_spawn_timeout"]
 [connection signal="timeout" from="SouthSpawn" to="." method="_on_south_spawn_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawnboss_timeout"]
 [connection signal="timeout" from="Spawnboss" to="." method="_on_spawn_boss_timeout"]

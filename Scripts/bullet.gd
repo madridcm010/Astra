@@ -21,3 +21,9 @@ func _on_timer_timeout() -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("border"):
 		queue_free()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		$AudioStreamPlayer2D.play()
+		await $AudioStreamPlayer2D.finished
+		queue_free()
