@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HubStats" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="HubStats" load_steps=2 format=3 uid="uid://buulfc24feds6"]
 
 [ext_resource type="Script" path="res://Resources/Hub/Hub_Stats.gd" id="1_werfs"]
 
@@ -8,10 +8,10 @@ health_level = 0
 thruster_level = 0
 attackspeed_level = 0
 damage_level = 0
-health_cost = 0
-thruster_cost = 0
-attackspeed_cost = 0
-damage_cost = 0
+health_cost = 500
+thruster_cost = 500
+attackspeed_cost = 500
+damage_cost = 500
 ship1_cost = 5000
 ship3_cost = 5000
 ship1purchased = false
