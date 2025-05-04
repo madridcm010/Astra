@@ -65,6 +65,8 @@ func _on_new_game_pressed() -> void:
 	if (save_data.GameExists == false):
 		set_defaults()
 		$AnimationPlayer.play("Start Game")
+		await $AnimationPlayer.animation_finished
+		startGame()
 	
 	
 # Quits the game on button press
