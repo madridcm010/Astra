@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Enemystats" load_steps=3 format=3 uid="uid://cvnl247m7cdep"]
+[gd_resource type="Resource" script_class="Enemystats" load_steps=7 format=3 uid="uid://cvnl247m7cdep"]
 
-[ext_resource type="Texture2D" uid="uid://dr06tgd4cistm" path="res://Free Assets/Foozle/Ship Pack 3/Foozle_2DS0013_Void_EnemyFleet_2/Nairan/Designs - Base/PNGs/Nairan - Frigate - Base.png" id="1_e2rod"]
+[ext_resource type="Texture2D" uid="uid://ve6k6odg4t7i" path="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/PNGs/Nautolan Ship - Bomber - Base.png" id="1_4v8dn"]
+[ext_resource type="Texture2D" uid="uid://b0y0jae1cwh8n" path="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/PNGs/Nautolan Ship - Frigate - Base.png" id="2_5ay8f"]
 [ext_resource type="Script" path="res://Resources/Scripts/enemy_stats.gd" id="2_fsue8"]
+[ext_resource type="Texture2D" uid="uid://ud0qrid62sd1" path="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/PNGs/Nautolan Ship - Fighter - Base.png" id="3_myphk"]
+[ext_resource type="Texture2D" uid="uid://p05tcw0bvhut" path="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/PNGs/Nautolan Ship - Dreadnought - Base.png" id="4_pc67t"]
+[ext_resource type="Texture2D" uid="uid://cqsya8fur0xks" path="res://Free Assets/Foozle/Ship Pack 4/Foozle_2DS0014_Void_EnemyFleet_3/Nautolan/Designs - Base/PNGs/Nautolan Ship - Battlecruiser - Base.png" id="5_30pv1"]
 
 [resource]
 script = ExtResource("2_fsue8")
-enemy_sprite = ExtResource("1_e2rod")
+enemy_sprite = Array[Texture2D]([ExtResource("1_4v8dn"), ExtResource("2_5ay8f"), ExtResource("3_myphk"), ExtResource("4_pc67t"), ExtResource("5_30pv1")])
 enemy_speed = 200.0
 enemy_hp = 20
 enemy_frequency = 5

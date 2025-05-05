@@ -77,7 +77,9 @@ func _ready() -> void:
 	
 	send_health.emit(Health)
 	
-	
+	#Timers for player using resource
+	$WeaponCD.wait_time = WeaponCD
+	$FlipCD.wait_time = .25
 	
 	$PlayerImage.texture = Sprite
 	
@@ -104,9 +106,7 @@ func _process(_delta):
 		weaponReady = false
 		$WeaponCD.start()
 
-#Timers for player using resource
-	$WeaponCD.wait_time = WeaponCD
-	$FlipCD.wait_time = .25
+
 	
 # gun functionality
 func fire():

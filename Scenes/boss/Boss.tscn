@@ -1,10 +1,11 @@
-[gd_scene load_steps=37 format=3 uid="uid://8db3364bfgbo"]
+[gd_scene load_steps=38 format=3 uid="uid://8db3364bfgbo"]
 
 [ext_resource type="Texture2D" uid="uid://cuv6wjkbx0o8f" path="res://Scenes/boss/Spider_boss_sprite_sheet.png" id="1_guep4"]
 [ext_resource type="Script" path="res://Scenes/boss/boss.gd" id="2_ilpij"]
 [ext_resource type="Resource" uid="uid://r27m5mm50rtd" path="res://Resources/Boss/Boss.tres" id="2_irajr"]
 [ext_resource type="Script" path="res://Scenes/boss/state_machine.gd" id="4_7njfd"]
 [ext_resource type="AudioStream" uid="uid://71k6ejgmmc66" path="res://Sound Files/gun sounds/515618__mrickey13__splatsquish-1.wav" id="5_2ngyv"]
+[ext_resource type="AudioStream" uid="uid://bfwtdba5dafx7" path="res://Sound Files/gun sounds/478277__joao_janz__8-bit-explosion-1_6.wav" id="6_36vyy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mkugb"]
 radius = 157.0
@@ -272,10 +273,10 @@ position = Vector2(0, 5)
 script = ExtResource("2_ilpij")
 boss_stats = ExtResource("2_irajr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["boss"]]
 position = Vector2(3, -59)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["boss"]]
 position = Vector2(980, 408)
 shape = SubResource("CapsuleShape2D_mkugb")
 
@@ -306,6 +307,10 @@ position = Vector2(983, 497)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_2ngyv")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_36vyy")
 bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

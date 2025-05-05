@@ -2,7 +2,7 @@ extends Resource
 class_name Enemystats
 enum spawnlocation {North = 1 , South = 2, }
 # Variables used for enemy creation
-@export var enemy_sprite : Texture2D
+@export var enemy_sprite : Array[Texture2D]
 
 # Stat group for enemy hp and movement variables
 @export_group("Stats")
