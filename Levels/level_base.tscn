@@ -1,17 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc5kgn6l41vvb"]
+[gd_scene load_steps=4 format=3 uid="uid://bca3ag1ujxgkb"]
 
 [ext_resource type="PackedScene" uid="uid://dahhm7i1flbxt" path="res://Scenes/player/scenes/player.tscn" id="2_n6w4e"]
 [ext_resource type="PackedScene" uid="uid://b5nhg8hv444y1" path="res://Scenes/enemy/scenes/enemy.tscn" id="4_1gd6o"]
-[ext_resource type="Script" path="res://Resources/Scripts/PlayerStats.gd" id="4_i844q"]
 [ext_resource type="Resource" uid="uid://cvnl247m7cdep" path="res://Resources/Enemy/enemy.tres" id="5_dhay7"]
-
-[sub_resource type="Resource" id="Resource_vtukc"]
-script = ExtResource("4_i844q")
-Speed = 1500.0
-WeaponCD = 0.15
-FlipCD = 0.25
-WeaponType = 2
-WeaponChoice = 4
 
 [node name="level" type="Node2D"]
 
@@ -21,4 +12,3 @@ stats = ExtResource("5_dhay7")
 
 [node name="Player" parent="." instance=ExtResource("2_n6w4e")]
 position = Vector2(908, 820)
-stats = SubResource("Resource_vtukc")
