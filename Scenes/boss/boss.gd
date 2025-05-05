@@ -141,7 +141,7 @@ func _Idle():
 # boss damage
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet") and !is_dead:
-		print(_damage)
+		$AudioStreamPlayer2D2.play()
 		change_hp(_damage)
 		health_value.emit(hp)
 		await $Boss.animation_finished

@@ -41,8 +41,6 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
 		queue_free()
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("boss"):
-		$AudioStreamPlayer2D.play()
+	if area.is_in_group("boss"):
 		queue_free()
+	

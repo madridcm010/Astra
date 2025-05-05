@@ -15,11 +15,11 @@ signal enemy_defeated
 
 func _ready() -> void:
 	#sprite loading
-	$Texture.scale = Vector2(2,2)
+	$Texture.scale = Vector2(1.5,1.5)
 	print(get_tree().root.get_children()) 
 	#$enemyCollision.scale = Vector2(2,2)
 	#$enemyArea.scale = Vector2(2,2)
-	$Texture.texture = stats.enemy_sprite
+	$Texture.texture = stats.enemy_sprite.pick_random()
 	fire()
 	var rng := RandomNumberGenerator.new()
 	
